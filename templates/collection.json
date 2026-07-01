@@ -1,0 +1,145 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_title": true,
+        "show_product_count": false,
+        "show_collection_description": true,
+        "text_align": "items-center text-center",
+        "collection_image": "natural",
+        "use_product_image": false,
+        "text_width": "standard",
+        "color_scheme": "default"
+      }
+    },
+    "custom_liquid_LijwKz": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"custom-heading\">\n{% if collection.metafields.custom.heading_for_collection %}\n<h2>{{ collection.metafields.custom.heading_for_collection.value }}</h2>\n{% endif %}\n</div>",
+        "section_height": "default",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "featured_collection_BCqTUN": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "show_view_all": false,
+        "collection": "",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8,
+        "show_promo_info": false,
+        "image_ratio": "fill",
+        "promo_title": "A headline to grab attention",
+        "content": "<p>Use this card with an image to highlight your collections or introduce a promotion.</p>",
+        "link_url": "",
+        "button_label": "Button",
+        "color_scheme": "2",
+        "button_style": "btn btn--primary"
+      }
+    },
+    "collection-products": {
+      "type": "main-collection-products",
+      "settings": {
+        "products_per_page": 24,
+        "card_size_mobile": "small",
+        "card_size": "medium",
+        "show_layout_toggle": true,
+        "enable_filtering": true,
+        "filters_open_lg": true,
+        "stick_on_scroll": true,
+        "show_filter_counts": true,
+        "expand_filters": true,
+        "max_filter_options": 10,
+        "enable_sorting": true,
+        "show_feat_sort_opt": true,
+        "sort_first": true
+      }
+    },
+    "17630641471183477b": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_8iCTFf": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 2000
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_8iCTFf"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "rich_text_cn3Kd3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_8YFFY4": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.metafields.custom.seo_header.value }}",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_TXFeFP": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.metafields.custom.seo_body | metafield_tag }}",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8YFFY4",
+        "text_TXFeFP"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "hide_if_empty": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "wfl_collection_evalutate_zip_mHjtYh": {
+      "type": "wfl__collection-evalutate-zip",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-banner",
+    "custom_liquid_LijwKz",
+    "featured_collection_BCqTUN",
+    "collection-products",
+    "17630641471183477b",
+    "rich_text_cn3Kd3",
+    "wfl_collection_evalutate_zip_mHjtYh"
+  ]
+}

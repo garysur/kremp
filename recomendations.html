@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kremp Shopify Theme Speed Improvement Plan</title>
+  <style>
+    @page {
+      size: Letter;
+      margin: 0.55in;
+    }
+
+    :root {
+      --blue: #004275;
+      --green: #0f766e;
+      --amber: #b45309;
+      --red: #b42318;
+      --ink: #1f2937;
+      --muted: #5f6b7a;
+      --line: #d9e0ea;
+      --soft-blue: #e8f1f8;
+      --soft-green: #e7f7f3;
+      --soft-amber: #fff4df;
+      --paper: #ffffff;
+      --page: #f5f7fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--page);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .report {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 22px 44px;
+    }
+
+    .page {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 30px;
+      margin-bottom: 22px;
+    }
+
+    .cover {
+      border-top: 8px solid var(--blue);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--blue);
+      line-height: 1.15;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-size: 34px;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: 21px;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 8px;
+      margin-top: 6px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-top: 18px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 24px 0 0;
+    }
+
+    .meta-box,
+    .impact-card,
+    .finding,
+    .phase,
+    .note {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      padding: 12px;
+    }
+
+    .meta-box strong,
+    .impact-card strong {
+      display: block;
+      color: var(--blue);
+      font-size: 18px;
+      line-height: 1.1;
+      margin-bottom: 5px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 14px 0 12px;
+    }
+
+    .impact-card {
+      background: var(--soft-blue);
+    }
+
+    .impact-card.green {
+      background: var(--soft-green);
+    }
+
+    .impact-card.amber {
+      background: var(--soft-amber);
+    }
+
+    .tag {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--soft-blue);
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .tag.high {
+      background: #fee4e2;
+      color: var(--red);
+    }
+
+    .tag.medium {
+      background: var(--soft-amber);
+      color: var(--amber);
+    }
+
+    .tag.low {
+      background: var(--soft-green);
+      color: var(--green);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      page-break-inside: auto;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--blue);
+      color: #ffffff;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    tr {
+      page-break-inside: avoid;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #fbfcfe;
+    }
+
+    .num {
+      width: 34px;
+      text-align: center;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .task-name {
+      color: var(--blue);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .saving {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .phase {
+      min-height: 160px;
+    }
+
+    .phase h3 {
+      margin-top: 0;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 4px;
+    }
+
+    .note {
+      border-left: 4px solid var(--amber);
+      background: #fffaf0;
+      color: #6b3a05;
+      margin-top: 12px;
+    }
+
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .finding strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+      background: #eef2f7;
+      border: 1px solid #dce3ed;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    .small {
+      font-size: 11px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    .footer {
+      color: var(--muted);
+      font-size: 11px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      margin-top: 18px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        font-size: 11.5px;
+      }
+
+      .report {
+        max-width: none;
+        padding: 0;
+      }
+
+      .page {
+        border: 0;
+        padding: 0;
+        margin: 0 0 22px;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+
+      .cover {
+        border-top: 6px solid var(--blue);
+        padding-top: 20px;
+      }
+
+      a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      .impact-card,
+      .meta-box,
+      .finding,
+      .phase,
+      .note {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="report">
+    <section class="page cover">
+      <h1>Kremp Shopify Theme Speed Improvement Plan</h1>
+      <p class="subtitle">A PDF-ready account management summary of what can be changed in the theme, why it matters, and what kind of Core Web Vitals/page-speed improvement can reasonably be expected.</p>
+
+      <div class="meta-row">
+        <div class="meta-box">
+          <strong>402</strong>
+          Theme files reviewed
+        </div>
+        <div class="meta-box">
+          <strong>4.8 MB</strong>
+          Raw local JavaScript
+        </div>
+        <div class="meta-box">
+          <strong>387 KB</strong>
+          Raw local CSS
+        </div>
+        <div class="meta-box">
+          <strong>15</strong>
+          Prioritized fixes
+        </div>
+      </div>
+
+      <h2>Executive Summary</h2>
+      <p>The theme has several clear opportunities for Core Web Vitals improvement. The largest issues are heavy JavaScript payloads, duplicate global scripts, third-party app embeds, route-wide ZIP/date logic, render-blocking CSS/fonts, and media that can be prioritized or deferred more carefully.</p>
+      <p>The first round of work should focus on changes that reduce page weight and main-thread work without changing the customer's visual experience. These are the safest and highest-return optimizations for Shopify stores.</p>
+
+      <div class="impact-grid">
+        <div class="impact-card green">
+          <strong>1.5-3.0 MB</strong>
+          Potential raw JS cleanup from duplicate/stale override bundles.
+        </div>
+        <div class="impact-card green">
+          <strong>0.5-2.5s</strong>
+          Potential LCP improvement on pages affected by heavy JS, fonts, and unprioritized hero/product images.
+        </div>
+        <div class="impact-card amber">
+          <strong>100-600ms</strong>
+          Potential interaction improvement from reducing observers, polling, app widgets, and global scripts.
+        </div>
+        <div class="impact-card">
+          <strong>15-35 pts</strong>
+          Possible Lighthouse mobile score lift after high-impact fixes, depending on live baseline and app scripts.
+        </div>
+      </div>
+
+      <div class="note">
+        These are planning estimates from source-code review. Final savings should be validated on a live Shopify preview using Lighthouse, PageSpeed Insights, Shopify Web Performance reports, and Chrome DevTools Coverage.
+      </div>
+
+      <h2>What I Can Change</h2>
+      <ul>
+        <li>Remove duplicate or stale JavaScript and load only the scripts each page type actually needs.</li>
+        <li>Move product/cart-only ZIP, delivery-date, and checkout validation logic off global page loads.</li>
+        <li>Reduce third-party app impact by delaying non-critical widgets until interaction or below-the-fold visibility.</li>
+        <li>Prioritize the LCP image on home, product, collection, and content landing pages.</li>
+        <li>Trim render-blocking CSS and simplify font loading to reduce first paint delays.</li>
+        <li>Replace polling, broad observers, and debug logging with scoped, event-driven code.</li>
+        <li>Make videos, iframes, reviews, and large custom-Liquid content load later when appropriate.</li>
+        <li>Add repeatable testing so speed gains do not regress after theme updates.</li>
+      </ul>
+
+      <div class="footer">Prepared from a static audit of the Shopify theme source on 2026-06-26.</div>
+    </section>
+
+    <section class="page">
+      <h2>Highest Impact Recommendations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Change I Can Make</th>
+            <th>Expected Improvement</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">1</td>
+            <td><span class="task-name">Split, remove, or route-gate the override mega-bundles.</span>The theme has three override JavaScript files around 1.5 MB each. One non-product include appears duplicated by a later Shopify asset include.</td>
+            <td><span class="saving">Up to 1.5 MB raw JS per affected page</span>; up to 3.0 MB raw cleanup if stale copies are removed; likely 500ms-2s less mobile parsing/compile pressure.</td>
+            <td><span class="tag high">Highest</span></td>
+          </tr>
+          <tr>
+            <td class="num">2</td>
+            <td><span class="task-name">Audit and defer third-party/app embeds.</span>Keep revenue-critical apps, but delay chat, review widgets, tracking, popups, and non-critical embeds where possible.</td>
+            <td><span class="saving">300 KB-2 MB less third-party transfer</span> and 500ms-3s less main-thread work, depending on production app load.</td>
+            <td><span class="tag high">Highest</span></td>
+          </tr>
+          <tr>
+            <td class="num">3</td>
+            <td><span class="task-name">Move ZIP/date/delivery logic to product and cart pages only.</span>The global layout includes large delivery, holiday, ZIP, and checkout scripts that should not run everywhere.</td>
+            <td><span class="saving">50-300 KB less HTML/inline JS</span> on non-product pages; 100-600ms less parsing/runtime work.</td>
+            <td><span class="tag high">Highest</span></td>
+          </tr>
+          <tr>
+            <td class="num">4</td>
+            <td><span class="task-name">Remove duplicate parser-blocking jQuery.</span>The layout loads two different jQuery versions before the theme's deferred JavaScript.</td>
+            <td><span class="saving">30-90 KB compressed per duplicate request</span>; two fewer blocking network requests; often 100-300ms faster first paint on mobile.</td>
+            <td><span class="tag high">High</span></td>
+          </tr>
+          <tr>
+            <td class="num">5</td>
+            <td><span class="task-name">Replace polling and broad observers.</span>Remove page-wide body scanning, 100ms polling, and production debug logging.</td>
+            <td><span class="saving">50-250ms less interaction risk</span> and reduced background CPU usage on mobile devices.</td>
+            <td><span class="tag high">High</span></td>
+          </tr>
+          <tr>
+            <td class="num">6</td>
+            <td><span class="task-name">Prioritize the main LCP image.</span>Add a shared image option for high-priority hero, product, and first collection-card images.</td>
+            <td><span class="saving">200-800ms faster LCP</span> on pages where the image is the largest contentful element.</td>
+            <td><span class="tag high">High</span></td>
+          </tr>
+          <tr>
+            <td class="num">7</td>
+            <td><span class="task-name">Reduce render-blocking CSS.</span>Keep critical styles early, move route-only styles later, and trim unused global CSS.</td>
+            <td><span class="saving">20-80 KB less initial CSS</span>; 100-400ms faster first contentful/largest contentful paint if unused CSS is trimmed.</td>
+            <td><span class="tag medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td class="num">8</td>
+            <td><span class="task-name">Simplify font loading.</span>Avoid loading Google font CSS and Shopify font preloads together unless both are essential.</td>
+            <td><span class="saving">20-90 KB less font/CSS transfer</span>; fewer third-party connections and less layout shift risk from late font swaps.</td>
+            <td><span class="tag medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td class="num">9</td>
+            <td><span class="task-name">Remove app review widgets from every product card.</span>Use lightweight static rating markup in grids and hydrate full widgets only where needed.</td>
+            <td><span class="saving">100-500ms less collection/search interaction work</span> and fewer DOM nodes on product grids.</td>
+            <td><span class="tag medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td class="num">10</td>
+            <td><span class="task-name">Lazy-load videos and iframes with static placeholders.</span>Defer YouTube/external video scripts until click or viewport visibility.</td>
+            <td><span class="saving">500 KB-1.5 MB less third-party/media transfer</span> on video-heavy pages; less network competition for the hero image.</td>
+            <td><span class="tag medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td class="num">11</td>
+            <td><span class="task-name">Defer large custom-Liquid content.</span>Move large tables, resource blocks, and below-the-fold custom sections out of initial rendering where SEO allows.</td>
+            <td><span class="saving">20-120 KB less HTML</span> and faster DOM parsing on affected content pages.</td>
+            <td><span class="tag medium">Medium</span></td>
+          </tr>
+          <tr>
+            <td class="num">12</td>
+            <td><span class="task-name">Deduplicate section asset loading.</span>Prevent repeated script/style includes for common section assets.</td>
+            <td><span class="saving">10-100ms less JavaScript initialization</span> on section-heavy pages and fewer duplicate event listeners.</td>
+            <td><span class="tag low">Lower</span></td>
+          </tr>
+          <tr>
+            <td class="num">13</td>
+            <td><span class="task-name">Review animation settings.</span>Disable mobile animations first and ensure sticky/header interactions use transform-only motion.</td>
+            <td><span class="saving">20-150ms less rendering work</span> during scroll and interactions; lower layout-shift risk.</td>
+            <td><span class="tag low">Lower</span></td>
+          </tr>
+          <tr>
+            <td class="num">14</td>
+            <td><span class="task-name">Clean unused assets and source maps.</span>Remove stale override files and source maps from the deployable theme after confirming they are unused.</td>
+            <td><span class="saving">Up to 1.6 MB less theme asset footprint</span>; direct page savings only if a removed asset is currently requested.</td>
+            <td><span class="tag low">Lower</span></td>
+          </tr>
+          <tr>
+            <td class="num">15</td>
+            <td><span class="task-name">Add automated performance checks.</span>Run Theme Check, Lighthouse mobile, Shopify reports, and Chrome Coverage after each batch.</td>
+            <td><span class="saving">Prevents regressions</span> and verifies estimated savings against actual page results.</td>
+            <td><span class="tag low">Support</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="page">
+      <h2>Recommended Work Plan</h2>
+      <p>This plan starts with the work most likely to improve real user experience without visual redesign.</p>
+
+      <div class="phase-grid">
+        <div class="phase">
+          <h3>Phase 1: High-Impact Cleanup</h3>
+          <p class="muted">Best first step for measurable speed gains.</p>
+          <ul>
+            <li>Fix duplicate override bundle loading.</li>
+            <li>Remove duplicate jQuery.</li>
+            <li>Gate ZIP/date logic by page type.</li>
+            <li>Remove polling and debug logs.</li>
+          </ul>
+          <p><strong>Expected result:</strong> Largest reduction in JavaScript weight and main-thread work.</p>
+        </div>
+
+        <div class="phase">
+          <h3>Phase 2: LCP and Render Path</h3>
+          <p class="muted">Targets the first visible page experience.</p>
+          <ul>
+            <li>Prioritize hero and product images.</li>
+            <li>Trim render-blocking CSS.</li>
+            <li>Simplify font loading.</li>
+            <li>Delay non-critical styles/scripts.</li>
+          </ul>
+          <p><strong>Expected result:</strong> Faster LCP/FCP and cleaner visual loading.</p>
+        </div>
+
+        <div class="phase">
+          <h3>Phase 3: Apps and Media</h3>
+          <p class="muted">Polishes pages with heavier features.</p>
+          <ul>
+            <li>Delay review widgets in grids.</li>
+            <li>Lazy-load YouTube and video sections.</li>
+            <li>Defer large custom content blocks.</li>
+            <li>Add repeatable testing reports.</li>
+          </ul>
+          <p><strong>Expected result:</strong> Better INP and fewer regressions over time.</p>
+        </div>
+      </div>
+
+      <h2>Current Findings Behind the Estimate</h2>
+      <div class="findings-grid">
+        <div class="finding">
+          <strong>Very large local JavaScript</strong>
+          Three override files are each about 1.5 MB raw. This is the biggest local payload opportunity.
+        </div>
+        <div class="finding">
+          <strong>Global script bloat</strong>
+          <code>layout/theme.liquid</code> includes many inline scripts, page-wide handlers, and product/cart logic on routes that may not need them.
+        </div>
+        <div class="finding">
+          <strong>Duplicate third-party requests</strong>
+          The layout includes duplicated rlets capture scripts and two jQuery versions. App embeds also need priority review.
+        </div>
+        <div class="finding">
+          <strong>LCP images can be improved</strong>
+          The shared image snippet is good groundwork, but it lacks a high-priority setting for first hero/product images.
+        </div>
+        <div class="finding">
+          <strong>Render-blocking CSS/fonts</strong>
+          Global CSS and mixed font loading can delay first paint, especially on mobile networks.
+        </div>
+        <div class="finding">
+          <strong>Grid pages can be lighter</strong>
+          Product cards include review widget markup that can multiply cost on collection/search pages.
+        </div>
+      </div>
+
+      <h2>Expected Outcomes by Metric</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric / Area</th>
+            <th>What Changes Help</th>
+            <th>Expected Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>LCP</strong></td>
+            <td>Reduce JavaScript contention, prioritize hero/product images, simplify fonts, reduce render-blocking CSS.</td>
+            <td><span class="saving">Often 0.5-2.5s faster</span> on affected page types, depending on current live baseline.</td>
+          </tr>
+          <tr>
+            <td><strong>INP</strong></td>
+            <td>Remove polling, reduce observers, delay app widgets, reduce JS parsing, deduplicate event listeners.</td>
+            <td><span class="saving">Often 100-600ms less interaction delay risk</span> on mobile and app-heavy pages.</td>
+          </tr>
+          <tr>
+            <td><strong>CLS</strong></td>
+            <td>Reserve image/video/widget space, improve font strategy, avoid layout-affecting animations.</td>
+            <td><span class="saving">Lower layout shift risk</span>, especially on pages with apps, videos, or late-loading widgets.</td>
+          </tr>
+          <tr>
+            <td><strong>Page weight</strong></td>
+            <td>Remove duplicate/stale scripts, defer third parties, lazy-load videos, reduce unused CSS.</td>
+            <td><span class="saving">Potentially 1.5-3.0 MB less raw local JS</span>, plus third-party savings.</td>
+          </tr>
+          <tr>
+            <td><strong>Lighthouse mobile</strong></td>
+            <td>All high-impact fixes above, validated after each batch.</td>
+            <td><span class="saving">Potential 15-35 point lift</span> if the live baseline is currently constrained by these issues.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        Lighthouse and PageSpeed scores vary by network, device emulation, Shopify app behavior, and third-party service response time. The most reliable success measurement is before/after testing on the same live preview URLs.
+      </div>
+    </section>
+
+    <section class="page">
+      <h2>High-Risk Files and Areas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Files / Theme Areas</th>
+            <th>Reason for Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Large JS bundles</strong></td>
+            <td><code>assets/overrides.js</code>, <code>assets/overrides_new.js</code>, <code>assets/override_new24-6.js</code></td>
+            <td>Each is about 1.5 MB raw. These should be deduplicated, split, or route-gated.</td>
+          </tr>
+          <tr>
+            <td><strong>Global layout</strong></td>
+            <td><code>layout/theme.liquid</code></td>
+            <td>Contains duplicate jQuery, duplicate third-party capture script, inline ZIP/date logic, observers, polling, and many debug logs.</td>
+          </tr>
+          <tr>
+            <td><strong>App embeds</strong></td>
+            <td><code>config/settings_data.json</code>, product/collection templates</td>
+            <td>Multiple active Shopify app embeds can add transfer, script parsing, long tasks, and layout shifts.</td>
+          </tr>
+          <tr>
+            <td><strong>Images / LCP</strong></td>
+            <td><code>snippets/image.liquid</code>, <code>sections/navigation-slideshow.liquid</code>, product and collection sections</td>
+            <td>Shared image rendering exists, but first visible images need stronger priority controls.</td>
+          </tr>
+          <tr>
+            <td><strong>CSS / fonts</strong></td>
+            <td><code>assets/main.css</code>, <code>assets/overrides.css</code>, layout font tags</td>
+            <td>Global CSS and mixed font loading can delay initial rendering.</td>
+          </tr>
+          <tr>
+            <td><strong>Reviews / widgets</strong></td>
+            <td><code>snippets/product-card.liquid</code>, product templates, collection template</td>
+            <td>Review/app markup in repeated cards can multiply DOM and script work across grids.</td>
+          </tr>
+          <tr>
+            <td><strong>Video / iframe pages</strong></td>
+            <td>Video sections, town-page templates, about page templates</td>
+            <td>External videos and iframes should use static placeholders and load on demand.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Validation Plan</h2>
+      <ol>
+        <li>Capture baseline Lighthouse mobile scores for home, product, collection, and a town/content page.</li>
+        <li>Record current LCP, INP/TBT proxy, CLS, transfer size, and JavaScript execution time.</li>
+        <li>Apply Phase 1 changes and retest the same URLs.</li>
+        <li>Apply Phase 2 changes and retest again.</li>
+        <li>Apply Phase 3 changes where useful and produce a before/after summary for the account team.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

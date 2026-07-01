@@ -1,0 +1,6 @@
+[data-swatch]::before {
+  background-color: rgba(var(--text-color) / 0.08);
+}
+
+[data-swatch="red"]:before { background-color:#FF0000}[data-swatch="yellow"]:before { background-color:#FEE502}[data-swatch="orange"]:before { background-color:#FF8A00}[data-swatch="pink"]:before { background-color:#FFC0CB}[data-swatch="peach"]:before { background-color:#FFE5B4}[data-swatch="lavender"]:before { background-color:#BA9CF2}[data-swatch="white"]:before { background-color:#ffffff}[data-swatch="purple"]:before { background-color:#9D00FF}[data-swatch="green"]:before { background-color:#3CC729}[data-swatch="black"]:before { background-color:#000000}[data-swatch="hot pink"]:before { background-color:#FF69B4}[data-swatch="dark pink"]:before { background-color:#AA336A}[data-swatch="blue"]:before { background-color:#0000FF}[data-swatch="teal"]:before { background-color:#008080}
+

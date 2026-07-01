@@ -1,0 +1,201 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+  assign faq_items = shop.metaobjects.collection_faq_item.values | sort: 'sort_order'
+  assign max_items = 10
+  assign displayed_count = 0
+  assign schema_entity_count = 0
+  assign include_schema = section.settings.include_structured_data
+  assign context_collection_ids = '|'
+  if collection != blank
+    assign context_collection_ids = context_collection_ids | append: collection.id | append: '|'
+  elsif product != blank and product.collections != blank
+    for product_collection in product.collections
+      assign context_collection_ids = context_collection_ids | append: product_collection.id | append: '|'
+    endfor
+  endif
+  assign has_items = false
+  assign faq_page_name = section.settings.heading | default: 'Frequently Asked Questions'
+-%}
+
+{%- unless section.settings.randomize_by_collection -%}
+{%- capture faq_schema_entities -%}
+  {%- if context_collection_ids != '|' and faq_items != blank -%}
+    {%- assign schema_displayed_count = 0 -%}
+    {%- for faq_item in faq_items -%}
+      {%- assign is_match = false -%}
+      {%- assign item_collections = faq_item.collections.value -%}
+      {%- if item_collections == blank -%}
+        {%- assign is_match = true -%}
+      {%- elsif context_collection_ids != '|' -%}
+        {%- for item_collection in item_collections -%}
+          {%- if is_match -%}{%- break -%}{%- endif -%}
+          {%- assign item_collection_token = '|' | append: item_collection.id | append: '|' -%}
+          {%- if context_collection_ids contains item_collection_token -%}
+            {%- assign is_match = true -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if is_match and faq_item.question.value != blank and faq_item.richtext_answer != blank -%}
+        {%- unless schema_entity_count == 0 -%},{%- endunless -%}
+        {
+          "@type": "Question",
+          "name": {{ faq_item.question.value | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ faq_item.richtext_answer | metafield_tag | strip_html | strip | json }}
+          }
+        }
+        {%- assign schema_entity_count = schema_entity_count | plus: 1 -%}
+        {%- assign schema_displayed_count = schema_displayed_count | plus: 1 -%}
+        {%- if schema_displayed_count >= max_items -%}{%- break -%}{%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- endunless -%}
+
+{%- capture faq_markup -%}
+  {%- if context_collection_ids != '|' and faq_items != blank -%}
+    <div id="faq-randomized-list-{{ section.id }}">
+      {%- for faq_item in faq_items -%}
+        {%- assign is_match = false -%}
+        {%- assign item_collections = faq_item.collections.value -%}
+        {%- if item_collections == blank -%}
+          {%- assign is_match = true -%}
+        {%- elsif context_collection_ids != '|' -%}
+          {%- for item_collection in item_collections -%}
+            {%- if is_match -%}{%- break -%}{%- endif -%}
+            {%- assign item_collection_token = '|' | append: item_collection.id | append: '|' -%}
+            {%- if context_collection_ids contains item_collection_token -%}
+              {%- assign is_match = true -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+
+        {%- if is_match and faq_item.question.value != blank and faq_item.richtext_answer != blank -%}
+          {%- assign has_items = true -%}
+          {%- assign displayed_count = displayed_count | plus: 1 -%}
+          <details-disclosure>
+            <details class="disclosure disclosure--row">
+              <summary>
+                <div class="flex justify-between items-center">
+                  <h3 class="disclosure__title disclosure__title--small xs:regular-text h6 font-body flex flex-auto items-center mb-0 text-current">
+                    {{- faq_item.question.value -}}
+                  </h3>
+                  <span class="disclosure__toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation" class="icon"><path d="M20 8.5 12.5 16 5 8.5" stroke="currentColor" stroke-width="1.5" fill="none"></path></svg>
+                  </span>
+                </div>
+              </summary>
+              <div class="disclosure__panel has-motion">
+                <div class="disclosure__content rte">
+                  {{ faq_item.richtext_answer | metafield_tag }}
+                </div>
+              </div>
+            </details>
+          </details-disclosure>
+          {%- unless section.settings.randomize_by_collection -%}
+            {%- if displayed_count >= max_items -%}{%- break -%}{%- endif -%}
+          {%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if has_items -%}
+  {%- unless section.settings.full_width -%}
+    <div class="container">
+  {%- endunless -%}
+
+  <div class="section section--padded color-scheme color-scheme--{{ color_scheme }}{% if section.settings.custom_class != blank %} {{ section.settings.custom_class }}{% endif %}" id="{{ section.id }}">
+    <div class="container">
+      <div class="reading-width cc-animate-init cc-animate-in" data-cc-animate="">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="h4 section__heading mb-12 text-center">
+            {{ section.settings.heading | escape }}
+          </h2>
+        {%- endif -%}
+        {{ faq_markup }}
+      </div>
+    </div>
+    {%- if section.settings.randomize_by_collection -%}
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const faqContainer = document.getElementById('faq-randomized-list-{{ section.id }}');
+          if (!faqContainer) return;
+          const maxItems = {{ max_items }};
+          const includeSchema = {{ include_schema | json }};
+          const scriptId = 'faq-structured-data-{{ section.id }}';
+          const items = Array.from(faqContainer.children);
+          for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [items[i], items[j]] = [items[j], items[i]];
+          }
+          faqContainer.innerHTML = '';
+          items.slice(0, maxItems).forEach((item) => faqContainer.appendChild(item));
+          if (!includeSchema) return;
+          const mainEntity = Array.from(faqContainer.children)
+            .map((item) => {
+              const question = item.querySelector('.disclosure__title')?.textContent?.trim();
+              const answer = item.querySelector('.disclosure__content')?.textContent?.trim();
+              if (!question || !answer) return null;
+              return {
+                '@type': 'Question',
+                name: question,
+                acceptedAnswer: { '@type': 'Answer', text: answer },
+              };
+            })
+            .filter(Boolean);
+          if (!mainEntity.length) return;
+          let scriptEl = document.getElementById(scriptId);
+          if (!scriptEl) {
+            scriptEl = document.createElement('script');
+            scriptEl.type = 'application/ld+json';
+            scriptEl.id = scriptId;
+            document.head.appendChild(scriptEl);
+          }
+          scriptEl.textContent = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            name: {{ faq_page_name | json }},
+            mainEntity,
+          });
+        });
+      </script>
+    {%- endif -%}
+  </div>
+
+  {%- if include_schema and section.settings.randomize_by_collection == false and schema_entity_count > 0 -%}
+    <script type="application/ld+json" id="faq-structured-data-{{ section.id }}">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "name": {{ faq_page_name | json }},
+        "mainEntity": [{{ faq_schema_entities }}]
+      }
+    </script>
+  {%- endif -%}
+
+  {%- unless section.settings.full_width -%}
+    </div>
+  {%- endunless -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collections FAQ",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    { "type": "select", "id": "color_scheme", "label": "Color scheme", "options": [{ "value": "1", "label": "1" }, { "value": "none", "label": "None" }], "default": "none" },
+    { "type": "checkbox", "id": "randomize_by_collection", "label": "Randomize FAQ order by collection", "default": false },
+    { "type": "checkbox", "id": "include_structured_data", "label": "Include FAQ structured data (Google)", "default": true },
+    { "type": "checkbox", "id": "full_width", "label": "Full Width", "default": true },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" }
+  ],
+  "presets": [{ "name": "Collections FAQ" }]
+}
+{% endschema %}

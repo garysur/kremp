@@ -1,0 +1,260 @@
+{%- assign mf_ns = section.settings.metafield_namespace -%}
+{%- assign mf_key = section.settings.metafield_key -%}
+
+{%- if template.name == 'page' -%}
+  {%- assign mf_value = page.metafields[mf_ns][mf_key] -%}
+{%- elsif template.name == 'product' -%}
+  {%- assign mf_value = product.metafields[mf_ns][mf_key] -%}
+{%- elsif template.name == 'article' -%}
+  {%- assign mf_value = article.metafields[mf_ns][mf_key] -%}
+{%- elsif template.name == 'collection' -%}
+  {%- assign mf_value = collection.metafields[mf_ns][mf_key] -%}
+{%- endif -%}
+
+{%- unless mf_value == blank -%}
+
+<div class="section mlc-section" id="{{ section.id }}">
+  <div class="container">
+    {%- if section.settings.heading != blank -%}
+      <div
+        class="mlc-heading-wrap"
+        {% if settings.animations_enabled != 'disabled' %}data-cc-animate{% endif %}
+      >
+        <h2 class="mlc-heading h2">{{ section.settings.heading | escape }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div
+      class="mlc-grid mlc-cols-{{ section.settings.columns }}"
+      id="mlc-grid-{{ section.id }}"
+      {% if settings.animations_enabled != 'disabled' %}data-cc-animate{% endif %}
+    ></div>
+  </div>
+</div>
+
+<div id="mlc-raw-{{ section.id }}" style="display:none" aria-hidden="true">
+  {{ mf_value }}
+</div>
+
+<style>
+  #{{ section.id }}.mlc-section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  #{{ section.id }} .mlc-heading-wrap {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  #{{ section.id }} .mlc-heading {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.96px;
+    color: var(--color-heading, #004275);
+    margin: 0;
+  }
+
+  #{{ section.id }} .mlc-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  #{{ section.id }} .mlc-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  #{{ section.id }} .mlc-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  #{{ section.id }} .mlc-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  #{{ section.id }} .mlc-card {
+    background: var(--color-background-alt, rgba(0, 0, 0, 0.05));
+    border-radius: 4px;
+    padding: 24px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 72px;
+  }
+
+  #{{ section.id }} .mlc-card__link {
+    font-family: var(--typography-font-name-Paragraph, Roboto);
+    font-size: var(--typography-text-size-Text-Small, 16px);
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--color-link, #1a6c8a);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s;
+  }
+
+  #{{ section.id }} .mlc-card__link:hover {
+    opacity: 0.75;
+  }
+
+  #{{ section.id }} .mlc-card__text {
+    font-family: var(--typography-font-name-Paragraph, Roboto);
+    font-size: var(--typography-text-size-Text-Small, 16px);
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--color-link, #1a6c8a);
+    margin: 0;
+  }
+
+  @media (max-width: 767px) {
+    #{{ section.id }} .mlc-cols-4,
+    #{{ section.id }} .mlc-cols-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    #{{ section.id }} .mlc-cols-4,
+    #{{ section.id }} .mlc-cols-3,
+    #{{ section.id }} .mlc-cols-2 { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  (function () {
+    var raw = document.getElementById('mlc-raw-{{ section.id }}');
+    var grid = document.getElementById('mlc-grid-{{ section.id }}');
+
+    if (!raw || !grid) return;
+
+    var data;
+    try { data = JSON.parse(raw.textContent.trim()); } catch (e) { return; }
+    if (!data || !Array.isArray(data.children)) return;
+
+    var fragment = document.createDocumentFragment();
+
+    data.children.forEach(function (node) {
+      if (node.type !== 'list') return;
+
+      (node.children || []).forEach(function (item) {
+        if (item.type !== 'list-item') return;
+
+        var children = item.children || [];
+
+        var linkNode = null;
+        var textValue = '';
+
+        children.forEach(function (child) {
+          if (child.type === 'link' && !linkNode) {
+            linkNode = child;
+          } else if (child.type === 'paragraph') {
+            (child.children || []).forEach(function (pc) {
+              if (pc.type === 'link' && !linkNode) {
+                linkNode = pc;
+              } else if (!linkNode && pc.value) {
+                textValue += pc.value;
+              }
+            });
+          } else if (child.value) {
+            textValue += child.value;
+          }
+        });
+
+        if (linkNode) {
+          var url = linkNode.url || '#';
+          var label = (linkNode.children || []).map(function (c) { return c.value || ''; }).join('').trim();
+          if (!label) label = textValue.trim();
+
+          var card = document.createElement('div');
+          card.className = 'mlc-card';
+
+          var a = document.createElement('a');
+          a.className = 'mlc-card__link';
+          a.href = url;
+          a.textContent = label;
+
+          card.appendChild(a);
+          fragment.appendChild(card);
+        } else if (textValue.trim()) {
+          var card = document.createElement('div');
+          card.className = 'mlc-card';
+
+          var p = document.createElement('p');
+          p.className = 'mlc-card__text';
+          p.textContent = textValue.trim();
+
+          card.appendChild(p);
+          fragment.appendChild(card);
+        }
+      });
+    });
+
+    grid.appendChild(fragment);
+  })();
+</script>
+
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Metafield Link Columns",
+  "class": "cc-metafield-link-columns",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Reads a rich text metafield and renders each bullet point as a card. Bullets with links will render as anchor elements."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Also Serving These Nearby Areas"
+    },
+    {
+      "type": "text",
+      "id": "metafield_namespace",
+      "label": "Metafield namespace",
+      "info": "e.g. custom",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "metafield_key",
+      "label": "Metafield key",
+      "info": "e.g. nearby_areas"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "options": [
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" },
+        { "value": "4", "label": "4 columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Metafield Link Columns"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  }
+}
+{% endschema %}

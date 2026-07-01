@@ -1,0 +1,245 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-contact",
+      "disabled": true,
+      "settings": {
+        "show_contact_title": false,
+        "heading_align": "text-center"
+      }
+    },
+    "image-banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Flower & Plant Fundraising in the Philadelphia Region",
+            "heading_size": "h1",
+            "heading_h1": true
+          }
+        }
+      },
+      "block_order": [
+        "heading"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Fund_raising_Hero_-_D.jpg",
+        "image_mobile": "shopify://shop_images/Fund_raising_Hero_-_M.jpg",
+        "url": "",
+        "height_mode": "fixed",
+        "fixed_height_desktop": 400,
+        "fixed_height_mobile": 250,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": true,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 10,
+        "prevent_animation": false
+      }
+    },
+    "rich_text_dGR6gg": {
+      "type": "rich-text",
+      "blocks": {
+        "text_j4xMfy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kremp Florist has several popular fundraising programs available for local groups looking to raise money for their important causes.  We make it easy and work with you to make it a success!  From our beautiful mum plants in the fall to gorgeous poinsettias during the Christmas season to premium outdoor plants in the spring, there is always an opportunity right around the corner for you to raise money.  Our personalized service and easy ordering make working with Kremp Florist for your fundraisers and plant sales a breeze!</p><p>Since we deliver 7 days a week to our gigantic delivery area, we can deliver your plants on the day of your choice within a window of time that works best.  Plants are labelled to make it easy and our delivery team can leave the plants in the area that you prefer.</p><p>For some of our plant offerings, we even have a voucher program available.  This is the easiest and most profitable fundraising program available.</p><p>We provide you with vouchers that you sell.<br/>Your customers then bring that voucher to our store where they can hand select whichever plant they like best.This saves you time and money by not having to receive a large delivery of plants, sort them and wait for everyone to come pick them up.Voucher pricing is lower than the normal fundraising prices and there is no delivery charge since everyone picks up their plants.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_j4xMfy"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-start",
+        "mob_center_text": true,
+        "wide": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_with_text_rE6B3w": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_hGJtVd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hardy mum plants - the perfect fall fundraiser",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_KV4w3J": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are proud to offer our own-grown hardy mums for your group to sell.  Available in single pots, hanging baskets and even patio pots!  Our mum plants are the nicest in the area(they really are).  We receive rave reviews each year about how nice the mums are. Colors include red/burgundy, yellow/gold, orange/bronze, white and lavender.</p><p>This program typically runs from late August through mid October.We recommend delivery/pick-up dates by the first week of October.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hGJtVd",
+        "text_KV4w3J"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Frame_2091.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "media_with_text_VhtJHm": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_ReYfBf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Poinsettias & winter wreaths - a great holiday season fundraiser",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_bpnrRR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each holiday season, we offer our own-grown poinsettias in 4 popular sizes that customers love for decorating their homes for the holidays.  Available with or without decorative foil around the base of the pots. Colors include red, white, pink, marble, jingle bell and red/white combo. Sizing ranges from 6+ blooms to 24+ blooms.</p><p>We also have beautiful fresh holiday wreaths that are made with popular winter greens such as balsam, berried juniper, noble fir and incense cedar.  Available with or without red velvet bows.</p><p>This program typically runs from November through Christmas week.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ReYfBf",
+        "text_bpnrRR"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Frame_2091-1.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "media_with_text_mgEPmr": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_ykyzHT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Spring outdoor plants - a popular school & church fundraiser",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_jN9cb4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>By the time spring comes around, everyone is ecstatic to see our beautiful blooming outdoor plants, welcoming the warmth of the season.  We grow these plants locally and are proud of the incredible quality.  These plants can easily last throughout the summer with proper care. Blooming hanging baskets are the top seller for fundraisers. Gorgeous geraniums and flowering patio pots are also available.</p><p>This program typically runs from April through June.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_ykyzHT",
+        "text_jN9cb4"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Frame_2091-2.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "media_with_text_BBQhFh": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_kYjM9R": {
+          "type": "heading",
+          "settings": {
+            "heading": "Main Location",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_PiVhNn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kremp Florist is located on Davisville road in Willow Grove, PA.  We have the largest delivery area of any florist in the region servicing all of Philadelphia and the surrouding regions including Montgomery county, Bucks county and Delaware county.  We would love to be a part of your fundraiser.  Please reach out to us here to tell us more about your event, the date and what you are interested in.  We will be sure to get right back to you.</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_CqntcH": {
+          "type": "button",
+          "settings": {
+            "button_label": "(215) 657–6700",
+            "button_link": "tel:12156576700",
+            "button_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kYjM9R",
+        "text_PiVhNn",
+        "button_CqntcH"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/store-location.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image-banner",
+    "rich_text_dGR6gg",
+    "media_with_text_rE6B3w",
+    "media_with_text_VhtJHm",
+    "media_with_text_mgEPmr",
+    "media_with_text_BBQhFh"
+  ]
+}

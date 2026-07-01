@@ -1,0 +1,507 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product-labels": {
+          "type": "product-labels",
+          "settings": {}
+        },
+        "vendor-sku": {
+          "type": "vendor-sku",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_barcode": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_weight": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "show_line": true,
+            "spacing": "mt-8 mb-8"
+          }
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "buttons",
+            "enable_dynamic_availability": true,
+            "dynamic_availability_downwards": false,
+            "show_backorder_text": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "divider-1": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {
+            "show_line": true,
+            "spacing": "mt-8 mb-8"
+          }
+        },
+        "inventory_status_VwX6KA": {
+          "type": "inventory-status",
+          "settings": {
+            "show_indicator_bar": true,
+            "show_urgency_message": true,
+            "text_very_low": "<p>- Almost gone!</p>",
+            "text_low": "<p>- Hurry while stocks last!</p>",
+            "text_normal": "",
+            "text_no_stock": "",
+            "text_no_stock_backordered": "<p>Backordered</p>"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "disabled": true,
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "message_VHNAVU": {
+          "type": "message",
+          "settings": {
+            "icon": "calendar",
+            "title": "<h5>Currently Sold Out<br/><br/>This is a seasonal product that is typically available from June 28 to July 5</h5>",
+            "close": "none",
+            "show_over_media": false,
+            "visibility_duration": 7,
+            "bg_color": "#ffffff",
+            "text_color": "#004275"
+          }
+        },
+        "product_signup_8q8a9b": {
+          "type": "product-signup",
+          "settings": {
+            "unavailable_only": false,
+            "heading": "",
+            "text": "<p>Sign up to be the first to know when it's back in stock</p>",
+            "divider": false
+          }
+        },
+        "collapsible_content_dxjcXe": {
+          "type": "collapsible-content",
+          "settings": {
+            "heading": "Details",
+            "icon": "none",
+            "text": "<p>{{ product.metafields.custom.product_detail_tab.value }}</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible-content-2": {
+          "type": "collapsible-content",
+          "disabled": true,
+          "settings": {
+            "heading": "From the Designer",
+            "icon": "none",
+            "text": "<p>{{ product.metafields.custom.note_from_the_designer.value }}</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible-content-1": {
+          "type": "collapsible-content",
+          "repeater": "{{ product.metafields.custom.product_tabs.value }}",
+          "settings": {
+            "heading": "{{ block.repeater.header.value }}",
+            "icon": "none",
+            "text": "{{ block.repeater.tab_content | metafield_tag }}",
+            "page": "",
+            "open": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "message-3": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "title": "<p>Add a stand out message for your customers</p>",
+            "close": "once",
+            "show_over_media": false,
+            "visibility_duration": 7,
+            "bg_color": "#e4edfa",
+            "text_color": "#1a66d2"
+          }
+        }
+      },
+      "block_order": [
+        "product-labels",
+        "vendor-sku",
+        "title",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "divider-1",
+        "inventory_status_VwX6KA",
+        "buy-buttons",
+        "message_VHNAVU",
+        "product_signup_8q8a9b",
+        "collapsible_content_dxjcXe",
+        "collapsible-content-2",
+        "collapsible-content-1",
+        "share",
+        "message-3"
+      ],
+      "settings": {
+        "stick_on_scroll": true,
+        "sticky_atc_panel": true,
+        "sticky_atc_position": "end",
+        "sticky_atc_mobile": true,
+        "media_layout": "stacked",
+        "media_size": "default",
+        "media_ratio": "1",
+        "media_crop": "none",
+        "hover_zoom": "medium",
+        "enable_video_looping": false,
+        "stacked_scroll": "always",
+        "underline_active": true,
+        "media_thumbs": "desktop",
+        "thumb_ratio": "1",
+        "thumb_crop": "none",
+        "media_arrows": "desktop",
+        "show_slide_count": true,
+        "border_color": "#eeeeee",
+        "bg_color": "#f4f4f4",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "details": {
+      "type": "product-details",
+      "blocks": {
+        "highlight-text": {
+          "type": "highlight-text",
+          "settings": {
+            "title": "Highlight title",
+            "text": "<p>Text to highlight a key feature of your product</p>"
+          }
+        },
+        "tabs": {
+          "type": "tabs",
+          "settings": {
+            "style": "collapsible",
+            "open_first": false,
+            "show_description": false,
+            "show_reviews": false,
+            "custom_reviews": "",
+            "show_specification": false,
+            "spec_metafields": "",
+            "spec_right_align": false,
+            "spec_show_empty_metafields": true,
+            "spec_empty_field_text": "-",
+            "tab_1_title": "",
+            "tab_1_text": "",
+            "tab_1_page": "",
+            "tab_2_title": "",
+            "tab_2_text": "",
+            "tab_2_page": "",
+            "tab_3_title": "",
+            "tab_3_text": "",
+            "tab_3_page": ""
+          }
+        },
+        "payment-methods": {
+          "type": "payment-methods",
+          "settings": {
+            "title": "Payment & Security",
+            "title1": "Payment methods",
+            "show_payment_icons": true,
+            "text1": "<p>Your payment information is processed securely. We do not store credit card details nor have access to your credit card information.</p>",
+            "title2": "",
+            "text2": ""
+          }
+        }
+      },
+      "block_order": [
+        "highlight-text",
+        "tabs",
+        "payment-methods"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "logo_list_iNrkje": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_wHEg4m": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges1.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_Y7CWMW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges5.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_YzxFrF": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges3.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_UeQNxY": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges4.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_FTrrp8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges6.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_wHEg4m",
+        "logo_Y7CWMW",
+        "logo_YzxFrF",
+        "logo_UeQNxY",
+        "logo_FTrrp8"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "spacing": 40,
+        "logo_grid_align": "justify-center",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "testimonials_ErczpM": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_GaCpeN": {
+          "type": "testimonial",
+          "repeater": "{{ product.metafields.custom.testimonials.value }}",
+          "settings": {
+            "testimonial": "<p>{{ block.repeater.quote_text.value }}</p>",
+            "author": "{{ block.repeater.name.value }}",
+            "author_info": "Author information",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_GaCpeN"
+      ],
+      "settings": {
+        "heading": "",
+        "show_quotes": false,
+        "testimonial_size": "h3",
+        "text_position": "justify-center",
+        "text_align": "text-center justify-center",
+        "nav_style": "arrows",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "color_scheme": "1",
+        "full_width": true
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Shop Related Products",
+        "heading_align": "text-center",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "faq_xkrfT9": {
+      "type": "faq",
+      "blocks": {
+        "category_QnXNYp": {
+          "type": "category",
+          "settings": {
+            "text": "Here are some of our most-asked questions:"
+          }
+        },
+        "question_xU8jNR": {
+          "type": "question",
+          "repeater": "{{ product.metafields.custom.product_faq.value }}",
+          "settings": {
+            "heading": "{{ block.repeater.question.value }}",
+            "text": "<p>{{ block.repeater.answer | metafield_tag }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_QnXNYp",
+        "question_xU8jNR"
+      ],
+      "settings": {
+        "heading": "Need some Help?",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "custom_liquid_qeLNJ7": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "Add HTML or Liquid code to create advanced customizations.",
+        "section_height": "default",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "multi_column_FaKCaj": {
+      "type": "multi-column",
+      "blocks": {
+        "column_DfhRqJ": {
+          "type": "column",
+          "repeater": "{{ product.metafields.custom.seo_link_module.value }}",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "{{ block.repeater.header.value }}",
+            "text": "{{ block.repeater.links | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_DfhRqJ"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "carousel",
+        "column_size": "small",
+        "column_align": "center",
+        "media_align": "text-center",
+        "image_ratio": "1",
+        "color_scheme": "none",
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "image_banner_pMwFL9": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_MdApfi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still Not Sure Where To Start?",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_MqKEKi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let us help you to choose the perfect gift for your special occasion. Give us a call or send us an email. We are happy to help!</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_tbeGaB": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "(800) 345-7367",
+            "button_1_link": "tel:18003457367",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "Contact Us Online",
+            "button_2_link": "shopify://pages/contact",
+            "button_2_style": "btn btn--secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MdApfi",
+        "text_MqKEKi",
+        "button_tbeGaB"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Last_Bite_-_D.jpg",
+        "image_mobile": "shopify://shop_images/last_bite_-_M.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "text-start",
+        "mob_center_text": true,
+        "mobile_stacked": true,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#004275",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "details",
+    "logo_list_iNrkje",
+    "testimonials_ErczpM",
+    "recommendations",
+    "faq_xkrfT9",
+    "custom_liquid_qeLNJ7",
+    "multi_column_FaKCaj",
+    "image_banner_pMwFL9"
+  ]
+}

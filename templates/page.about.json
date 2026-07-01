@@ -1,0 +1,632 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "heading_align": "text-center"
+      }
+    },
+    "navigation_slideshow_e9gCjL": {
+      "type": "navigation-slideshow",
+      "blocks": {
+        "slide_nKdpXr": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/white-flower-hero-D.jpg",
+            "image_mobile": "shopify://shop_images/white-flower-hero-M.jpg",
+            "use_checkmarks": false,
+            "overlay_text_align": "text-start",
+            "mob_center_text": true,
+            "subheading": "",
+            "heading": "Kremp Florist Delivery Service in {{ page.title }}",
+            "heading_size": "h2",
+            "heading_h1": true,
+            "text": "<ul><li>3rd generation, family-owned and operated florist.</li><li>Same-day delivery available to most towns.</li><li>Have questions? Give us a call, we are happy to help!</li></ul>",
+            "enlarge_text": false,
+            "button_1_label": "",
+            "button_1_link": "",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nKdpXr"
+      ],
+      "disabled": true,
+      "settings": {
+        "height_mode": "fixed",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "show_zip_field": false,
+        "quick_nav_menu": "homepage-hero",
+        "quick_nav_title": "Get Started",
+        "quick_nav_image_ratio": "1",
+        "quick_nav_image_fit": "contain",
+        "quick_nav_use_product_image": false,
+        "quick_nav_color_scheme": "none",
+        "quick_nav_show_price": false,
+        "menu_1_text": "Choose Category",
+        "menu_1_display": "large_image_text",
+        "menu_2_text": "Choose Occasion",
+        "menu_2_display": "large_image_text",
+        "menu_3_text": "Choose an option",
+        "menu_3_display": "large_text",
+        "nav_style": "slideshow_nav_lines",
+        "pagination_color": "#ffffff",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "color_scheme": "white",
+        "full_width": true,
+        "tint_color": "#000000",
+        "tint_opacity": 40,
+        "accessibility_info": "Featured collections and new arrivals",
+        "prevent_animation": false
+      }
+    },
+    "media_with_text_Bqz38r": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_rVwjDW": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Us",
+            "heading_size": "h3",
+            "heading_h1": true
+          }
+        },
+        "text_CXBhYx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kremp Florist & Flower Delivery is the Philadelphia region's largest florist located in Willow Grove. In the flower business for over 60 years, the Kremp family provides a personal shopping experience for flowers and unique gifts sent anywhere worldwide.  </p><p>We are a family owned and operated business managed by Scott, Steve, Drew, Chad, Leslie and Charles Kremp. </p><p>Our own greenhouse range is located in Bucks County where we grow our own poinsettias, mum plants, hanging baskets, Spring planters, fig trees and more.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rVwjDW",
+        "text_CXBhYx"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/Kremp-bros.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "logo_list_JtAqwL": {
+      "type": "logo-list",
+      "blocks": {
+        "custom_liquid_FryQT6": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<a href=\"https://www.bbb.org/us/pa/willow-grove/profile/retail-florist/kremp-florist-inc-0241-80008643/#sealclick%22 target=\"_blank\" rel=\"nofollow\"><img src=\"https://seal-dc-easternpa.bbb.org/seals/blue-seal-150-110-bbb-80008643.png\" style=\"border: 0;\" alt=\"Kremp Florist, Inc. BBB Business Review\" /></a>"
+          }
+        },
+        "logo_rGfyH9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges1.png",
+            "url": "",
+            "logo_width": 120,
+            "text": "All orders backed by 100% satisfaction guarantee"
+          }
+        },
+        "logo_CFgRGy": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges5.png",
+            "url": "",
+            "logo_width": 120,
+            "text": "Over 10,000 reviews ranking 4.8 out of 5 stars"
+          }
+        },
+        "logo_NLtrE6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges3.png",
+            "url": "",
+            "logo_width": 120,
+            "text": "3rd Generation, family owned florist for over 65 years"
+          }
+        },
+        "logo_epy3ND": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges4.png",
+            "url": "",
+            "logo_width": 120,
+            "text": "National Retail Florist of the Year Award Winner"
+          }
+        },
+        "logo_RF3anJ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges6.png",
+            "url": "",
+            "logo_width": 120,
+            "text": "Consistently ranked top 10 florist in the United States"
+          }
+        }
+      },
+      "block_order": [
+        "custom_liquid_FryQT6",
+        "logo_rGfyH9",
+        "logo_CFgRGy",
+        "logo_NLtrE6",
+        "logo_epy3ND",
+        "logo_RF3anJ"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "vertical_padding": "default",
+        "layout": "grid",
+        "spacing": 40,
+        "logo_grid_align": "justify-center",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "media_with_text_6YWadG": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_cXmkWn": {
+          "type": "heading",
+          "settings": {
+            "heading": "National Retail Florist <br>of the Year Award!",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_YFCXcH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Learn what this means for you and why this is  such a huge honor for us</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_GJaQem": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read more",
+            "button_link": "/pages/national-retail-florist-of-the-year",
+            "button_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cXmkWn",
+        "text_YFCXcH",
+        "button_GJaQem"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/national-retail-florist-badge.png",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 75,
+        "text_align": "text-start",
+        "color_scheme": "2",
+        "only_content_color_scheme": false
+      }
+    },
+    "video_tJQTVh": {
+      "type": "video",
+      "blocks": {
+        "heading_FCmCL9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Welcome to Kremp Florist",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_FCmCL9"
+      ],
+      "settings": {
+        "video_external": "https://www.youtube.com/watch?v=p9UN8fKRfe0",
+        "video_description": "",
+        "poster_image": "shopify://shop_images/welcome_to_kremp_florist_cover.jpg",
+        "video_size": "md",
+        "video_autoplay": false,
+        "text_align": "text-center",
+        "color_scheme": "default"
+      }
+    },
+    "multi_column_R8Nq8b": {
+      "type": "multi-column",
+      "blocks": {
+        "column_tFjTG4": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/scott_kremp.jpg",
+            "media_scale": 100,
+            "heading": "Scott Kremp",
+            "heading_link": "",
+            "text": "<p><strong>President</strong></p><p>Scott grew up in the family business then joined full time after attending Gettysburg College (’87).  Graduating with a degree in business management, he learned all facets of the flower business while participating in<br/>many industry activities.  In his free time, Scott enjoys all sports, and spending time with his family.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_TC3MqU": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/IMG_2879.jpg",
+            "media_scale": 100,
+            "heading": "Steve Kremp",
+            "heading_link": "",
+            "text": "<p><strong>VP Greenhouse Operations</strong></p><p>Steve graduated from Saint Lawrence University('89) in upstate New York with a Bachelor of science degree in Biology with a heavy emphasis on ecology.   His work experience has ranged from bagging fish at Martin's aquarium and restoring dioramas at the Academy of Natural Sciences, to commercial salmon fishing in Alaska and overseeing wildlife conservation projects.   He managed several Kremp florist retail locations in Philadelphia and the surrounding area before shifting his focus to horticulture.  He gained first hand growing experience at Fetzer greenhouses then moved to Bucks county, with his wife Leslie and two children, where his vision of Kremp Florist's own production facility came to life.   He has focused on growing the highest quality cut flowers, poinsettias, annuals and hanging baskets, as well as hundreds of varieties of figs from around the world.  When not tending to the crops, he enjoys seeking solitude and adventure in the world's remaining wild places.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_6W6qC9": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/KSQUARE.jpg",
+            "media_scale": 100,
+            "heading": "Drew Kremp",
+            "heading_link": "",
+            "text": "<p><strong>VP Retail Sales/Maintenance</strong></p><p>Drew started in the flower business at an early age coming to work with his father to help design funeral arrangements on the weekends.  Graduating from New England College (’91), he promptly started full time.  He loves to come to work each day working with his brothers and wears many hats throughout the building.  Away from work, Drew's hobbies include flying his airplane, fishing, yard work and odd jobs around the house. </p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_kxjULU": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/Chad-Kremp-264x300.jpg",
+            "media_scale": 100,
+            "heading": "Chad Kremp",
+            "heading_link": "",
+            "text": "<p><strong>VP Sales & Technology</strong></p><p>After graduating from Ithaca College('97) with a degree in marketing and advertising, Chad joined the family business just as the internet was taking off.  At a time when websites were simple static pages, Chad embraced the opportunity to grow the Kremp online presence and ecommerce platform.  While overseeing all sales activities and our customer service team, Chad sources many of the unique gift items Kremp sells. In his free time, Chad enjoys family time, is a musician and loves hearing from the many Goldbergs fans out there!</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_UYf4ha": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/IMG_5105.jpg",
+            "media_scale": 100,
+            "heading": "Leslie Kremp",
+            "heading_link": "",
+            "text": "<p><strong>Special Event/Sales Manager</strong></p><p>Leslie grew up around the flower business spending many childhood Saturdays helping out at her grandmother's flower shop in NE Philly. After marrying her Jenkintown HS ('84, Blue) Junior Prom date- Steve Kremp- Leslie moved on from her career in advertising to join the Kremp family business. A proud mom of two grown children, when she's not helping brides to design the wedding flowers of their dreams, you'll find her in her kitchen maybe making pasta, maybe making soup, maybe making bread -- but always cooking with most likely Louis Prima radio as the soundtrack! </p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_i93PTA": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/KSQUARE.jpg",
+            "media_scale": 100,
+            "heading": "Charles Kremp",
+            "heading_link": "",
+            "text": "<p><strong>Chairman</strong></p><p>Charles  is 1 of 13 retail florist owners to be named to the <a href=\"https://safnow.org/about-saf/awards-certifications/hall-of-fame-2/\" title=\"https://safnow.org/about-saf/awards-certifications/hall-of-fame-2/\">Society of American Florists Floriculture Hall of Fame</a>.  He has also been named Pennsylvania Florist of the Year, Citizen of the Year by the local chamber of commerce and honored with many other notable industry awards.  He assists with long-term planning, finances and is a staple at our stand at the Philadelphia Flower Show each year.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_tFjTG4",
+        "column_TC3MqU",
+        "column_6W6qC9",
+        "column_kxjULU",
+        "column_UYf4ha",
+        "column_i93PTA"
+      ],
+      "settings": {
+        "title": "The Kremp Family",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "auto_adjust_column_size": false,
+        "column_size": "medium",
+        "column_align": "left",
+        "media_align": "text-center",
+        "image_ratio": "1",
+        "color_scheme": "none",
+        "apply_color_scheme_to_parent": false,
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "rich_text_EREXmU": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_y7XW7i": {
+          "type": "subheading",
+          "settings": {
+            "text": "Our Mission"
+          }
+        },
+        "heading_3cc9RB": {
+          "type": "heading",
+          "settings": {
+            "heading": "It is our mission to make everyone  involved in the experience of working with  Kremp Florist to “Feel Special.”",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_y7XW7i",
+        "heading_3cc9RB"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": false,
+        "hide_if_empty": false,
+        "color_scheme": "1",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_with_text_WxXCka": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_jcxGDt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Values & Vision",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_zB4R7W": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kremp Florist & Flower Delivery is a provider of floral, gift and home decor items utilizing all forms of marketing.  In all areas, only the highest standards of honesty and integrity are conveyed to assure the satisfaction of our customers, our florist partners and our co-workers.  We work to exceed expectations by offering simple and seamless ordering, timely delivery and beautiful products.  </p><p>Kremp Florist & Flower Delivery plans to grow in all areas including floral, weddings, events and gifts.  Improvements in technology will allow us to continue to offer the highest quality customer service.  We will also continue to explore and provide new product lines in gift, edible and non-floral items.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jcxGDt",
+        "text_zB4R7W"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/values_vision.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "media_with_text_wkaVWB": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_KbjjYB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our History",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_rX3Anw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For three generations, and over 60 years, we have been helping people in Philadelphia and the surrounding suburbs such as Abington, Doylestown, Jenkintown, Horsham, Hatboro, Southampton, Huntingdon Valley and many others, convey their very special feelings. Service, quality, and that something extra have given our company success. Our nearly 60 employees are committed to your satisfaction and all of our products are unconditionally guaranteed.</p><p>Kremp Florist & Flower Delivery prides itself on its versatility and complete commitment to pleasing every customer. From our talented wedding department to our experienced sympathy and funeral design department, we are a full service florist with talented designers who create arrangements to satisfy any taste. Whether it's a gift of roses for Valentine's Day, a traditional, exotic, natural/outdoorsy, romantic or artistic design, we will combine our products in a way that will exceed your expectations. We have an extensive gift line including balloons, silk and dried flowers, greeting cards, Sweet Shop truffles and chocolates, Willow Tree Figurines, Tea Forte teas, Gianna Rose soaps, Bath & body products, Webkinz, wine and gourmet food gifts, Northern Lights Candles, Woodwick Candle and an extensive line of unique gift baskets. Our website offerings are representative of what we can do for you, but our ability to create custom arrangements to any specifications means our selection is limitless.</p><p>Kremp Florist & Flower Delivery and owner Charles F Kremp 3rd were selected by the Society of American Florists to oversee the US Presidential inaugurations in 1989, 1993, 2001 and 2005.  Kremp Florist & Flower Delivery has been ranked a top 20 florist in the United States by multiple floral wire services and won the award for National Retail Florist of the Year, the highest honor in the floral industry.  Kremp Florist & Flower Delivery has been featured on ABC's television show the Goldbergs many times and was the selected florist for decorations and floral displays at the US Open at Merion Golf Club in 2013.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KbjjYB",
+        "text_rX3Anw"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/our_history.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "media_with_text_4GUmw7": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_TDrEWp": {
+          "type": "heading",
+          "settings": {
+            "heading": "As featured on ABC’s  The Goldbergs!",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_jrYFJE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Yes, we are the actual florist they referenced from the 80’s! Read more about our connection to the show and behind the scenes pictures.</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_d4HLMA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read More",
+            "button_link": "https://www.kremp.com/pages/the-goldbergs-and-kremp-florist",
+            "button_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TDrEWp",
+        "text_jrYFJE",
+        "button_d4HLMA"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/the_goldbergs.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "3",
+        "only_content_color_scheme": false
+      }
+    },
+    "video_HNNeWn": {
+      "type": "video",
+      "blocks": {
+        "heading_bYMYai": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose Kremp Florist",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_bYMYai"
+      ],
+      "settings": {
+        "video_external": "https://www.youtube.com/watch?v=dy1bo70QgFI",
+        "video_description": "",
+        "poster_image": "shopify://shop_images/why_choose_kremp_florist_cover.jpg",
+        "video_size": "md",
+        "video_autoplay": false,
+        "text_align": "text-center",
+        "color_scheme": "default"
+      }
+    },
+    "media_with_text_dJkhxh": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_WVRFwT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Main Location",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_8VCyKP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>220 Davisville Rd<br/>Willow Grove, PA 19090</p><p>Monday - Saturday 8am - 8pm<br/>Sunday 8am - 5pm</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_9TNrXA": {
+          "type": "button",
+          "settings": {
+            "button_label": "(215) 657-6700",
+            "button_link": "tel:12156576700",
+            "button_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WVRFwT",
+        "text_8VCyKP",
+        "button_9TNrXA"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/main_location.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "navigation_slideshow_e9gCjL",
+    "media_with_text_Bqz38r",
+    "logo_list_JtAqwL",
+    "media_with_text_6YWadG",
+    "video_tJQTVh",
+    "multi_column_R8Nq8b",
+    "rich_text_EREXmU",
+    "media_with_text_WxXCka",
+    "media_with_text_wkaVWB",
+    "media_with_text_4GUmw7",
+    "video_HNNeWn",
+    "media_with_text_dJkhxh"
+  ]
+}

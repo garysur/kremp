@@ -1,0 +1,2096 @@
+{%- liquid
+  assign rtl = false
+  assign rtl_iso_codes = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ','
+  assign current_code_first_part = localization.language.iso_code | split: '-' | first
+
+  if rtl_iso_codes contains current_code_first_part
+    assign rtl = true
+  endif
+
+  assign body_font_bold = settings.body_font | font_modify: 'weight', 'bolder'
+  assign body_font_italic = settings.body_font | font_modify: 'style', 'italic'
+  assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+
+  # constants
+  assign breakpoint_sm = 600
+  assign breakpoint_md = 769
+  assign gutter_sm = 20
+  assign gutter_md = 32
+  assign gutter_lg = 64
+-%}
+
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% if rtl %}rtl{% else %}ltr{% endif %}">
+  <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQ6NM2LV');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    {% if request.path contains '/pages/the-best-and-worst-states-to-be-a-mom' %}
+      <meta
+        property="og:image"
+        content="https://cdn.shopify.com/s/files/1/0612/6410/1454/files/best-states-for-moms-5_thumb_cb273ab8-1950-4e48-9999-7abf4512a998.jpg?v=1744200134"
+      >
+      <meta
+        property="og:image:secure_url"
+        content="https://cdn.shopify.com/s/files/1/0612/6410/1454/files/best-states-for-moms-5_thumb_cb273ab8-1950-4e48-9999-7abf4512a998.jpg?v=1744200134"
+      >
+    {% endif %}
+ {% if request.path contains '/pages/what-is-the-most-common-birthday-month-and-year-in-the-u-s'  %}
+
+     <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0612/6410/1454/files/most-common-birthday-month-year-state-6_thumb_de941057-e2c5-46c0-a200-d035c4fc54cc.jpg?v=1753157573" />
+    <meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/0612/6410/1454/files/most-common-birthday-month-year-state-6_thumb_de941057-e2c5-46c0-a200-d035c4fc54cc.jpg?v=1753157573" />
+{% endif %}
+{% if request.path contains '/pages/most-common-birthday-month-and-year-by-state'  %}
+
+     <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0612/6410/1454/files/most-common-birthday-month-year-state-6_thumb_de941057-e2c5-46c0-a200-d035c4fc54cc.jpg?v=1753157573" />
+    <meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/0612/6410/1454/files/most-common-birthday-month-year-state-6_thumb_de941057-e2c5-46c0-a200-d035c4fc54cc.jpg?v=1753157573" />
+{% endif %}
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        const $calendar = $('.flatpickr-calendar');
+        const $input = $('#flatpickrButton');
+
+        // if ($calendar.length && $input.length) {
+        //     const offset = $input.offset(); // Get position of input field
+
+        //     $calendar.css({
+        //         top: offset.top + $input.outerHeight(), // Position below the input
+        //         left: offset.left,
+        //         right: 'auto'
+        //     });
+        // }
+        //         flatpickr("#flatpickrButton", {
+        //     onOpen: function(selectedDates, dateStr, instance) {
+        //         setTimeout(function () {
+        //             const $calendar = $('.flatpickr-calendar.animate.open');
+        //             const $input = $('#flatpickrButton');
+
+        //             if ($calendar.length && $input.length) {
+        //                 const offset = $input.offset(); // Get position of input field
+        //                 const inputHeight = $input.outerHeight();
+
+        //                 console.log('Input offset top:', offset.top);
+        //                 console.log('Input offset left:', offset.left);
+
+        //                 $calendar.css({
+        //                     position: 'absolute', // Ensure it's not fixed
+        //                     top: offset.top + inputHeight,
+        //                     left: offset.left,
+        //                     right: 'auto'
+        //                 });
+        //             }
+        //         }, 10); // Small delay to ensure DOM is fully rendered
+        //     }
+        // });
+
+        $(document).on('click', 'button[name="checkout"][form="cart-drawer-form"]', function (e) {
+          e.preventDefault(); // stop form for now until we validate
+
+  const localDeliveryDate = localStorage.getItem('deliveryDate');
+
+  // If there's no date at all in localStorage
+  if (!localDeliveryDate) {
+    console.log('No delivery date in localStorage → redirecting to cart');
+    window.location.href = '/cart';
+    return;
+  }
+
+  // Convert localStorage date string into Date object for comparison
+  const parsedLocalDate = new Date(localDeliveryDate);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // normalize to start of the day
+
+  // Fetch the cart JSON to check cart's deliveryDate property
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+      const cartDeliveryDate = cart.attributes?.deliveryDate || '';
+	  console.log("localDeliveryDate",localDeliveryDate); 	
+	  console.log("cartDeliveryDate",cartDeliveryDate);
+	   console.log("parsedLocalDate",parsedLocalDate);
+	    console.log("today",today);
+      // Compare dates and attributes
+      if (
+        cartDeliveryDate !== localDeliveryDate || // mismatch
+        parsedLocalDate <= today // date is today or earlier
+      ) {
+        console.log('Delivery date mismatch or expired → redirecting to cart');
+        window.location.href = '/cart';
+      } else {
+        console.log('Delivery date valid → proceeding to checkout');
+        window.location.href = '/checkout';
+      }
+    })
+    .catch(err => {
+      console.error('Error fetching cart:', err);
+      window.location.href = '/cart';
+    });
+        });
+        $(document).on('click', 'cart-checkout-enabler [name="checkout"]', function (e) {
+          const deliveryDate = localStorage.getItem('deliveryDate');
+
+          if (!deliveryDate) {
+            e.preventDefault(); // Stop form submission
+            console.log('Redirecting to cart because no delivery date selected');
+            alert('Please Enter The Recipient Zip Code and Requested Delivery Date');
+          }
+        });
+        $('button.qty-input__btn.btn.btn--plus.no-js-hidden').on('click', function () {
+          var input = $('input.qty-input__input').val();
+          var max = $(this).attr('max');
+          if (input >= max) {
+            $('button.qty-input__btn.btn.btn--plus.no-js-hidden').addClass('disabled');
+          } else {
+            $('button.qty-input__btn.btn.btn--plus.no-js-hidden').removeClass('disabled');
+          }
+        });
+        $('button.qty-input__btn.btn.btn--minus.no-js-hidden').on('click', function () {
+          var input = $('input.qty-input__input').val();
+
+          var max = $(this).attr('max');
+          if (input >= max) {
+            $('button.qty-input__btn.btn.btn--plus.no-js-hidden').addClass('disabled');
+          } else {
+            $('button.qty-input__btn.btn.btn--plus.no-js-hidden').removeClass('disabled');
+          }
+        });
+      });
+    </script>
+    
+
+     <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const replacements = {
+    'â€œ': '“',
+    'â€': '”',
+    'â€™': '’',
+    'â€“': '–',
+    'â€”': '—'
+  };
+
+  function fixTextNodes(node) {
+    if (node.nodeType === 3) {
+      let text = node.nodeValue;
+      for (const [badChar, goodChar] of Object.entries(replacements)) {
+        text = text.replaceAll(badChar, goodChar);
+      }
+      node.nodeValue = text;
+    } else {
+      for (const child of node.childNodes) {
+        fixTextNodes(child);
+      }
+    }
+  }
+
+  function fixAll() {
+    fixTextNodes(document.body);
+  }
+
+  // Run once on load
+  fixAll();
+
+  // Run whenever new DOM nodes are added (for Shopify product content)
+  const observer = new MutationObserver(fixAll);
+  observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+
+
+
+    <script>
+      document.addEventListener('spicegemsAddon:initiated', function () {
+        window.sgAddon_money_format = true;
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {%- if template contains 'product' -%}
+      <script>
+        $(document).ready(function () {
+          $('#flatpickrButton').prop('disabled', true);
+          runZipClearScript();
+        });
+
+        function runZipClearScript() {
+          setTimeout(function () {
+            $('input#zipCodeInput').val('');
+            $('span.exinent').text('');
+            $('button.zip-n-cal__preview-action').click();
+            $('input#flatpickrButton').val('');
+            $('input[name="attributes[zipCode]"]').val('');
+            $('input[name="attributes[deliveryDate]"]').val('');
+            $('span#selectedCalendarDate').text('');
+            $('span#selectedCalendarDate').val('');
+            $('button#addToCart').addClass('disabled');
+            $('button#addToCart').prop('disabled', true); // disable the button
+          }, 1000);
+        }
+      </script>
+    {% endif %}
+
+    {%- if template contains 'cart' -%}
+      <script>
+        $(document).ready(function () {
+          const continuebtn = $('#continuebtn');
+          continuebtn.on('click', function () {
+            $('#flatpickrButton').prop('disabled', false);
+            flatpickrVals = $('#flatpickrButton').val().trim();
+            if (flatpickrVals == '') {
+              setTimeout(function () {
+                const allDays = document.querySelectorAll('.flatpickr-day');
+                const firstEnabledDay = document.querySelector('.flatpickr-day:not(.flatpickr-disabled)');
+
+                if (firstEnabledDay) {
+                  // Remove 'selected' from all days
+                  allDays.forEach((day) => day.classList.remove('selected'));
+
+                  // Add 'selected' class to the first enabled day
+                  firstEnabledDay.classList.add('selected');
+
+                  // Simulate click to trigger Flatpickr's internal logic
+                  firstEnabledDay.click();
+                }
+              }, 500);
+            }
+          });
+        });
+      </script>
+    {% endif %}
+    <script>
+      $(document).ready(function () {
+        // Initially disable the date picker and Add to Cart button
+        const addToCartBtns = $('button#addToCart');
+        addToCartBtns.addClass('disabled').prop('disabled', true);
+
+        const guamZips = [
+          '96910',
+          '96912',
+          '96913',
+          '96914',
+          '96915',
+          '96916',
+          '96917',
+          '96918',
+          '96919',
+          '96921',
+          '96922',
+          '96923',
+          '96925',
+          '96926',
+          '96927',
+          '96928',
+          '96929',
+          '96930',
+          '96931',
+          '96932',
+        ];
+
+        const shipType = '{{ product.metafields.custom.shipping_type }}';
+        const tags = "{{ product.tags }}";
+        // ZIP input change listener
+        $('#zipCodeInput').on('input blur', function () {
+          let gaumallow = false;
+          const zip = $(this).val().trim();
+          const flatpickrVal = $('#flatpickrButton').val().trim();
+          if (guamZips.includes(zip)) {
+            gaumallow = true;
+          }
+          if (tags.includes('Available to Guam')) {
+            gaumallow = false;
+          }
+          if (zip.length >= 5) {
+            console.log(12654);
+            $('cart-checkout-enabler.mt-6 button.btn.btn--primary.btn--icon-with-text.w-full').prop('disabled', false);
+            if (gaumallow && shipType === 'Non-Direct Ship') {
+              $('div#selectedDeliveryDateDisplay button.zip-n-cal__preview-action').click();
+              console.log(1);
+              console.log('Non-Direct Ship not available for Guam ZIP codes');
+              $('input[name="attributes[deliveryDate]"]').val('');
+              $('span#selectedCalendarDate').text('');
+              $('span#selectedCalendarDate').val('');
+              $('input#flatpickrButton').val('');
+              $('#flatpickrButton').prop('disabled', true).val('');
+              $('input[name="attributes[deliveryDate]"]').val('');
+              $('#flatpickrButton').val('');
+              $('span#selectedCalendarDate').text('').val('');
+              $('#continuebtn').prop('disabled', true);
+              $('button#addToCart').addClass('disabled');
+              $('button#addToCart').prop('disabled', true);
+              $('#flatpickrButton').prop('disabled', true);
+            } else {
+              console.log(2);
+              console.log(flatpickrVal);
+              $('#continuebtn').prop('disabled', false);
+              $('.wfl__zip-n-cal-cart-container #continuebtn').trigger('click');
+              $('#flatpickrButton').prop('disabled', true);
+              $('button#addToCart').removeClass('disabled');
+              $('button.btn.btn--primary.w-full.spice-submit-button').removeClass('disabled');
+              $('button#addToCart').prop('disabled', false);
+              if (flatpickrVal.length) {
+                console.log(21);
+                addToCartBtns.removeClass('disabled').prop('disabled', false);
+                $('#flatpickrButton').prop('disabled', false);
+              } else {
+                console.log(22);
+                addToCartBtns.addClass('disabled').prop('disabled', true);
+              }
+            }
+          } else {
+            $('cart-checkout-enabler.mt-6 button.btn.btn--primary.btn--icon-with-text.w-full').prop('disabled', true);
+            console.log(22);
+            $('#flatpickrButton').prop('disabled', true);
+            addToCartBtns.addClass('disabled').prop('disabled', true);
+          }
+        });
+        // Delivery date field blur
+        // $('#flatpickrButton').on('blur', function () {
+        //   const flatpickrVal = $(this).val().trim();
+
+        //   if (flatpickrVal.length) {
+        //     addToCartBtns.removeClass('disabled').prop('disabled', false);
+        //     //$('#continuebtn').trigger('click');
+        //   } else {
+        //     addToCartBtns.addClass('disabled').prop('disabled', true);
+        //   }
+        // });
+
+        function checkFlatpickrValue() {
+          // Only run on desktop
+
+          const flatpickrVal = $('#flatpickrButton').val().trim();
+          const isZipBlocked = checkZipCodeWarning();
+
+          if (flatpickrVal.length && !isZipBlocked) {
+            addToCartBtns.removeClass('disabled').prop('disabled', false);
+            // $('#continuebtn').trigger('click');
+          } else {
+            addToCartBtns.addClass('disabled').prop('disabled', true);
+          }
+        }
+        function checkFlatpickrValues() {
+          // Only run on desktop
+
+          const flatpickrVal = $('#flatpickrButton').val().trim();
+          const isZipBlocked = checkZipCodeWarning();
+
+          if (flatpickrVal.length) {
+            addToCartBtns.removeClass('disabled').prop('disabled', false);
+            // $('#continuebtn').trigger('click');
+          } else {
+            addToCartBtns.addClass('disabled').prop('disabled', true);
+          }
+        }
+        // Bind both blur and change events
+        $('#flatpickrButton').on('blur change', function () {
+          checkFlatpickrValue();
+          checkFlatpickrValues();
+        });
+
+        // Add to Cart click triggers continue
+        addToCartBtns.on('click', function () {
+          $('#continuebtn').trigger('click');
+        });
+      });
+
+      // Global click handler for validation alert
+      document.addEventListener(
+        'click',
+        function (e) {
+          if (e.target.closest('button.btn.btn--primary.w-full.disabled')) {
+            const zip = $('#zipCodeInput').val().trim();
+            const flatpickrVal = $('#flatpickrButton').val().trim();
+
+            if (zip === '' && flatpickrVal === '') {
+              alert('Please enter the recipient zip code and request a delivery date before adding to cart');
+            } else if (zip === '') {
+              alert('Please enter the recipient zip code before adding to cart');
+            } else if (flatpickrVal === '') {
+              alert('Please request a delivery date before adding to cart');
+            }
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+          }
+        },
+        true
+      ); // useCapture = true to catch the event early
+    </script>
+
+    <style>
+.custom-banner {
+background-color: #ded2f7; 
+text-align: center;
+position: relative;
+    z-index: 30;
+}
+.custom-banner p {
+    margin: 0;
+}
+    </style>
+    {%- unless template contains 'product' -%}
+      <script src="overrides.js"></script>
+    {% endunless %}
+
+    
+
+    <script
+      type="text/javascript"
+      src="https:cdn.rlets.com/capture_configs/aef/91c/b0a/02b461b86d75d756be89f82.js" async="async">
+    </script>
+
+    {%- render 'doc-head-core' -%}
+    {%- render 'doc-head-social' -%}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="preload" href="{{ 'main.css' | asset_url }}" as="style">
+{% comment %}
+{% assign noindex_tags = 'flowers,holidays,valentines-day,wedding-flowers,plants,diy,gardening,special-occasions,backyard,bouquet,business-flowers-plants,butterflies,food,gifts,guides,infographics,prom,public-gardens,romance'
+      | split: ','
+    %}
+
+    {% for tag in noindex_tags %}
+      {% if request.path contains '/blogs/the-kremp-florist-blog/tagged/' and request.path contains tag %}
+        <meta name="robots" content="noindex, nofollow">
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    
+    {% if template == 'collection' and collection.metafields.seo.hidden == 1 %}
+      <meta name="robots" content="noindex">
+    {% endif %}
+{% endcomment %}
+{% assign noindex_tags = 'flowers,holidays,valentines-day,wedding-flowers,plants,diy,gardening,special-occasions,backyard,bouquet,business-flowers-plants,butterflies,food,gifts,guides,infographics,prom,public-gardens,romance' | split: ',' %}
+ 
+{% assign should_noindex = false %}
+ 
+{% if template == 'collection' and collection.metafields.seo.hidden == 1 %}
+  {% assign should_noindex = true %}
+{% endif %}
+ 
+{% if request.path contains '/blogs/the-kremp-florist-blog/tagged/' %}
+  {% for tag in noindex_tags %}
+    {% if request.path contains tag %}
+      {% assign should_noindex = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+ 
+{% if should_noindex %}
+<meta name="robots" content="noindex, nofollow">
+{% else %}
+<meta name="robots" content="index, follow">
+{% endif %}
+    
+    {%- style %}
+      {{- settings.body_font | font_face: font_display: 'swap' -}}
+      {{- body_font_bold | font_face: font_display: 'swap' -}}
+      {{- body_font_italic | font_face: font_display: 'swap' -}}
+      {{- body_font_bold_italic | font_face: font_display: 'swap' -}}
+      {{- settings.heading_font | font_face: font_display: 'swap' -}}
+      {{- settings.navigation_font | font_face: font_display: 'swap' -}}
+
+      :root {
+        --bg-color: {{ settings.bg_color.rgba }};
+        --bg-color-og: {{ settings.bg_color.rgba }};
+        --heading-color: {{ settings.heading_color.rgb }};
+        --text-color: {{ settings.text_color.rgb }};
+        --text-color-og: {{ settings.text_color.rgb }};
+        --scrollbar-color: {{ settings.text_color.rgb }};
+        --link-color: {{ settings.link_color.rgb }};
+        --link-color-og: {{ settings.link_color.rgb }};
+        --star-color: {{ settings.star_color.rgb }};
+
+        {%- if settings.swatch_option_name != blank -%}
+          {%- liquid
+            assign swatch_border_color_default = settings.text_color | color_mix: settings.bg_color, 20
+            assign swatch_border_color_active = settings.text_color | color_mix: settings.bg_color, 50
+          -%}
+          --swatch-border-color-default: {{ swatch_border_color_default.rgb }};
+          --swatch-border-color-active: {{ swatch_border_color_active.rgb }};
+          --swatch-card-size: {{ settings.card_swatch_size }}px;
+          --swatch-variant-picker-size: {{ settings.variant_picker_swatch_size }}px;
+        {%- endif -%}
+
+        {%- assign color_scheme_1_btn_bg_hover = settings.color_scheme_1_btn_bg | color_mix: settings.color_scheme_1_btn_text, 85 | color_lighten: 3 -%}
+        --color-scheme-1-bg: {{ settings.color_scheme_1_bg.rgba }};
+        --color-scheme-1-grad: {{ settings.color_scheme_1_bg_grad }};
+        --color-scheme-1-heading: {{ settings.color_scheme_1_heading.rgb }};
+        --color-scheme-1-text: {{ settings.color_scheme_1_text.rgb }};
+        --color-scheme-1-btn-bg: {{ settings.color_scheme_1_btn_bg.rgb }};
+        --color-scheme-1-btn-text: {{ settings.color_scheme_1_btn_text.rgb }};
+        --color-scheme-1-btn-bg-hover: {{ color_scheme_1_btn_bg_hover.rgb }};
+
+        {%- assign color_scheme_2_btn_bg_hover = settings.color_scheme_2_btn_bg | color_mix: settings.color_scheme_2_btn_text, 85 | color_lighten: 3 -%}
+        --color-scheme-2-bg: {{ settings.color_scheme_2_bg.rgba }};
+        --color-scheme-2-grad: {{ settings.color_scheme_2_bg_grad }};
+        --color-scheme-2-heading: {{ settings.color_scheme_2_heading.rgb }};
+        --color-scheme-2-text: {{ settings.color_scheme_2_text.rgb }};
+        --color-scheme-2-btn-bg: {{ settings.color_scheme_2_btn_bg.rgb }};
+        --color-scheme-2-btn-text: {{ settings.color_scheme_2_btn_text.rgb }};
+        --color-scheme-2-btn-bg-hover: {{ color_scheme_2_btn_bg_hover.rgb }};
+
+        {%- assign color_scheme_3_btn_bg_hover = settings.color_scheme_3_btn_bg | color_mix: settings.color_scheme_3_btn_text, 85 | color_lighten: 3 -%}
+        --color-scheme-3-bg: {{ settings.color_scheme_3_bg.rgba }};
+        --color-scheme-3-grad: {{ settings.color_scheme_3_bg_grad }};
+        --color-scheme-3-heading: {{ settings.color_scheme_3_heading.rgb }};
+        --color-scheme-3-text: {{ settings.color_scheme_3_text.rgb }};
+        --color-scheme-3-btn-bg: {{ settings.color_scheme_3_btn_bg.rgb }};
+        --color-scheme-3-btn-text: {{ settings.color_scheme_3_btn_text.rgb }};
+        --color-scheme-3-btn-bg-hover: {{ color_scheme_3_btn_bg_hover.rgb }};
+
+        --drawer-bg-color: {{ settings.drawer_bg_color.rgba }};
+        --drawer-text-color: {{ settings.drawer_text_color.rgb }};
+
+        --panel-bg-color: {{ settings.panel_bg_color.rgba }};
+        --panel-heading-color: {{ settings.panel_heading_color.rgb }};
+        --panel-text-color: {{ settings.panel_text_color.rgb }};
+
+        --in-stock-text-color: {{ settings.in_stock_text_color.rgb }};
+        --low-stock-text-color: {{ settings.low_stock_text_color.rgb }};
+        --very-low-stock-text-color: {{ settings.very_low_stock_text_color.rgb }};
+        --no-stock-text-color: {{ settings.no_stock_text_color.rgb }};
+        --no-stock-backordered-text-color: {{ settings.no_stock_backordered_text_color.rgb }};
+
+        --error-bg-color: {{ settings.error_bg_color.rgb }};
+        --error-text-color: {{ settings.error_text_color.rgb }};
+        --success-bg-color: {{ settings.success_bg_color.rgb }};
+        --success-text-color: {{ settings.success_text_color.rgb }};
+        --info-bg-color: {{ settings.info_bg_color.rgb }};
+        --info-text-color: {{ settings.info_text_color.rgb }};
+
+
+        --heading-font-family: "Cormorant Upright", {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
+        --heading-font-style: {{ settings.heading_font.style }};
+        --heading-font-weight: {{ settings.heading_font.weight }};
+        --heading-scale-start: {{ settings.heading_scale_start }};
+
+        --navigation-font-family: {{ settings.navigation_font.family }}, {{ settings.navigation_font.fallback_families }};
+        --navigation-font-style: {{ settings.navigation_font.style }};
+        --navigation-font-weight: {{ settings.navigation_font.weight }};
+        {%- if settings.heading_uppercase %}
+        --heading-text-transform: uppercase;
+        {%- else -%}
+        --heading-text-transform: none;
+        {%- endif %}
+        {%- if settings.subheading_uppercase %}
+        --subheading-text-transform: uppercase;
+        {%- else -%}
+        --subheading-text-transform: none;
+        {%- endif %}
+        --body-font-family: {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};
+        --body-font-style: {{ settings.body_font.style }};
+        --body-font-weight: {{ settings.body_font.weight }};
+        --body-font-size: {{ settings.body_font_size }};
+
+        --section-gap: {{ settings.section_gap }};
+        --heading-gap: calc(8 * var(--space-unit));
+        {%- if settings.section_gap == '32' -%}
+          --heading-gap: calc(6 * var(--space-unit));
+        {%- endif -%}
+        --grid-column-gap: 20px;
+
+        {%- assign button_bg_color_hover = settings.button_bg_color | color_mix: settings.button_text_color, 85 | color_lighten: 3 -%}
+        --btn-bg-color: {{ settings.button_bg_color.rgb }};
+        --btn-bg-hover-color: {{ button_bg_color_hover.rgb }};
+        --btn-text-color: {{ settings.button_text_color.rgb }};
+        --btn-bg-color-og: {{ settings.button_bg_color.rgb }};
+        --btn-text-color-og: {{ settings.button_text_color.rgb }};
+        --btn-alt-bg-color: {{ settings.button_alt_bg_color.rgb }};
+        --btn-alt-bg-alpha: {{ settings.button_alt_bg_color.alpha }};
+        --btn-alt-text-color: {{ settings.button_alt_text_color.rgb }};
+        --btn-border-width: {{ settings.input_button_border_width }}px;
+        --btn-padding-y: 12px;
+
+        {% if settings.input_button_border_radius > 1 %}
+        --btn-border-radius: {{ settings.input_button_border_radius | plus: settings.input_button_border_width }}px;
+        {% endif %}
+
+        --btn-lg-border-radius: 50%;
+        --btn-icon-border-radius: 50%;
+        --input-with-btn-inner-radius: var(--btn-border-radius);
+
+        {%- if settings.button_text_uppercase %}
+        --btn-text-transform: uppercase;
+        {%- endif %}
+
+        --input-bg-color: {{ settings.bg_color.rgba }};
+        --input-text-color: {{ settings.text_color.rgb }};
+        --input-border-width: {{ settings.input_button_border_width }}px;
+        --input-border-radius: {{ settings.input_button_border_radius }}px;
+        --textarea-border-radius: {{ settings.input_button_border_radius | plus: 0 | at_most: 12 }}px;
+
+        {%- if settings.input_button_border_radius > 1 %}
+        --input-border-radius: {{ settings.input_button_border_radius | plus: settings.input_button_border_width }}px;
+        {%- endif -%}
+
+        {%- if settings.input_button_border_radius == 26 %}
+        --input-lg-border-radius: {{ settings.input_button_border_radius | plus: settings.input_button_border_width | plus: 6 }}px;
+        {%- endif -%}
+
+        {%- assign input_color_brightness = settings.bg_color | color_brightness -%}
+        {%- if input_color_brightness > 128 %}
+        --input-bg-color-diff-3: {{ settings.bg_color | color_darken: 3 }};
+        --input-bg-color-diff-6: {{ settings.bg_color | color_darken: 6 }};
+        {%- else -%}
+        --input-bg-color-diff-3: {{ settings.bg_color | color_lighten: 3 }};
+        --input-bg-color-diff-6: {{ settings.bg_color | color_lighten: 6 }};
+        {%- endif %}
+
+        --modal-border-radius: {{ settings.drawer_border_radius }}px;
+        --modal-overlay-color: 0 0 0;
+        --modal-overlay-opacity: 0.4;
+        --drawer-border-radius: {{ settings.drawer_border_radius }}px;
+        --overlay-border-radius: {{ settings.overlay_border_radius }}px;
+
+        {%- if settings.show_custom_label -%}
+        --custom-label-bg-color: {{ settings.custom_label_bg_color.rgb }};
+        --custom-label-text-color: {{ settings.custom_label_text_color.rgb }};
+        {%- endif -%}
+        {%- if settings.show_sale_label -%}
+        --sale-label-bg-color: {{ settings.sale_label_bg_color.rgb }};
+        --sale-label-text-color: {{ settings.sale_label_text_color.rgb }};
+        {%- endif -%}
+        {%- if settings.show_sold_out_label -%}
+        --sold-out-label-bg-color: {{ settings.sold_out_label_bg_color.rgb }};
+        --sold-out-label-text-color: {{ settings.sold_out_label_text_color.rgb }};
+        {%- endif -%}
+        {%- if settings.show_new_label -%}
+        --new-label-bg-color: {{ settings.new_label_bg_color.rgb }};
+        --new-label-text-color: {{ settings.new_label_text_color.rgb }};
+        {%- endif -%}
+
+        --preorder-label-bg-color: {{ settings.preorder_label_bg_color.rgb }};
+        --preorder-label-text-color: {{ settings.preorder_label_text_color.rgb }};
+
+        --page-width: {{ settings.max_page_width | default: 1320 }}px;
+        --gutter-sm: {{ gutter_sm }}px;
+        --gutter-md: {{ gutter_md }}px;
+        --gutter-lg: {{ gutter_lg }}px;
+
+        --payment-terms-bg-color: {{ settings.bg_color }};
+
+        --coll-card-bg-color: {{ settings.coll_bg_color }};
+        --coll-card-border-color: {{ settings.coll_border_color }};
+
+        {%- if settings.card_contain -%}
+        --card-bg-color: {{ settings.card_bg_color }};
+        --card-text-color: {{ settings.card_text_color.rgb }};
+        --card-border-color: {{ settings.card_border_color }};
+        {%- endif -%}
+
+        {%- if settings.blend_product_images or settings.blend_collection_images -%}
+          --blend-bg-color: {{ settings.blend_bg_color }};
+        {%- endif -%}
+
+        {% if settings.animations_enabled != "disabled" %}
+          {% if settings.animation_speed == "fast" %}
+            --aos-animate-duration: 0.6s;
+          {% elsif settings.animation_speed == "medium" %}
+            --aos-animate-duration: 1s;
+          {% elsif settings.animation_speed == "slow" %}
+            --aos-animate-duration: 1.2s;
+          {% endif %}
+
+          {% if settings.animations_enabled == "desktop" %}
+            --aos-min-width: {{ breakpoint_sm }};
+          {% else %}
+            --aos-min-width: 0;
+          {% endif %}
+        {% endif %}
+
+        --reading-width: 48em;
+      }
+
+      @media (max-width: {{ breakpoint_md }}px) {
+        :root {
+          --reading-width: 36em;
+        }
+      }
+    {%- endstyle %}
+
+    <link rel="stylesheet" href="{{ 'simple-notify.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'overrides.css' | asset_url }}">
+    <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
+
+    {%- unless settings.body_font.system? -%}
+      <link
+        rel="preload"
+        href="{{ settings.body_font | font_url }}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+        fetchpriority="high"
+      >
+    {%- endunless -%}
+
+    {%- unless settings.heading_font.system? -%}
+      <link
+        rel="preload"
+        href="{{ settings.heading_font | font_url }}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+        fetchpriority="high"
+      >
+    {%- endunless -%}
+
+    {%- if request.page_type contains 'customers' -%}
+      <link rel="stylesheet" href="{{ 'customer.css' | asset_url }}">
+    {%- endif -%}
+
+    {%- if template.suffix == 'new-town-pages' -%}
+      <link rel="stylesheet" href="{{ 'new-town-pages.css' | asset_url }}">
+    {%- endif -%}
+
+    {%- if settings.swatch_colors != blank -%}
+      <link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}"></noscript>
+    {%- endif -%}
+
+    {{ content_for_header }}
+
+    {%- if request.design_mode -%}
+      <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.show_blur_messages -%}
+      <script src="{{ 'blur-messages.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {% if settings.animations_enabled != 'disabled' %}
+      <script src="{{ 'animate-on-scroll.js' | asset_url }}" defer="defer"></script>
+      <link rel="stylesheet" href="{{ 'animate-on-scroll.css' | asset_url }}">
+    {% endif %}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    {%- if settings.custom_html_head -%}
+      <!-- CC Custom Head Start -->
+      {{- settings.custom_html_head -}}
+      <!-- CC Custom Head End -->
+    {%- endif -%}
+
+    {% if request.path == '/collections/fresh-flower-prom-corsages/products/sweetheart-rose-corsage' %}
+      <script>
+        window.location.href = '/products/spray-rose-corsage';
+      </script>
+    {% endif %}
+    {% if request.path == '/products/sweetheart-rose-corsage' %}
+      <script>
+        window.location.href = '/products/spray-rose-corsage';
+      </script>
+    {% endif %}
+    <style>
+      .filter__label[data-swatch='assorted']:before {
+        background-image: url('https://cdn.shopify.com/s/files/1/0612/6410/1454/files/assorted-colors_f62efbce-264c-46ea-b02b-b5beb4bd3745.jpg?v=1742656527');
+      }
+    </style>
+    <script type="text/javascript" src="//cdn.rlets.com/capture_configs/aef/91c/b0a/02b461b86d75d756be89f82.js" async="async"></script>
+  </head>
+
+  <body
+    {% if settings.animations_enabled != 'disabled' %}
+      class="cc-animate-enabled {{ template }}"
+    {% endif %}
+  >
+ {% comment %} {% if template contains 'page' and page.metafields.custom.announcement_message %}
+  {% assign bg_image = page.metafields.custom.banner_image %}
+  <div class="custom-banner" style="background-image: url('{{ bg_image | image_url: width: 1600 }}');">
+    <div class="banner-overlay">
+  
+    {{ page.metafields.custom.announcement_message | metafield_tag  }}
+  </div>
+  </div>
+{% endif %}
+{% endcomment %}
+    <a class="skip-link btn btn--primary visually-hidden" href="#main-content" data-ce-role="skip">
+      {{- 'accessibility.skip_to_content' | t -}}
+    </a>
+
+    {%- sections 'header-group' -%}
+
+    <main id="main-content">
+      {%- liquid
+        assign show_breadcrumbs = false
+        if settings.show_breadcrumbs_product and request.page_type == 'product'
+          assign show_breadcrumbs = false
+        elsif settings.show_breadcrumbs_collection and request.page_type == 'collection'
+          assign show_breadcrumbs = true
+        elsif settings.show_breadcrumbs_collection_list and request.page_type == 'list-collections'
+          assign show_breadcrumbs = true
+        elsif settings.show_breadcrumbs_article and request.page_type == 'article'
+          assign show_breadcrumbs = true
+        elsif settings.show_breadcrumbs_blog and request.page_type == 'blog'
+          assign show_breadcrumbs = true
+        endif
+      -%}
+      {%- if show_breadcrumbs -%}
+        <div class="container{% if request.page_type == 'product' %} product-breadcrumbs{% endif %}">
+          {%- liquid
+            assign show_rss_link = false
+            if template.name == 'blog'
+              assign show_rss_link = settings.show_breadcrumbs_blog_rss
+            endif
+          -%}
+          {% render 'breadcrumbs', show_rss_link: show_rss_link %}
+        </div>
+      {%- endif -%}
+
+      {{ content_for_layout }}
+    </main>
+
+    {%- sections 'overlay-group' -%}
+    {%- sections 'footer-group' -%}
+
+    {%- liquid
+      if request.page_type == 'collection' or request.page_type == 'search'
+        if settings.enable_compare
+          echo 'compare-toggle.css' | asset_url | stylesheet_tag
+          render 'product-compare'
+        endif
+      endif
+
+      if settings.enable_quick_add
+        render 'quick-add-drawer'
+      endif
+    -%}
+
+    <div class="overlay fixed top-0 right-0 bottom-0 left-0 js-overlay"></div>
+    <script>
+      window.theme = {
+        info: {
+          name: 'Enterprise',
+          version: '1.5.2'
+        },
+        mediaQueries: {
+          sm: '(min-width: 600px)',
+          md: '(min-width: 769px)',
+          lg: '(min-width: 1024px)',
+          xl: '(min-width: 1280px)',
+          xxl: '(min-width: 1536px)',
+          portrait: '(orientation: portrait)'
+        },
+        device: {
+          hasTouch: window.matchMedia('(any-pointer: coarse)').matches,
+          hasHover: window.matchMedia('(hover: hover)').matches
+        },
+        routes: {
+          cart: '{{ routes.cart_url }}',
+          cartAdd: '{{ routes.cart_add_url }}',
+          cartChange: '{{ routes.cart_change_url }}',
+          cartUpdate: '{{ routes.cart_update_url }}',
+          predictiveSearch: '{{ routes.predictive_search_url }}'
+        },
+        settings: {
+          moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+          pSearchLimit: {{ settings.predictive_search_limit | json }},
+          pSearchLimitScope: 'each',
+          pSearchIncludeSkus: {{ settings.predictive_search_include_skus | json }},
+          pSearchIncludeTags: {{ settings.predictive_search_include_tags | json }},
+          sliderItemsPerNav: '{{ settings.slider_items_per_nav }}',
+          {% if settings.show_blur_messages %}
+            blurMessage1: {{ settings.blur_message_1 | json }},
+            blurMessage2: {{ settings.blur_message_2 | json }},
+            blurMessageDelay: {{ settings.blur_message_delay }},
+          {% endif %}
+          vibrateOnATC: {{ settings.vibrate_on_atc | json }},
+          compareToggle: {{ settings.compare_toggle | json }},
+          compareShowEmptyMetafields: {{ settings.compare_show_empty_metafields | json }},
+          blendProductImages: {{ settings.blend_product_images | json }},
+          externalLinksNewTab: {{ settings.external_links_new_tab | json }},
+          afterAtc: {{ settings.after_add_to_cart | json }},
+          cartType: {{ settings.cart_type | json }}
+        },
+        strings: {
+          addCartNote: '{{ "cart.note.add" | t }}',
+          editCartNote: '{{ "cart.note.edit" | t }}',
+          cartError: '{{ "cart.general.error" | t }}',
+          cartQtyError: '{{ "cart.items.quantity_error" | t: quantity: "[quantity]" }}',
+          cartTermsConfirmation: '{{ "cart.terms.confirmation" | t }}',
+          imageAvailable: '{{ "products.product.media.image_available" | t: index: "[index]" }}',
+          veryLowStock: '{{ 'products.inventory.very_low_stock' | t }}',
+          lowStock: '{{ 'products.inventory.low_stock' | t }}',
+          inStock: '{{ 'products.inventory.in_stock' | t }}',
+          noStock: '{{ "products.variant.no_stock" | t }}',
+          noVariant: '{{ "products.variant.non_existent" | t }}',
+          onlyXLeft: '{{ "products.inventory.only_x_left" | t: quantity: "[quantity]" }}',
+          awaitingSale: '{{ "products.product.awaiting_sale" | t }}',
+          shippingCalculator: {
+            singleRate: '{{ "cart.shipping_calculator.single_rate" | t }}',
+            multipleRates: '{{ "cart.shipping_calculator.multiple_rates" | t }}',
+            noRates: '{{ "cart.shipping_calculator.no_rates" | t }}'
+          },
+          viewDetails: '{{ "products.product.view_details" | t }}',
+          compare: {
+            limit: '{{ 'products.compare.drawer.limit_reached' | t: quantity: '[quantity]' }}',
+            more: '{{ 'products.compare.drawer.select_more' | t }}',
+            empty: '{{ 'products.compare.drawer.empty' | t }}',
+            continue: '{{ 'products.compare.drawer.close_continue' | t }}'
+          },
+          discountCopyFail: '{{ 'general.discount_code.copy_fail' | t }}',
+          articleReadTime: '{{ 'blogs.article.reading_time' | t }}',
+          quickNav: {
+            button_standard: '{{ 'general.quick_navigation_panel.button_label' | t }}',
+            show_products_none: '{{ 'general.quick_navigation_panel.show_products_none' | t }}',
+            button_one: '{{ 'general.quick_navigation_panel.show_products_one' | t: quantity: '[quantity]' }}',
+            button_other: '{{ 'general.quick_navigation_panel.show_products_other' | t: quantity: '[quantity]' }}',
+          },
+        },
+        scripts: {
+          cartItems: '{{ "cart-items.js" | asset_url }}',
+          countryProvinceSelector: '{{ "country-province-selector.js" | asset_url }}',
+          shippingCalculator: '{{ "shipping-calculator.js" | asset_url }}'
+        }
+      };
+
+      // Save product ID to localStorage, for use in the 'Recently viewed products' section.
+      {%- if request.page_type == 'product' %}
+        try {
+          const items = JSON.parse(localStorage.getItem('cc-recently-viewed') || '[]');
+
+          // If product ID is not already in the recently viewed list, add it to the beginning.
+          if (!items.includes({{ product.id | json }})) {
+            items.unshift({{ product.id | json }});
+          }
+
+          // Set recently viewed list and limit to 12 products.
+          localStorage.setItem('cc-recently-viewed', JSON.stringify(items.slice(0, 12)));
+        } catch (e) {}
+      {%- endif %}
+    </script>
+
+    {%- if request.design_mode == false and settings.preload_links -%}
+      <script src="{{ 'instant-page.js' | asset_url }}" type="module" defer="defer"></script>
+    {%- endif -%}
+    {%- render 'wfl_zip_processor' -%}
+
+    <script src="{{ 'simple-notify.min.js' | asset_url }}" type="module" defer="defer"></script>
+    <script>
+      window.localZipCodes = [
+        '19090',
+        '19001',
+        '19046',
+        '19025',
+        '19031',
+        '19038',
+        '19075',
+        '19095',
+        '19012',
+        '19027',
+        '19117',
+        '19126',
+        '19006',
+        '19009',
+        '18974',
+        '18991',
+        '19040',
+        '19044',
+        '18901',
+        '18902',
+        '18912',
+        '18914',
+        '18916',
+        '18925',
+        '18928',
+        '18929',
+        '18931',
+        '18934',
+        '18938',
+        '18976',
+        '19002',
+        '19034',
+        '18936',
+        '19436',
+        '19437',
+        '19446',
+        '19454',
+        '19477',
+        '19486',
+        '19490',
+        '18915',
+        '18917',
+        '18927',
+        '18932',
+        '18944',
+        '18960',
+        '18962',
+        '18964',
+        '18969',
+        '19438',
+        '19440',
+        '19443',
+        '18966',
+        '18940',
+        '18943',
+        '18946',
+        '18947',
+        '18954',
+        '18977',
+        '18980',
+        '19067',
+        '19047',
+        '19053',
+        '19054',
+        '19055',
+        '19056',
+        '19057',
+        '19007',
+        '19020',
+        '19021',
+        '19030',
+        '19114',
+        '19115',
+        '19116',
+        '19154',
+        '19111',
+        '19124',
+        '19134',
+        '19135',
+        '19136',
+        '19137',
+        '19149',
+        '19152',
+        '19120',
+        '19134',
+        '19140',
+        '19141',
+        '19118',
+        '19127',
+        '19128',
+        '19119',
+        '19129',
+        '19138',
+        '19144',
+        '19150',
+        '19121',
+        '19122',
+        '19123',
+        '19125',
+        '19130',
+        '19132',
+        '19133',
+        '19101',
+        '19102',
+        '19103',
+        '19106',
+        '19107',
+        '19108',
+        '19109',
+        '19110',
+        '19181',
+        '19191',
+        '19192',
+        '19193',
+        '19194',
+        '19195',
+        '19196',
+        '19197',
+        '19104',
+        '19139',
+        '19143',
+        '19112',
+        '19113',
+        '19142',
+        '19145',
+        '19146',
+        '19147',
+        '19148',
+        '19153',
+        '19003',
+        '19004',
+        '19008',
+        '19026',
+        '19035',
+        '19041',
+        '19066',
+        '19072',
+        '19083',
+        '19096',
+        '19131',
+        '19151',
+        '19010',
+        '19085',
+        '19087',
+        '19301',
+        '19312',
+        '19333',
+        '19355',
+        '19018',
+        '19023',
+        '19029',
+        '19032',
+        '19033',
+        '19036',
+        '19043',
+        '19050',
+        '19063',
+        '19064',
+        '19070',
+        '19073',
+        '19074',
+        '19076',
+        '19078',
+        '19079',
+        '19081',
+        '19082',
+        '19086',
+        '19094',
+        '19401',
+        '19403',
+        '19405',
+        '19406',
+        '19408',
+        '19422',
+        '19424',
+        '19428',
+        '19432',
+        '19444',
+        '19453',
+        '19456',
+        '19460',
+        '19462',
+        '19473',
+      ];
+
+
+      window.pageTemplate = '{{ template.name }}';
+
+      // Global zip code rules
+      // This is every zip code rule in the store, regardless of the product or collection
+      window.globalZipCodeRules = [
+        {% paginate shop.metaobjects["zipcode_rule"].values by 150 %}
+          {% for rule in shop.metaobjects["zipcode_rule"].values %}
+          {
+            "rule" : "{{ rule.name }}",
+            "text" : "{{ rule.text }}",
+            "type" : "{{ rule.category }}",
+            "zips" :  [ {{ rule.zips | split: ',' | join: ', ' }}],
+            "excluded_zips" : [{{ rule.excluded_zips | split: ',' | join: ', ' }}],
+            "time" : "{{ rule.cutoff_time }}",
+            "min_price" : "{{ rule.minimum_price }}",
+            "same_day_unavailable" : "{{ rule.same_day_unavailable }}",
+          },
+          {% endfor %}
+        {% endpaginate %}
+      ]
+
+      // Flex shipping dates
+      // This is every holiday and the number of days before and after the holiday that are considered "flex" shipping dates
+      window.flexShippingDates = [
+        {% paginate shop.metaobjects["holiday_flex_shipping_dates"].values by 150 %}
+          {% for holiday in shop.metaobjects["holiday_flex_shipping_dates"].values %}
+          {
+            "holiday_name" : "{{ holiday.holiday_name }}",
+            "zips" :  [ {{ holiday.zips | split: ',' | join: ', ' }}],
+            "excluded_zips" : [{{ holiday.excluded_zips | split: ',' | join: ', ' }}],
+            "day_of_holiday" : "{{ holiday.day_of_holiday }}",
+            "flex_days_prior" : "{{ holiday.flex_days_prior }}",
+            "flex_days_post" : "{{ holiday.flex_days_post }}",
+            "text" : "{{ holiday.selected_message }}"
+          },
+          {% endfor %}
+        {% endpaginate %}
+      ];
+
+      // Shipping Options
+      //
+      window.shippingOptions = [
+        {% paginate shop.metaobjects["shipping_option"].values by 500 %}
+          {% for shipping_option in shop.metaobjects["shipping_option"].values %}
+            {% liquid
+              assign description = 'null'
+              if shipping_option.description
+                assign description = '""' | append: shipping_option.description | append: '""'
+              endif
+
+              assign saturday_delivery_charge = 'null'
+              if shipping_option.saturday_delivery_charge
+                assign saturday_delivery_charge = shipping_option.saturday_delivery_charge
+              endif
+
+              assign zip_code_range_start = 'null'
+              if shipping_option.zip_code_range_start
+                assign zip_code_range_start = shipping_option.zip_code_range_start
+              endif
+
+              assign zip_code_range_end = 'null'
+              if shipping_option.zip_code_range_end
+                assign zip_code_range_end = shipping_option.zip_code_range_end
+              endif
+
+              assign box_size = 'null'
+              if shipping_option.box_size
+                assign box_size = shipping_option.box_size
+              endif
+
+              assign quantity_range_start = 'null'
+              if shipping_option.quantity_range_start
+                assign quantity_range_start = shipping_option.quantity_range_start
+              endif
+
+              assign quantity_range_end = 'null'
+              if shipping_option.quantity_range_end
+                assign quantity_range_end = shipping_option.quantity_range_end
+              endif
+
+              assign ship_date = 'null'
+              if shipping_option.ship_date
+                assign ship_date = shipping_option.ship_date
+              endif
+            %}
+          {
+            "name" : "{{ shipping_option.name }}",
+            "title" : "{{ shipping_option.title }}",
+            "description" : {{ description }},
+            "price" : {{ shipping_option.price }},
+            "saturdayDeliveryCharge" : {{ saturday_delivery_charge }},
+            "zone" : "{{ shipping_option.zone }}",
+            "shipType" : "{{ shipping_option.ship_type }}",
+            "evaluationType" : "{{ shipping_option.evaluation_type }}",
+            "zipCodes" :  [ {{ shipping_option.zip_codes | split: ',' | join: ', ' }}],
+            "zipCodeRangeStart" : {{ zip_code_range_start }},
+            "zipCodeRangeEnd" : {{ zip_code_range_end }},
+            "boxSize" : "{{ box_size }}",
+            "quantityRangeStart" : {{ quantity_range_start }},
+            "quantityRangeEnd" : {{ quantity_range_end }},
+            "shipDate" : {{ ship_date }}
+          },
+          {% endfor %}
+        {% endpaginate %}
+      ];
+      window.shippingOptions.forEach(opt => {
+        opt.zipCodes = opt.zipCodes.map(z => z.toString())
+      });
+
+      // Product specific zip code rules
+      // This is every zip code rule for the product on this PDP
+      window.pdpZipCodeRules = [
+        {%- if request.page_type == 'product' -%}
+          {%- for product_collection in product.collections -%}
+            {%- assign collection_metafields = product_collection.metafields -%}
+            {%- if collection_metafields.custom.zipcode_rules != blank -%}
+              {%- for rule in collection_metafields.custom.zipcode_rules.value -%}
+                "{{ rule.name }}",
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- elsif request.page_type == 'cart' -%}
+          {%- for item in cart.items -%}
+            {%- for product_collection in item.product.collections -%}
+              {%- assign collection_metafields = product_collection.metafields -%}
+              {%- if collection_metafields.custom.zipcode_rules != blank -%}
+                {%- for rule in collection_metafields.custom.zipcode_rules.value -%}
+                  "{{ rule.name }}",
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endif -%}
+      ];
+
+      // Product specific flex shipping dates
+      // This is every holiday and the number of days before and after the holiday that are considered "flex" shipping dates for the product on this PDP
+      window.pdpFlexShippingDates = [
+        {%- if request.page_type == 'product' -%}
+          {%- for product_collection in product.collections -%}
+            {%- assign collection_metafields = product_collection.metafields -%}
+            {%- if collection_metafields.custom.flex_shipping_dates != blank -%}
+              {%- for holiday in collection_metafields.custom.flex_shipping_dates.value -%}
+                {
+                  holiday_name: "{{ holiday.holiday_name }}",
+                  zips: [{{ holiday.zips | split: ',' | join: ', ' }}],
+                  excluded_zips: [{{ holiday.excluded_zips | split: ',' | join: ', ' }}],
+                  day_of_holiday: "{{ holiday.day_of_holiday }}",
+                  flex_days_prior: "{{ holiday.flex_days_prior }}",
+                  flex_days_post: "{{ holiday.flex_days_post }}",
+                  text: "{{ holiday.selected_message }}"
+                },
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- elsif request.page_type == 'cart' -%}
+          {%- for item in cart.items -%}
+            {%- for product_collection in item.product.collections -%}
+              {%- assign collection_metafields = product_collection.metafields -%}
+              {%- if collection_metafields.custom.flex_shipping_dates != blank -%}
+                {%- for holiday in collection_metafields.custom.flex_shipping_dates.value -%}
+                  {
+                    holiday_name: "{{ holiday.holiday_name }}",
+                    zips: [{{ holiday.zips | split: ',' | join: ', ' }}],
+                    excluded_zips: [{{ holiday.excluded_zips | split: ',' | join: ', ' }}],
+                    day_of_holiday: "{{ holiday.day_of_holiday }}",
+                    flex_days_prior: "{{ holiday.flex_days_prior }}",
+                    flex_days_post: "{{ holiday.flex_days_post }}",
+                    text: "{{ holiday.selected_message }}"
+                  },
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endif -%}
+      ];
+
+      // Product specific delivery seasons
+      // This is every delivery season for the product on this PDP
+      window.pdpDeliverySeasons = [
+        {%- if request.page_type == 'product' -%}
+          {%- for product_collection in product.collections -%}
+            {%- assign collection_metafields = product_collection.metafields -%}
+            {%- if collection_metafields.custom.delivery_seasons != blank -%}
+              {%- for season in collection_metafields.custom.delivery_seasons.value -%}
+                {
+                  season_name: "{{ season.season_name }}",
+                  start_date: "{{ season.start_date }}",
+                  end_date: "{{ season.end_date }}",
+                  zips: [{{ season.zips | split: ',' | join: ', ' }}],
+                  excluded_zips: [{{ season.excluded_zips | split: ',' | join: ', ' }}],
+                },
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- elsif request.page_type == 'cart' -%}
+          {%- for item in cart.items -%}
+            {%- for product_collection in item.product.collections -%}
+              {%- assign collection_metafields = product_collection.metafields -%}
+              {%- if collection_metafields.custom.delivery_seasons != blank -%}
+                {%- for season in collection_metafields.custom.delivery_seasons.value -%}
+                  {
+                    season_name: "{{ season.season_name }}",
+                    start_date: "{{ season.start_date }}",
+                    end_date: "{{ season.end_date }}",
+                    zips: [{{ season.zips | split: ',' | join: ', ' }}],
+                    excluded_zips: [{{ season.excluded_zips | split: ',' | join: ', ' }}],
+                  },
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endif -%}
+      ];
+    </script>
+
+    {%- if template contains 'product' -%}
+      <script src="{{ 'overrides_new.js' | asset_url }}" type="module" defer="defer"></script>
+    {% endif %}
+    {%- unless template contains 'product' -%}
+      <script src="{{ 'overrides.js' | asset_url }}" type="module" defer="defer"></script>
+    {% endunless %}
+
+    {% if template == '404' %}
+      <script>
+        document.querySelector('link[rel="canonical"]')?.remove();
+      </script>
+    {% endif %}
+
+    <script>
+      window.customMessage1 = '{{ settings.custom_message1 }}';
+      window.customMessage2 = "{{ settings.custom_message2 }}";
+
+      const rule = window.globalZipCodeRules.find((r) => r.rule === 'Domestic Non Deliverables');
+
+      const zipString = rule ? rule.zips.join(', ') : '';
+      console.log(zipString);
+
+      const continuebtn = $('#continuebtn');
+      function checkZipCodeWarning() {
+        setTimeout(function () {
+          const warningElem = jQuery('.zip-code-msg').find('.zip-code-msg--warning');
+          const messages = warningElem.text();
+          const addToCartBtnss = $('button#addToCart');
+
+          //console.log(messages);
+
+          // --- Handle both conditions in one block ---
+          let shouldDisable = false;
+          const flatpickrVall = $('#flatpickrButton').val().trim();
+          console.log('flatpickrVal 1:', flatpickrVall);
+          if (flatpickrVall.length && warningElem.length === 0) {
+            console.log('no');
+             var zipCode = $('#zipCodeInput').val();
+    
+    if (zipCode.trim() !== '') {
+    shouldDisable = false;
+    console.log(zipCode);
+}
+else{
+  shouldDisable = true;
+  console.log(zipCode);
+  console.log('zipCode');
+}
+
+
+
+
+            //shouldDisable = false;
+            //addToCartBtnss.removeClass('disabled').prop('disabled', false);
+          }
+          // if(warningElem.length === 0) {
+          //   console.log('No warning message found');
+          //   addToCartBtnss.removeClass('disabled').prop('disabled', false);
+          //   shouldDisable = false;
+          //   return;
+          // }
+          if (!flatpickrVall.length) {
+            console.log('no date found');
+            shouldDisable = true;
+          }
+
+          // Condition 1: remote area delivery restriction
+          if (messages.includes('Unfortunately, this remote area does not have local delivery service available')) {
+            console.log('Remote area delivery restriction found');
+            shouldDisable = true;
+          }
+
+          // Condition 2: dollar value greater than product price
+          const match = messages.match(/\$\d+(?:\.\d{2})?/); // Matches $95 or $95.00
+          if (match) {
+            const dollarValue = parseFloat(match[0].replace('$', ''));
+
+            var productPrices = $('.product-info__price.custom .price .price__default strong.price__current').text();
+            console.log('main price value:', productPrices);
+            //const numericProductPrices = parseFloat(productPrices.replace('$', ''));
+            const numericProductPrices = parseFloat(productPrices.replace(/[$,]/g, ''));
+            console.log('price value:', numericProductPrices);
+            console.log('Dollar value:', dollarValue);
+
+            console.log('flatpickrVal 2:', flatpickrVall);
+            if (!flatpickrVall || dollarValue > numericProductPrices) {
+              console.log('Dollar value is greater than product price');
+              shouldDisable = true;
+            }
+          } else {
+            console.log('No dollar value found in message');
+          }
+
+          // Apply the result
+          if (shouldDisable) {
+            addToCartBtnss.addClass('disabled').prop('disabled', true);
+          } else {
+            addToCartBtnss.removeClass('disabled').prop('disabled', false);
+          }
+        }, 100);
+      }
+
+      const lablebtn = $('label.opt-label.opt-label--btn.btn.relative.text-center');
+      lablebtn.on('click', checkZipCodeWarning);
+      continuebtn.on('click', checkZipCodeWarning);
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        let calendarWatcher = setInterval(function () {
+          const $calendar = $('.flatpickr-calendar.open:visible');
+          const $input = $('#flatpickrButton');
+
+          if ($calendar.length && $input.length && !$calendar.attr('style')) {
+            const offset = $input.offset();
+            const inputHeight = $input.outerHeight();
+
+            $calendar.css({
+              position: 'absolute',
+              top: offset.top + inputHeight + 3,
+              left: offset.left,
+              right: 'auto',
+            });
+
+            clearInterval(calendarWatcher);
+          }
+        }, 100);
+
+        $('#flatpickrButton').on('click', function () {
+          calendarWatcher = setInterval(() => {
+            const $calendar = $('.flatpickr-calendar.open:visible');
+
+            if ($calendar.length && !$calendar.attr('style')) {
+              const offset = $(this).offset();
+              const inputHeight = $(this).outerHeight();
+
+              $calendar.css({
+                position: 'absolute',
+                top: offset.top + inputHeight + 3,
+                left: offset.left,
+                right: 'auto',
+              });
+
+              clearInterval(calendarWatcher);
+            }
+          }, 100);
+        });
+        fetch('/cart.js')
+  .then(response => response.json())
+  .then(cart => {
+    const today = new Date();
+
+    // Helper to get 3 days from today (+1 if Sunday)
+    function getNewDate() {
+      const newDate = new Date(today);
+      newDate.setDate(today.getDate() + 3);
+      if (newDate.getDay() === 0) {  // Sunday check
+        newDate.setDate(newDate.getDate() + 1); // Add 1 more day
+      }
+      return newDate;
+    }
+
+    // Format as "MMM DD, YYYY"
+    function formatDate(date) {
+      return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      });
+    }
+
+    let deliveryDateStr = cart.attributes?.deliveryDate || "";
+    let shouldUpdate = false;
+
+    if (!deliveryDateStr) {
+      shouldUpdate = true;
+    } else {
+      const existingDate = new Date(deliveryDateStr);
+      if (existingDate < today) {
+        shouldUpdate = true;
+      }
+    }
+
+    if (shouldUpdate) {
+      const newDateFormatted = formatDate(getNewDate());
+
+      fetch('/cart/update.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          attributes: {
+            ...cart.attributes,
+            deliveryDate: newDateFormatted
+          }
+        })
+      })
+      .then(res => res.json())
+      .then(updatedCart => {
+        console.log("Updated delivery date:", updatedCart.attributes.deliveryDate);
+      });
+    } else {
+      console.log("Delivery date is fine:", deliveryDateStr);
+    }
+  });
+
+      });
+    </script>
+
+{% if request.path contains '/pages/most-common-birthday-month-and-year-by-state'  %}
+<script>
+  if (window.location.href.indexOf("most-common-birthday-month-and-year-by-state") > -1) {
+    Object.defineProperty(window, '_support', {
+      get() { throw new Error('get blocked'); },
+      set() { throw new Error('set blocked'); }
+  });
+  }
+</script>
+{% endif %} 
+<style>
+  .product-info__block .product-short-description p span{
+    color: #004275 !important;
+}
+.product-info__block .product-short-description p{
+    color: #004275 !important;
+}
+ .shopify-pc__banner__dialog button.shopify-pc__banner__btn-accept{
+    background: #004275 !important;
+    color: #fff !important;
+}
+span.sg_btn_inner_span {
+    pointer-events: none !important;
+}
+</style>
+
+
+{% comment %} 
+{% if template.name == 'cart' %}
+  <script>
+     window.cartShipTypes = {
+      {% for item in cart.items %}
+        "{{ item.key }}": {{ item.product.metafields.custom.shipping_type | json }}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    };
+
+    
+    document.addEventListener("DOMContentLoaded", function () {
+  if (typeof window.cartShipTypes !== 'undefined') {
+    console.log("Cart Ship Types:", window.cartShipTypes);
+
+    // Example: loop over each item
+    for (let key in window.cartShipTypes) {
+      let shipTypes = window.cartShipTypes[key];
+      console.log("Cart item:", key, "Ship type:", shipTypes);
+      
+      // Your ZIP validation logic here
+      if (shipTypes === 'Direct Ship' || shipTypes === 'Non-Direct Ship') {
+        // special ZIP validation
+      //  alert(1);
+      } else {
+        // standard ZIP validation
+        // alert(2);
+      }
+    }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  //$('button.btn.btn--primary.btn--icon-with-text.w-full.exinent').prop('disabled', false); 
+  const zipInput = document.querySelector('#zipCodeInput');
+  const zipContinueBtn = document.querySelector('#continuebtn');
+  const deliveryDateField = document.querySelector('#flatpickrButton');
+
+  // Helper: Check if a ZIP is valid depending on shipType
+  function isValidUSZip(zip, shipTypes) {
+    if (shipTypes === 'Direct Ship' || shipTypes === 'Non-Direct Ship') {
+      // Allow 4-digit (some countries), 5-digit US ZIP, or ZIP+4
+      console.log("International/Direct ZIP detected:", zip, "for type:", shipTypes);
+      return /^(\d{4}|\d{5}(-\d{4})?)$/.test(zip);
+      $('button.btn.btn--primary.btn--icon-with-text.w-full').removeClass('exinent');
+    } else {
+      // Standard U.S. ZIP: 5-digit or ZIP+4
+      console.log("US ZIP detected:", zip, "for type:", shipTypes);
+      $('button.btn.btn--primary.btn--icon-with-text.w-full').addClass('exinent');
+      return /^\d{5}(-\d{4})?$/.test(zip);
+      
+    }
+  }
+
+  // Validate ZIP against all cart items
+  function validateZipForCart(zip) {
+    if (typeof window.cartShipTypes === 'undefined') {
+      return false; // No data, fail safe
+    }
+
+    for (let key in window.cartShipTypes) {
+      if (window.cartShipTypes.hasOwnProperty(key)) {
+        let shipTypes = window.cartShipTypes[key];
+        if (!isValidUSZip(zip, shipTypes)) {
+          return false; // if any item fails, stop
+        }
+      }
+    }
+    return true; // all items passed validation
+  }
+
+  function toggleDeliveryDateField() {
+    const zip = zipInput.value.trim();
+    deliveryDateField.disabled = !validateZipForCart(zip);
+  }
+
+  // Disable on load
+  if (deliveryDateField) {
+    deliveryDateField.disabled = true;
+  }
+
+  // Enable on button click if zip is valid
+  if (zipContinueBtn) {
+    zipContinueBtn.addEventListener('click', function () {
+      const zip = zipInput.value.trim();
+      if (validateZipForCart(zip)) {
+        deliveryDateField.disabled = false;
+        //$('button.btn.btn--primary.btn--icon-with-text.w-full').prop('disabled', false); 
+        $('button.btn.btn--primary.btn--icon-with-text.w-full').removeClass('exinent');
+      } else {
+        alert("Please enter a valid US zip code. This item is not available outside the US.");
+       // $('button.btn.btn--primary.btn--icon-with-text.w-full').prop('disabled', true); 
+        $('button.btn.btn--primary.btn--icon-with-text.w-full').addClass('exinent');
+        deliveryDateField.disabled = true;
+      }
+    });
+  }
+
+  // Enable/disable as user types
+  if (zipInput) {
+    zipInput.addEventListener('input', function () {
+      toggleDeliveryDateField();
+    });
+  }
+
+  // Check on page load
+  if (zipInput && validateZipForCart(zipInput.value.trim())) {
+    deliveryDateField.disabled = false;
+  }
+});
+
+
+  </script>
+  <style>
+  {% comment %} /*
+    button.exinent {
+  pointer-events: none; /* prevents clicking */
+  opacity: 0.5;         /* makes it look disabled */
+  cursor: not-allowed;  /* shows "disabled" cursor */
+}
+*/ {% endcomment %}
+  </style>
+{% endif %} {% endcomment %}
+
+
+{% if template.name == 'cart' %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Collect cart shipping types
+  window.cartShipTypes = {
+    {% for item in cart.items %}
+      "{{ item.key }}": {{ item.product.metafields.custom.shipping_type | json }}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  console.log("Cart Ship Types:", window.cartShipTypes);
+
+  const zipInput = document.querySelector('#zipCodeInput');
+  const zipContinueBtn = document.querySelector('#continuebtn');
+  const deliveryDateField = document.querySelector('#flatpickrButton');
+  const mainButton = document.querySelector('button.btn.btn--primary.btn--icon-with-text.w-full');
+
+  // -------------------------------
+  // Helper: Check if a ZIP is valid depending on shipType
+  // -------------------------------
+  function isValidUSZip(zip, shipType) {
+    if (shipType === 'Direct Ship' || shipType === 'Non-Direct Ship' || shipType === null) {
+      // ✅ Allow 4-digit (some countries), 5-digit US ZIP, or ZIP+4
+      console.log("International/Direct ZIP detected:", zip, "for type:", shipType);
+      //return /^(\d{4}|\d{5}(-\d{4})?)$/.test(zip);
+       return /^[A-Za-z0-9\s\-]{3,10}$/.test(zip);
+    } else {
+      // ❌ Only US ZIP allowed
+      console.log("US-only ZIP detected:", zip, "for type:", shipType);
+      return /^\d{5}(-\d{4})?$/.test(zip);
+    }
+  }
+
+  // Validate ZIP against all cart items
+  function validateZipForCart(zip) {
+    if (!window.cartShipTypes) return false;
+
+    for (let key in window.cartShipTypes) {
+      let shipType = window.cartShipTypes[key];
+      if (!isValidUSZip(zip, shipType)) {
+        return false; // stop if any item fails
+      }
+    }
+    return true;
+  }
+
+  // Update checkout + delivery date field based on validation
+  function updateUI(isValid) {
+    if (!mainButton || !deliveryDateField) return;
+
+    if (isValid) {
+      mainButton.classList.remove('exinent');
+      deliveryDateField.disabled = false;
+    } else {
+      mainButton.classList.add('exinent');
+      deliveryDateField.disabled = true;
+    }
+  }
+
+  // -------------------------------
+  // Event Handlers
+  // -------------------------------
+  if (zipContinueBtn) {
+    zipContinueBtn.addEventListener('click', function () {
+      const zip = zipInput.value.trim();
+      if (validateZipForCart(zip)) {
+        updateUI(true);
+      } else {
+        alert("Please enter a valid US zip code. This item is not available outside the US.");
+        updateUI(false);
+      }
+    });
+  }
+
+  if (zipInput) {
+    zipInput.addEventListener('input', function () {
+      updateUI(validateZipForCart(zipInput.value.trim()));
+    });
+  }
+
+  // Disable on load
+  updateUI(false);
+
+  // Enable if already valid (page reload with ZIP filled)
+  if (zipInput && validateZipForCart(zipInput.value.trim())) {
+    updateUI(true);
+  }
+
+  //Auto Select Fig Delivery Season First Available Date
+      if (window.pdpDeliverySeasons && window.pdpDeliverySeasons.length && window.pdpDeliverySeasons[0].season_name == "Fig Cuttings") {
+        const fp = document.querySelector("#flatpickrButton")._flatpickr;
+        if(!fp.selectedDates.length){
+          const [year, month, day] = window.pdpDeliverySeasons[0].start_date.split('-');
+
+const date = new Date(year, month - 1, day)
+  .toLocaleDateString('en-US', {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric'
+  });
+  console.log('Auto Select Fig Delivery Season First Available Date'.date);
+          localStorage.setItem('deliveryDate', date);
+          jQuery('#selectedCalendarDate').text(date);
+          fp.setDate(date, true);
+        }
+      }
+});
+
+</script>
+
+
+<style>
+button.exinent {
+  pointer-events: none; /* prevents clicking */
+  opacity: 0.5;         /* makes it look disabled */
+  cursor: not-allowed;  /* shows "disabled" cursor */
+}
+</style>
+{% endif %}
+<script>
+    // Flex shipping dates
+      // This is every holiday and the number of days before and after the holiday that are considered "flex" shipping dates
+      window.holidaysToDisable= [
+        {% paginate shop.metaobjects["holidays_to_disable_on_pdp"].values by 150 %}
+          {% for holiday in shop.metaobjects["holidays_to_disable_on_pdp"].values %}
+          {
+            "holiday_name" : "{{ holiday.holiday_name }}",
+            "zips" :  [ {{ holiday.zips | split: ',' | join: ', ' }}],
+            "excluded_zips" : [{{ holiday.excluded_zips | split: ',' | join: ', ' }}],
+            "holiday_date" : "{{ holiday.holiday_date }}",
+            "product_type": {{ holiday.product_type.value | map: "name" | json}},
+          },
+          {% endfor %}
+        {% endpaginate %}
+      ];
+    function blockUpcartCheckout() {
+  const upcart = document.querySelector('#upCart');
+  if (!upcart || !upcart.shadowRoot) return;
+
+  const checkoutBtn = upcart.shadowRoot.querySelector(
+    'a.upcart-checkout-button'
+  );
+
+  if (!checkoutBtn) return;
+
+  checkoutBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    console.log('Upcart checkout blocked');
+    const localDeliveryDate = localStorage.getItem('deliveryDate');
+
+  // If there's no date at all in localStorage
+  if (!localDeliveryDate) {
+    console.log('No delivery date in localStorage → redirecting to cart');
+    window.location.href = '/cart';
+    return;
+  }
+
+  // Convert localStorage date string into Date object for comparison
+  const parsedLocalDate = new Date(localDeliveryDate);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // normalize to start of the day
+
+  // Fetch the cart JSON to check cart's deliveryDate property
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+      const cartDeliveryDate = cart.attributes?.deliveryDate || '';
+	  console.log("localDeliveryDate",localDeliveryDate); 	
+	  console.log("cartDeliveryDate",cartDeliveryDate);
+	   console.log("parsedLocalDate",parsedLocalDate);
+	    console.log("today",today);
+      // Compare dates and attributes
+      if (
+        cartDeliveryDate !== localDeliveryDate || // mismatch
+        parsedLocalDate <= today // date is today or earlier
+      ) {
+        console.log('Delivery date mismatch or expired → redirecting to cart');
+        window.location.href = '/cart';
+      } else {
+        console.log('Delivery date valid → proceeding to checkout');
+        window.location.href = '/checkout';
+      }
+    })
+    .catch(err => {
+      console.error('Error fetching cart:', err);
+      window.location.href = '/cart';
+    });
+  });
+}
+
+// Run once
+blockUpcartCheckout();
+
+// Also re-run because Upcart re-renders
+const observer = new MutationObserver(blockUpcartCheckout);
+observer.observe(document.body, { childList: true, subtree: true });
+  </script>
+
+
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+  const input = document.getElementById('flatpickrButton');
+  const containerCal =  document.querySelector('.zip-n-cal__input-area');
+  if (!input) return; // PDP only
+
+  if (!input._flatpickr) {
+    flatpickr(input, {
+      appendTo: containerCal,   
+      static: false,
+      clickOpens: false,         
+      disableMobile: true,
+      dateFormat: "Y-m-d"
+    });
+  }
+
+});
+
+
+(function () {
+ 
+  function getInput() {
+    return document.getElementById('flatpickrButton');
+  }
+ 
+  function getFP() {
+    const input = getInput();
+    if (!input) return null;
+    return input._flatpickr || null;
+  }
+ 
+  function isValidZip() {
+    const zip = document.getElementById('zipCodeInput');
+    return zip && zip.value.trim().length >= 4;
+  }
+ 
+  let fpOpening = false;
+ 
+  function openCalendar(reason) {
+    const input = getInput();
+    const fp = getFP();
+ 
+    if (!input || !fp || fpOpening) return;
+ 
+    fpOpening = true;
+    console.log('[Flatpickr]', reason);
+ 
+    fp._positionElement = input;
+ 
+    if (fp.calendarContainer) {
+      fp.calendarContainer.style.top = '';
+      fp.calendarContainer.style.left = '';
+      fp.calendarContainer.style.right = '';
+      fp.calendarContainer.style.bottom = '';
+    }
+ 
+    fp.close();
+    input.disabled = false;
+ 
+    setTimeout(() => {
+  fp.open();
+ 
+  if (fp._positionCalendar) {
+    fp._positionCalendar();
+  }
+ 
+  fpOpening = false;
+}, 0);
+  }
+ 
+let zipInput = document.getElementById('zipCodeInput');
+ 
+if (zipInput) {
+  zipInput.addEventListener('input', function () {
+    const fp = getFP();
+    if (!fp) return;
+ 
+    fp.close();
+ 
+    // Only clear if no date is selected
+    if (fp.selectedDates.length === 0) {
+      fp.clear();
+    }
+ 
+    fpOpening = false;
+  });
+}
+ 
+  const dateInput = document.getElementById('flatpickrButton');
+ 
+  if (dateInput) {
+    dateInput.addEventListener('input', function () {
+      const fp = getFP();
+      if (!fp) return;
+ 
+      if (!dateInput.value) {
+        fp.close();
+        fpOpening = false;
+      }
+    });
+  }
+ 
+  document.addEventListener('click', function (e) {
+ 
+    if (
+      e.target.closest('button[name="add"]') ||
+      e.target.closest('form[action*="/cart/add"]')
+    ) {
+      return;
+    }
+ 
+  if (e.target.closest('#continuebtn')) {
+  if (!isValidZip()) return;
+ 
+  const fp = getFP();
+  if (fp && fp.selectedDates.length > 0) {
+    return; // date already selected → don't open calendar
+  }
+ 
+  openCalendar('Continue clicked');
+  return;
+}
+ 
+    if (e.target.closest('#flatpickrButton') || e.target.closest('.edit')) {
+      if (!isValidZip()) return;
+      openCalendar('Edit clicked');
+    }
+ 
+  }, true);
+ 
+})();
+if(window.location.pathname.includes("cart")){
+setInterval(function(){
+    if(jQuery('.flatpickr-day.selected').length && (localStorage.getItem('deliveryDate') == null || localStorage.getItem('deliveryDate') != jQuery('.flatpickr-day.selected').attr('aria-label'))){
+        localStorage.setItem('deliveryDate', jQuery('.flatpickr-day.selected').attr('aria-label'));
+        console.log('deliveryDate saved to localStorage: '+jQuery('.flatpickr-day.selected').attr('aria-label'));
+    }
+},100);
+}
+</script>
+
+
+</body>
+</html>

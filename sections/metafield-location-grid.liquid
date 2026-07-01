@@ -1,0 +1,562 @@
+{%- assign mf_ns = section.settings.metafield_namespace -%}
+{%- assign mf_key = section.settings.metafield_key -%}
+
+{%- if template.name == 'page' -%}
+  {%- assign mf_value = page.metafields[mf_ns][mf_key] -%}
+{%- elsif template.name == 'product' -%}
+  {%- assign mf_value = product.metafields[mf_ns][mf_key] -%}
+{%- elsif template.name == 'article' -%}
+  {%- assign mf_value = article.metafields[mf_ns][mf_key] -%}
+{%- elsif template.name == 'collection' -%}
+  {%- assign mf_value = collection.metafields[mf_ns][mf_key] -%}
+{%- endif -%}
+
+{%- unless mf_value == blank -%}
+
+<div class="section mlg-section" id="{{ section.id }}">
+  <div class="container">
+    {%- if section.settings.above_heading != blank -%}
+      <div
+        class="mlg-above-heading-wrap"
+        {% if settings.animations_enabled != 'disabled' %}data-cc-animate{% endif %}
+      >
+        <{{ section.settings.above_heading_tag }} class="mlg-above-heading">{{ section.settings.above_heading }}</{{ section.settings.above_heading_tag }}>
+      </div>
+    {%- endif -%}
+
+    <div
+      class="mlg-heading-wrap"
+      {% if settings.animations_enabled != 'disabled' %}data-cc-animate{% endif %}
+    >
+      <div class="mlg-heading" id="mlg-heading-{{ section.id }}">
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }}>{{ section.settings.heading }}</{{ section.settings.heading_tag }}>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="mlg-mobile">
+      <carousel-slider class="carousel block" inactive id="mlg-carousel-{{ section.id }}">
+        <div class="slider slider--no-scrollbar" id="mlg-slider-{{ section.id }}">
+          <ul class="slider__grid grid grid-flow-col auto-cols-1 gap-x-theme" role="list" id="mlg-slider-list-{{ section.id }}"></ul>
+        </div>
+      </carousel-slider>
+      <div class="mlg-carousel-dots" id="mlg-dots-{{ section.id }}"></div>
+    </div>
+
+    <div
+      class="mlg-desktop"
+      {% if settings.animations_enabled != 'disabled' %}data-cc-animate{% endif %}
+    >
+      <div
+        class="mlg-grid mlg-cols-{{ section.settings.columns }}"
+        id="mlg-grid-{{ section.id }}"
+      ></div>
+    </div>
+  </div>
+</div>
+
+<div
+  id="mlg-raw-{{ section.id }}"
+  style="display:none"
+  aria-hidden="true"
+  data-mlg-show-directions="{% if section.settings.show_directions_link %}true{% else %}false{% endif %}"
+  data-mlg-directions-label="{% if section.settings.directions_label != blank %}{{ section.settings.directions_label | escape }}{% else %}Directions{% endif %}"
+>
+  {{ mf_value }}
+</div>
+
+<style>
+  #{{ section.id }}.mlg-section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  #{{ section.id }} .mlg-above-heading-wrap {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  #{{ section.id }} .mlg-above-heading {
+    font-family: var(--typography-font-name-Title, "Cormorant Upright");
+    font-size: var(--h2-font-size);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.96px;
+    color: var(--color-heading, #004275);
+    margin: 0;
+  }
+  
+  
+  #{{ section.id }} .mlg-heading h1,
+  #{{ section.id }} .mlg-heading h2,
+  #{{ section.id }} .mlg-heading h3,
+  #{{ section.id }} .mlg-heading h4,
+  #{{ section.id }} .mlg-heading h5,
+  #{{ section.id }} .mlg-heading h6 {
+    font-family: var(--typography-font-name-Title, "Cormorant Upright");
+    font-size: var(--h3-font-size);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.96px;
+    color: var(--color-heading, #004275);
+    margin: 0;
+  }
+
+  #{{ section.id }} .mlg-heading-wrap {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  #{{ section.id }} .mlg-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  #{{ section.id }} .mlg-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  #{{ section.id }} .mlg-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  #{{ section.id }} .mlg-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  #{{ section.id }} .mlg-card {
+    background: var(--color-background-alt, rgba(0,0,0,0.05));
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  #{{ section.id }} .mlg-card__name {
+    font-family: var(--typography-font-name-Paragraph, Roboto);
+    font-size: var(--typography-text-size-Text-Medium, 20px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    color: var(--color-heading, #004275);
+    margin: 0;
+    text-decoration: underline;
+    display: block;
+  }
+
+  #{{ section.id }} .mlg-card__name--plain {
+    text-decoration: none;
+    cursor: default;
+  }
+
+  #{{ section.id }} .mlg-card__directions {
+    font-family: var(--typography-font-name-Paragraph, Roboto);
+    font-size: var(--typography-text-size-Text-Small, 16px);
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--color-link, #1a6c8a);
+    margin: 0;
+    text-decoration: underline;
+    align-self: center;
+  }
+
+  #{{ section.id }} .mlg-card__address {
+    font-family: var(--typography-font-name-Paragraph, Roboto);
+    font-size: var(--typography-text-size-Text-Small, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--color-link, #1a6c8a);
+    margin: 0;
+    /* text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font; */
+  }
+
+  #{{ section.id }} .mlg-mobile { display: block; }
+  #{{ section.id }} .mlg-desktop { display: none; }
+
+  @media (min-width: 768px) {
+    #{{ section.id }} .mlg-mobile { display: none; }
+    #{{ section.id }} .mlg-desktop { display: block; }
+  }
+
+  #{{ section.id }} .mlg-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  #{{ section.id }} .mlg-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D8F19C;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  #{{ section.id }} .mlg-carousel-dot.active {
+    background: #004275;
+  }
+
+  #{{ section.id }} .mlg-mobile .mlg-card {
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    #{{ section.id }} .slider .slider__grid {
+        width: 100%;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var raw = document.getElementById('mlg-raw-{{ section.id }}');
+    var headingWrap = document.getElementById('mlg-heading-{{ section.id }}');
+    var grid = document.getElementById('mlg-grid-{{ section.id }}');
+    var sliderList = document.getElementById('mlg-slider-list-{{ section.id }}');
+    var dotsContainer = document.getElementById('mlg-dots-{{ section.id }}');
+
+    if (!raw || !grid) return;
+
+    var showDirections = raw.getAttribute('data-mlg-show-directions') === 'true';
+    var directionsLabel = raw.getAttribute('data-mlg-directions-label') || 'Directions';
+
+    function isMapsUrl(u) {
+      return typeof u === 'string' && /google\.com\/maps|maps\.google\.com|goo\.gl\/maps/i.test(u);
+    }
+
+    function isBoldLeaf(n) {
+      return n && (n.bold === true || (n.type === 'text' && n.bold === true));
+    }
+
+    function firstBoldTextDeep(node) {
+      if (!node) return '';
+      if (isBoldLeaf(node) && node.value != null && String(node.value).trim() !== '') {
+        return String(node.value).trim();
+      }
+      var kids = node.children;
+      if (!kids) return '';
+      for (var i = 0; i < kids.length; i++) {
+        var t = firstBoldTextDeep(kids[i]);
+        if (t) return t;
+      }
+      return '';
+    }
+
+    function firstNonMapsLinkUrl(node) {
+      if (!node) return null;
+      if (node.type === 'link' && node.url && !isMapsUrl(node.url)) return node.url;
+      var kids = node.children;
+      if (!kids) return null;
+      for (var j = 0; j < kids.length; j++) {
+        var u = firstNonMapsLinkUrl(kids[j]);
+        if (u) return u;
+      }
+      return null;
+    }
+
+    function parseFacilityParagraph(p) {
+      var children = p.children || [];
+      var name = '';
+      var linkHref = null;
+      var topBold = null;
+      var i;
+      for (i = 0; i < children.length; i++) {
+        if (children[i].bold === true) {
+          topBold = children[i];
+          break;
+        }
+      }
+
+      for (i = 0; i < children.length; i++) {
+        var c = children[i];
+        if (c.type !== 'link') continue;
+        var boldChild = (c.children || []).find(function (lc) { return isBoldLeaf(lc); });
+        if (boldChild) {
+          name = (boldChild.value != null ? String(boldChild.value) : '').trim();
+          linkHref = c.url || null;
+          break;
+        }
+      }
+
+      if (name) {
+        if (!linkHref || isMapsUrl(linkHref)) {
+          linkHref = firstNonMapsLinkUrl({ children: children });
+        }
+        return { name: name, linkHref: linkHref };
+      }
+
+      if (topBold) {
+        name = (topBold.value != null ? String(topBold.value) : firstBoldTextDeep(topBold)).trim();
+        linkHref = firstNonMapsLinkUrl(topBold) || firstNonMapsLinkUrl({ children: children });
+        if (linkHref && isMapsUrl(linkHref)) linkHref = firstNonMapsLinkUrl({ children: children });
+        return { name: name, linkHref: linkHref };
+      }
+
+      for (i = 0; i < children.length; i++) {
+        var ck = children[i];
+        if (ck.type !== 'link' || !ck.url || isMapsUrl(ck.url)) continue;
+        var txt = (ck.children || []).map(function (x) { return x.value || ''; }).join('').replace(/\s+/g, ' ').trim();
+        if (txt) return { name: txt, linkHref: ck.url };
+      }
+
+      for (i = 0; i < children.length; i++) {
+        var bm = firstBoldTextDeep(children[i]);
+        if (bm) {
+          linkHref = firstNonMapsLinkUrl({ children: children });
+          return { name: bm, linkHref: linkHref };
+        }
+      }
+
+      return null;
+    }
+
+    function buildCard(parsed, addrLines) {
+      var name = parsed.name;
+      var linkHref = parsed.linkHref;
+      if (linkHref && isMapsUrl(linkHref)) linkHref = null;
+
+      var card = document.createElement('div');
+      card.className = 'mlg-card';
+
+      var nameEl;
+      if (linkHref) {
+        nameEl = document.createElement('a');
+        nameEl.className = 'mlg-card__name';
+        nameEl.href = linkHref;
+        nameEl.target = '_blank';
+        nameEl.rel = 'noopener noreferrer';
+      } else {
+        nameEl = document.createElement('span');
+        nameEl.className = 'mlg-card__name mlg-card__name--plain';
+      }
+      nameEl.textContent = name;
+
+      var addrEl = document.createElement('p');
+      addrEl.className = 'mlg-card__address';
+      addrEl.textContent = addrLines.join('\n');
+      addrEl.style.whiteSpace = 'pre-line';
+
+      card.appendChild(nameEl);
+      card.appendChild(addrEl);
+
+      if (showDirections && addrLines.length) {
+        var mapsQuery = encodeURIComponent(name + ' ' + addrLines.join(' '));
+        var mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + mapsQuery;
+        var dirEl = document.createElement('a');
+        dirEl.className = 'mlg-card__directions';
+        dirEl.href = mapsUrl;
+        dirEl.textContent = directionsLabel;
+        dirEl.target = '_blank';
+        dirEl.rel = 'noopener noreferrer';
+        card.appendChild(dirEl);
+      }
+
+      return card;
+    }
+
+    var data;
+    try { data = JSON.parse(raw.textContent.trim()); } catch (e) { return; }
+    if (!data || !Array.isArray(data.children)) return;
+
+    if (headingWrap.innerHTML.trim() === '') {
+      var headingNode = data.children.find(function (n) { return n.type === 'heading'; });
+      if (headingNode) {
+        var level = headingNode.level || 2;
+        var text = (headingNode.children || []).map(function (c) { return c.value || ''; }).join('');
+        headingWrap.innerHTML = '<h' + level + '>' + text + '</h' + level + '>';
+      }
+    }
+
+    var gridFragment = document.createDocumentFragment();
+    var sliderFragment = document.createDocumentFragment();
+    var slideIndex = 0;
+
+    data.children
+      .filter(function (n) { return n.type === 'paragraph'; })
+      .forEach(function (p) {
+        var parsed = parseFacilityParagraph(p);
+        if (!parsed || !parsed.name) return;
+
+        var children = p.children || [];
+        var addrLines = children
+          .filter(function (c) { return c.bold !== true && c.type !== 'link'; })
+          .map(function (c) { return c.value || ''; })
+          .join('')
+          .split('\n')
+          .map(function (l) { return l.trim(); })
+          .filter(Boolean);
+
+        var card = buildCard(parsed, addrLines);
+        gridFragment.appendChild(card);
+
+        var li = document.createElement('li');
+        li.className = 'slider__item';
+        li.appendChild(card.cloneNode(true));
+        sliderFragment.appendChild(li);
+
+        var dot = document.createElement('button');
+        dot.className = 'mlg-carousel-dot' + (slideIndex === 0 ? ' active' : '');
+        dot.dataset.index = slideIndex;
+        dot.setAttribute('aria-label', 'Slide ' + (slideIndex + 1));
+        dotsContainer.appendChild(dot);
+
+        slideIndex++;
+      });
+
+    grid.appendChild(gridFragment);
+    sliderList.appendChild(sliderFragment);
+
+    var slider = document.getElementById('mlg-slider-{{ section.id }}');
+    if (!slider || !dotsContainer) return;
+
+    var slides = Array.from(slider.querySelectorAll('.slider__item'));
+    var dots = Array.from(dotsContainer.querySelectorAll('.mlg-carousel-dot'));
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          var idx = slides.indexOf(entry.target);
+          dots.forEach(function (dot, i) { dot.classList.toggle('active', i === idx); });
+        }
+      });
+    }, { root: slider, threshold: 0.5 });
+
+    slides.forEach(function (slide) { observer.observe(slide); });
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        slides[parseInt(dot.dataset.index)].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+    });
+  })();
+</script>
+
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Metafield Location Grid",
+  "class": "cc-metafield-location-grid",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Reads a rich text metafield and displays each bold entry as a card. Use an h1–h6 heading plus paragraphs: link the facility name to the organization’s official website when possible (Google Maps URLs are never used as the primary name link). Optional secondary Directions link opens Maps from the name + address. Plain bold names without a usable non-Maps URL render as text."
+    },
+    {
+      "type": "text",
+      "id": "metafield_namespace",
+      "label": "Metafield namespace",
+      "info": "e.g. custom",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "metafield_key",
+      "label": "Metafield key",
+      "info": "e.g. hospitals or schools"
+    },
+    {
+      "type": "text",
+      "id": "above_heading",
+      "label": "Above heading",
+      "info": "Optional main header displayed above this section's heading. Only renders when metafield has content."
+    },
+    {
+      "type": "select",
+      "id": "above_heading_tag",
+      "label": "Above heading tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Overrides the heading from the metafield. Leave blank to use the metafield heading."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "options": [
+        { "value": "2", "label": "2 columns" },
+        { "value": "3", "label": "3 columns" },
+        { "value": "4", "label": "4 columns" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_directions_link",
+      "label": "Show Directions link",
+      "info": "When address lines exist, adds a secondary Google Maps search link. The facility name should still link to the official website for SEO.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "directions_label",
+      "label": "Directions link label",
+      "default": "Directions"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Metafield Location Grid"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  }
+}
+{% endschema %}

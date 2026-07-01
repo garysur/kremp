@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {
+        "show_tags": true,
+        "show_author": true,
+        "show_date": false,
+        "featured_image_width": "page",
+        "heading_align": "text-center",
+        "show_share_buttons": true,
+        "pagination": "bar"
+      }
+    },
+    "article-comments": {
+      "type": "article-comments",
+      "settings": {
+        "comments_per_page": 16
+      }
+    },
+    "featured_blog_q6F6dz": {
+      "type": "featured-blog",
+      "settings": {
+        "title": "More Articles",
+        "heading_align": "text-start",
+        "show_view_all": true,
+        "blog": "the-kremp-florist-blog",
+        "layout": "carousel",
+        "posts_to_show": 12,
+        "show_featured_image": true,
+        "show_tags": true,
+        "show_excerpt": true,
+        "show_author": false,
+        "show_date": false,
+        "show_button": false,
+        "color_scheme": "none",
+        "image_ratio": "1",
+        "button_style": "btn btn--primary"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "article-comments",
+    "featured_blog_q6F6dz"
+  ]
+}

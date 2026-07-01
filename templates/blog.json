@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_AWdRkK": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_HPWFYf": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ blog.title }}",
+            "heading_size": "h1",
+            "heading_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_HPWFYf"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Blog_Hero_-_D.jpg",
+        "image_mobile": "shopify://shop_images/Blog_Hero_-_M.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": false,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 40,
+        "prevent_animation": false
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "show_blog_title": false,
+        "description": "",
+        "show_share_links": false,
+        "text_align": "text-start",
+        "posts_per_page": 13,
+        "three_columns": true,
+        "show_tag_filter": true,
+        "show_featured_image": true,
+        "image_ratio": "1.77",
+        "show_tags": true,
+        "show_excerpt": true,
+        "show_author": false,
+        "show_date": false,
+        "show_button": false,
+        "button_style": "btn btn--primary",
+        "show_featured_post": true,
+        "show_featured_excerpt": false,
+        "show_featured_button": true,
+        "color_scheme": "3",
+        "featured_button_style": "btn btn--secondary"
+      }
+    }
+  },
+  "order": [
+    "image_banner_AWdRkK",
+    "main"
+  ]
+}

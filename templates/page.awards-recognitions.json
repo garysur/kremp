@@ -1,0 +1,116 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "image-banner": {
+      "type": "image-banner",
+      "blocks": {
+        "banner-heading-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kremp Florist Named National  Retail Florist of the Year",
+            "heading_size": "h2",
+            "heading_h1": true
+          }
+        }
+      },
+      "block_order": [
+        "banner-heading-0"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Awards_Hero_-_D.jpg",
+        "image_mobile": "shopify://shop_images/Awards_Hero_-_M.jpg",
+        "url": "",
+        "height_mode": "fixed",
+        "fixed_height_desktop": 400,
+        "fixed_height_mobile": 270,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": true,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 20,
+        "prevent_animation": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_page_title": false,
+        "heading_align": "text-center"
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "blocks": {
+        "contact-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If the answers you're looking for aren't in our FAQ, please send us an email by completing the form below.</p>",
+            "half_width": false
+          }
+        },
+        "contact-name-2": {
+          "type": "name",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "contact-email-3": {
+          "type": "email",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "contact-dropdown-4": {
+          "type": "dropdown",
+          "settings": {
+            "title": "How can we help?",
+            "options": "Option 1\nOption 2\nOption 3",
+            "half_width": false
+          }
+        },
+        "contact-body-5": {
+          "type": "body",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "contact-text-1",
+        "contact-name-2",
+        "contact-email-3",
+        "contact-dropdown-4",
+        "contact-body-5"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Still looking for answers?",
+        "heading_align": "text-center",
+        "image_position": "top",
+        "color_scheme": "1",
+        "full_width": false,
+        "button_style": "btn btn--primary"
+      }
+    }
+  },
+  "order": [
+    "image-banner",
+    "main",
+    "contact-form"
+  ]
+}

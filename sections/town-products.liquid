@@ -1,0 +1,308 @@
+{%- if section.index > 2 -%}
+  <link rel="stylesheet" href="{{ 'featured-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'product.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- else -%}
+  {{ 'featured-collection.css' | asset_url | stylesheet_tag }}
+  {{ 'product.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- if settings.enable_quick_add -%}
+  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-picker.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- liquid
+  assign image_ratio = settings.prod_card_image_ratio | default: '1'
+  assign cols_per_row = section.settings.products_per_row | default: 5
+  assign load_batch = cols_per_row | times: 2
+
+  if section.settings.fallback_collection != blank
+    assign fallback_collection = section.settings.fallback_collection
+  else
+    assign fallback_collection = collections['town-page-banner']
+  endif
+
+  assign custom_products = page.metafields.custom.town_top_products.value
+
+  if custom_products != blank
+    assign products = custom_products
+    assign product_count = custom_products.size
+  else
+    assign products = fallback_collection.products
+    assign product_count = fallback_collection.products_count
+  endif
+
+  case cols_per_row
+    when 3
+      assign grid_classes = 'grid-cols-2 small-cards-mobile md:grid-cols-3 small-cards-desktop'
+    when 4
+      assign grid_classes = 'grid-cols-2 small-cards-mobile md:grid-cols-3 lg:grid-cols-4 small-cards-desktop'
+    when 6
+      assign grid_classes = 'grid-cols-2 small-cards-mobile md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 small-cards-desktop'
+    else
+      assign grid_classes = 'grid-cols-2 small-cards-mobile md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 small-cards-desktop'
+  endcase
+-%}
+
+<style>
+  .town-products-mobile { display: block; }
+  .town-products-desktop { display: none; }
+  @media (min-width: 768px) {
+    .town-products-mobile { display: none; }
+    .town-products-desktop { display: block; }
+  }
+  .town-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .town-carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D8F19C;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+  .town-carousel-dot.active {
+    background: #004275;
+  }
+  @media (max-width: 767px) {
+    .cc-town-products {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+  .cc-town-products .slider .slider__grid {
+    width: 100%;
+}
+  }
+</style>
+
+<div class="section" id="section-{{ section.id }}">
+  <div class="container">
+
+    {%- if section.settings.title_prefix != blank or section.settings.show_page_title -%}
+      <div class="section__header items-center flex{% if section.settings.heading_align == 'text-center' %} flex-col text-center{% elsif section.settings.heading_align == 'text-end' %} flex-row-reverse flex-wrap{% else %} flex-row flex-wrap{% endif %} gap-x-theme"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
+        <h2 class="h2 mb-4 flex-auto section__heading {{ section.settings.heading_align }}">
+          {{- section.settings.title_prefix -}}
+          {%- if section.settings.show_page_title and page.title != blank %} {{ page.title }}{%- endif -%}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    <div class="products-grid-container town-products-mobile">
+      <carousel-slider class="carousel block" inactive id="town-carousel-{{ section.id }}">
+        <div class="slider slider--no-scrollbar" id="slider-{{ section.id }}" data-seed="{{ page.id | default: 0 }}" data-randomize="{{ section.settings.randomize_order }}"{% if section.settings.randomize_order %} style="visibility:hidden"{% endif %}>
+          <ul class="slider__grid grid grid-flow-col auto-cols-1 gap-x-theme" role="list">
+            {%- for product in products limit: 9 -%}
+              <li class="slider__item">
+                {% render 'product-card', product: product, image_ratio: image_ratio %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </carousel-slider>
+      <div class="town-carousel-dots mt-4" id="town-dots-{{ section.id }}">
+        {%- for product in products limit: 9 -%}
+          <button class="town-carousel-dot{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Slide {{ forloop.index }}"></button>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="products-grid-container town-products-desktop">
+      <ul class="grid {{ grid_classes }} gap-x-theme gap-y-8" role="list" id="town-grid-{{ section.id }}" data-seed="{{ page.id | default: 0 }}" data-randomize="{{ section.settings.randomize_order }}" data-batch="{{ load_batch }}"{% if section.settings.randomize_order %} style="visibility:hidden"{% endif %}>
+        {%- for product in products -%}
+          <li{% if forloop.index > load_batch %} hidden{% endif %}{% if settings.animations_enabled != "disabled" %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
+            {% render 'product-card', product: product, image_ratio: image_ratio %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- if section.settings.show_load_more and product_count > load_batch -%}
+      <div class="text-center mt-8 no-js-hidden town-products-desktop" id="town-load-more-{{ section.id }}">
+        <button type="button"
+                class="btn btn--primary"
+                data-grid="town-grid-{{ section.id }}"
+                data-batch="{{ load_batch }}"
+                data-wrap="town-load-more-{{ section.id }}"
+                onclick="townProductsLoadMore(this)">
+          {{- section.settings.load_more_label | escape -}}
+        </button>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<script>
+  function townSeededShuffle(items, seed) {
+    let s = seed >>> 0;
+    for (let i = items.length - 1; i > 0; i--) {
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+      s ^= s >>> 16;
+      const j = (s >>> 0) % (i + 1);
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+    return items;
+  }
+
+  function townProductsLoadMore(btn) {
+    const grid = document.getElementById(btn.dataset.grid);
+    const batch = parseInt(btn.dataset.batch);
+    const hidden = Array.from(grid.querySelectorAll('li[hidden]'));
+    hidden.slice(0, batch).forEach(item => item.removeAttribute('hidden'));
+    if (grid.querySelectorAll('li[hidden]').length === 0) {
+      document.getElementById(btn.dataset.wrap).style.display = 'none';
+    }
+  }
+
+  (function() {
+    const slider = document.getElementById('slider-{{ section.id }}');
+    const dotsContainer = document.getElementById('town-dots-{{ section.id }}');
+    const grid = document.getElementById('town-grid-{{ section.id }}');
+
+    if (slider && slider.dataset.randomize === 'true') {
+      const seed = parseInt(slider.dataset.seed) || 0;
+      if (seed > 0) {
+        const sliderList = slider.querySelector('.slider__grid');
+        const mobileItems = Array.from(sliderList.children);
+        townSeededShuffle(mobileItems, seed);
+        mobileItems.forEach(item => sliderList.appendChild(item));
+      }
+      slider.style.visibility = '';
+    }
+
+    if (grid && grid.dataset.randomize === 'true') {
+      const seed = parseInt(grid.dataset.seed) || 0;
+      if (seed > 0) {
+        const batch = parseInt(grid.dataset.batch) || 0;
+        const desktopItems = Array.from(grid.children);
+        townSeededShuffle(desktopItems, seed);
+        desktopItems.forEach((item, i) => {
+          item.toggleAttribute('hidden', batch > 0 && i >= batch);
+          if (item.hasAttribute('data-cc-animate-delay')) {
+            item.setAttribute('data-cc-animate-delay', ((i + 1) * 0.07) + 's');
+          }
+          grid.appendChild(item);
+        });
+      }
+      grid.style.visibility = '';
+    }
+
+    if (!slider || !dotsContainer) return;
+
+    const slides = Array.from(slider.querySelectorAll('.slider__item'));
+    const dots = Array.from(dotsContainer.querySelectorAll('.town-carousel-dot'));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          const idx = slides.indexOf(entry.target);
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+        }
+      });
+    }, { root: slider, threshold: 0.5 });
+
+    slides.forEach(slide => observer.observe(slide));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        slides[parseInt(dot.dataset.index)].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Town products",
+  "tag": "section",
+  "class": "cc-town-products",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "title_prefix",
+      "label": "Heading text",
+      "default": "Top Rated in",
+      "info": "Displayed before the page title when 'Append page title' is enabled."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_page_title",
+      "label": "Append page title to heading",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "text-start", "label": "Left" },
+        { "value": "text-center", "label": "Center" },
+        { "value": "text-end", "label": "Right" }
+      ],
+      "default": "text-center"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "fallback_collection",
+      "label": "Fallback collection",
+      "info": "Shown when no custom products are set via the page metafield (town_top_products). Defaults to 'town-page-banner' if empty."
+    },
+    {
+      "type": "checkbox",
+      "id": "randomize_order",
+      "label": "Randomize product order per town",
+      "default": false,
+      "info": "Uses each page's unique ID to rotate the product list, so different towns show products in a different order. Consistent on page refresh."
+    },
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "label": "Products per row (desktop)",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_load_more",
+      "label": "Show load more button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "load_more_label",
+      "label": "Load more button text",
+      "default": "Load more"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Town products"
+    }
+  ],
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "footer", "aside"]
+  }
+}
+{% endschema %}
