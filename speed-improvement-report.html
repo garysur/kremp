@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kremp Speed Improvement Report</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5c6875;
+      --line: #d9e0e7;
+      --band: #f4f7fa;
+      --blue: #004275;
+      --green: #12643a;
+      --red: #9f2b2b;
+      --gold: #f4b83f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 36px 28px 56px;
+    }
+
+    header {
+      border-bottom: 4px solid var(--blue);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--blue);
+      font-size: 32px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      color: var(--blue);
+      font-size: 21px;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 16px;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    a {
+      color: var(--blue);
+      overflow-wrap: anywhere;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--gold);
+      padding: 14px 14px 12px;
+      background: var(--band);
+      min-height: 104px;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 22px;
+      font-size: 12px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 8px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--blue);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .num,
+    .gain,
+    .loss {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .gain {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .loss {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .note {
+      border-left: 5px solid var(--gold);
+      background: #fff8e8;
+      padding: 12px 14px;
+      margin: 16px 0 22px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .links-table td:first-child {
+      width: 20%;
+      font-weight: 700;
+    }
+
+    .wide-table {
+      font-size: 11px;
+    }
+
+    @media print {
+      body {
+        font-size: 12px;
+      }
+
+      main {
+        max-width: none;
+        padding: 20px;
+      }
+
+      a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      h2 {
+        break-after: avoid;
+      }
+
+      table {
+        break-inside: auto;
+      }
+
+      tr {
+        break-inside: avoid;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Kremp Speed Improvement Report</h1>
+      <p class="meta">Prepared July 1, 2026. Measurements compare the original public baseline against the unpublished Shopify staging theme.</p>
+      <p class="meta">Staging theme: <strong>Surmarketing Speed Staging 2026-07-01</strong> &bull; Theme ID: <strong>151265837134</strong></p>
+    </header>
+
+    <section>
+      <h2>Executive Summary</h2>
+      <p>
+        The speed work is being performed on an unpublished Shopify staging theme. The live theme has not been changed.
+        Across the five tested page types, mobile scores moved from the low 30s to the high 40s on average, while desktop is now averaging around 89.
+      </p>
+
+      <div class="summary-grid">
+        <div class="stat">
+          <strong>32.0 to 48.8</strong>
+          <span>Average mobile Lighthouse score, +16.8 points</span>
+        </div>
+        <div class="stat">
+          <strong>80.8 to 89.2</strong>
+          <span>Average desktop Lighthouse score, +8.4 points</span>
+        </div>
+        <div class="stat">
+          <strong>1.69s less</strong>
+          <span>Average mobile total blocking time improvement</span>
+        </div>
+        <div class="stat">
+          <strong>1.7MB less</strong>
+          <span>Average page weight reduction across tested pages</span>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Testing note:</strong> Scores can vary per run because Shopify apps, payment scripts, and third-party services respond differently each time.
+        The numbers below use the saved local Lighthouse runs from the same test day and page set. PageSpeed Insights should be run on mobile and desktop for both the live and staging URLs.
+      </div>
+    </section>
+
+    <section>
+      <h2>PageSpeed Insights URL Pairs</h2>
+      <p>
+        Paste each URL into <a href="https://pagespeed.web.dev/">PageSpeed Insights</a>. The before URLs below are the base live URLs with no extra query parameters.
+        The after URLs use only the Shopify staging preview parameter.
+      </p>
+
+      <table class="links-table">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Before: Current Live URL</th>
+            <th>After: Staging Preview URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Home</td>
+            <td><a href="https://www.kremp.com/">https://www.kremp.com/</a></td>
+            <td><a href="https://www.kremp.com/?preview_theme_id=151265837134">https://www.kremp.com/?preview_theme_id=151265837134</a></td>
+          </tr>
+          <tr>
+            <td>Birthday Collection</td>
+            <td><a href="https://www.kremp.com/collections/birthday">https://www.kremp.com/collections/birthday</a></td>
+            <td><a href="https://www.kremp.com/collections/birthday?preview_theme_id=151265837134">https://www.kremp.com/collections/birthday?preview_theme_id=151265837134</a></td>
+          </tr>
+          <tr>
+            <td>Product PDP</td>
+            <td><a href="https://www.kremp.com/products/holiday-bloom-fruit-basket">https://www.kremp.com/products/holiday-bloom-fruit-basket</a></td>
+            <td><a href="https://www.kremp.com/products/holiday-bloom-fruit-basket?preview_theme_id=151265837134">https://www.kremp.com/products/holiday-bloom-fruit-basket?preview_theme_id=151265837134</a></td>
+          </tr>
+          <tr>
+            <td>About Us</td>
+            <td><a href="https://www.kremp.com/pages/about-us">https://www.kremp.com/pages/about-us</a></td>
+            <td><a href="https://www.kremp.com/pages/about-us?preview_theme_id=151265837134">https://www.kremp.com/pages/about-us?preview_theme_id=151265837134</a></td>
+          </tr>
+          <tr>
+            <td>Alabama Page</td>
+            <td><a href="https://www.kremp.com/pages/alabama">https://www.kremp.com/pages/alabama</a></td>
+            <td><a href="https://www.kremp.com/pages/alabama?preview_theme_id=151265837134">https://www.kremp.com/pages/alabama?preview_theme_id=151265837134</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Overall Before and After</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Original Baseline</th>
+            <th>Current Staging</th>
+            <th>Improvement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Average score, all tested runs</td>
+            <td class="num">56.4</td>
+            <td class="num">69.0</td>
+            <td class="gain">+12.6 points</td>
+          </tr>
+          <tr>
+            <td>Average mobile score</td>
+            <td class="num">32.0</td>
+            <td class="num">48.8</td>
+            <td class="gain">+16.8 points</td>
+          </tr>
+          <tr>
+            <td>Average desktop score</td>
+            <td class="num">80.8</td>
+            <td class="num">89.2</td>
+            <td class="gain">+8.4 points</td>
+          </tr>
+          <tr>
+            <td>Average LCP, all tested runs</td>
+            <td class="num">6.0s</td>
+            <td class="num">3.7s</td>
+            <td class="gain">2.3s faster</td>
+          </tr>
+          <tr>
+            <td>Average mobile LCP</td>
+            <td class="num">9.7s</td>
+            <td class="num">6.0s</td>
+            <td class="gain">3.7s faster</td>
+          </tr>
+          <tr>
+            <td>Average TBT, all tested runs</td>
+            <td class="num">1,212ms</td>
+            <td class="num">324ms</td>
+            <td class="gain">888ms less blocking time</td>
+          </tr>
+          <tr>
+            <td>Average mobile TBT</td>
+            <td class="num">2,325ms</td>
+            <td class="num">637ms</td>
+            <td class="gain">1,688ms less blocking time</td>
+          </tr>
+          <tr>
+            <td>Average page weight</td>
+            <td class="num">5,100KB</td>
+            <td class="num">3,394KB</td>
+            <td class="gain">1,707KB lighter</td>
+          </tr>
+          <tr>
+            <td>Average request count</td>
+            <td class="num">356</td>
+            <td class="num">265</td>
+            <td class="gain">91 fewer requests</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Detailed Side-by-Side Results</h2>
+      <p class="small">Positive savings mean faster or lighter. Negative savings mean that metric was slightly slower on the latest run.</p>
+
+      <table class="wide-table">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Mode</th>
+            <th>Score Before</th>
+            <th>Score After</th>
+            <th>Score Gain</th>
+            <th>LCP Before</th>
+            <th>LCP After</th>
+            <th>LCP Savings</th>
+            <th>TBT Before</th>
+            <th>TBT After</th>
+            <th>TBT Savings</th>
+            <th>KB Before</th>
+            <th>KB After</th>
+            <th>KB Savings</th>
+            <th>Request Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Home</td><td>mobile</td><td class="num">30</td><td class="num">45</td><td class="gain">+15</td><td class="num">7.6s</td><td class="num">7.2s</td><td class="gain">0.4s</td><td class="num">3371ms</td><td class="num">698ms</td><td class="gain">2673ms</td><td class="num">5,911KB</td><td class="num">3,569KB</td><td class="gain">2,342KB</td><td class="gain">121</td></tr>
+          <tr><td>Home</td><td>desktop</td><td class="num">80</td><td class="num">86</td><td class="gain">+6</td><td class="num">2.0s</td><td class="num">1.6s</td><td class="gain">0.4s</td><td class="num">97ms</td><td class="num">13ms</td><td class="gain">84ms</td><td class="num">6,383KB</td><td class="num">4,059KB</td><td class="gain">2,324KB</td><td class="gain">130</td></tr>
+          <tr><td>Birthday Collection</td><td>mobile</td><td class="num">33</td><td class="num">49</td><td class="gain">+16</td><td class="num">6.2s</td><td class="num">6.0s</td><td class="gain">0.2s</td><td class="num">2142ms</td><td class="num">584ms</td><td class="gain">1558ms</td><td class="num">5,789KB</td><td class="num">4,189KB</td><td class="gain">1,600KB</td><td class="gain">88</td></tr>
+          <tr><td>Birthday Collection</td><td>desktop</td><td class="num">87</td><td class="num">90</td><td class="gain">+3</td><td class="num">1.6s</td><td class="num">1.4s</td><td class="gain">0.2s</td><td class="num">109ms</td><td class="num">9ms</td><td class="gain">100ms</td><td class="num">4,994KB</td><td class="num">3,349KB</td><td class="gain">1,645KB</td><td class="gain">88</td></tr>
+          <tr><td>Product PDP</td><td>mobile</td><td class="num">33</td><td class="num">45</td><td class="gain">+12</td><td class="num">6.0s</td><td class="num">6.1s</td><td class="loss">-0.1s</td><td class="num">2145ms</td><td class="num">818ms</td><td class="gain">1327ms</td><td class="num">4,825KB</td><td class="num">3,044KB</td><td class="gain">1,781KB</td><td class="gain">93</td></tr>
+          <tr><td>Product PDP</td><td>desktop</td><td class="num">84</td><td class="num">90</td><td class="gain">+6</td><td class="num">1.5s</td><td class="num">1.4s</td><td class="gain">0.1s</td><td class="num">103ms</td><td class="num">11ms</td><td class="gain">92ms</td><td class="num">4,859KB</td><td class="num">3,191KB</td><td class="gain">1,668KB</td><td class="gain">85</td></tr>
+          <tr><td>About Us</td><td>mobile</td><td class="num">32</td><td class="num">55</td><td class="gain">+23</td><td class="num">21.8s</td><td class="num">5.2s</td><td class="gain">16.6s</td><td class="num">1972ms</td><td class="num">492ms</td><td class="gain">1480ms</td><td class="num">4,085KB</td><td class="num">2,931KB</td><td class="gain">1,154KB</td><td class="gain">61</td></tr>
+          <tr><td>About Us</td><td>desktop</td><td class="num">66</td><td class="num">90</td><td class="gain">+24</td><td class="num">5.0s</td><td class="num">1.3s</td><td class="gain">3.7s</td><td class="num">92ms</td><td class="num">10ms</td><td class="gain">82ms</td><td class="num">4,798KB</td><td class="num">3,265KB</td><td class="gain">1,533KB</td><td class="gain">82</td></tr>
+          <tr><td>Alabama Page</td><td>mobile</td><td class="num">32</td><td class="num">50</td><td class="gain">+18</td><td class="num">6.8s</td><td class="num">5.5s</td><td class="gain">1.3s</td><td class="num">1995ms</td><td class="num">595ms</td><td class="gain">1400ms</td><td class="num">4,160KB</td><td class="num">2,788KB</td><td class="gain">1,372KB</td><td class="gain">65</td></tr>
+          <tr><td>Alabama Page</td><td>desktop</td><td class="num">87</td><td class="num">90</td><td class="gain">+3</td><td class="num">1.2s</td><td class="num">1.3s</td><td class="loss">-0.1s</td><td class="num">94ms</td><td class="num">12ms</td><td class="gain">82ms</td><td class="num">5,200KB</td><td class="num">3,550KB</td><td class="gain">1,650KB</td><td class="gain">98</td></tr>
+        </tbody>
+      </table>
+
+      <p class="small">
+        Mobile rerun spot checks from the latest pass: Product PDP scored 48 on rerun; Alabama scored 52 on rerun.
+        The table uses the main current run for consistency across all pages.
+      </p>
+    </section>
+
+    <section>
+      <h2>Improvement Attribution by Optimization Batch</h2>
+      <p>
+        Lighthouse cannot perfectly isolate every individual line of code because Shopify apps and third-party scripts overlap.
+        The attribution below ties each measured improvement batch to the main changes made in that batch.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Optimization Batch</th>
+            <th>Main Changes</th>
+            <th>Measured Impact</th>
+            <th>Primary Pages Affected</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Initial theme loading optimization</strong></td>
+            <td>Deferred third-party loaders, reduced render-blocking stylesheets, added image/LCP priority hints, scoped delivery scripts, and lazy-loaded Sur Spotlight content.</td>
+            <td>Average score +8.2 points; mobile average +11.6; average TBT improved 724ms; average transfer reduced 1,281KB; average requests reduced 79.</td>
+            <td>All tested pages, strongest overall reduction in script blocking and page weight.</td>
+          </tr>
+          <tr>
+            <td><strong>Support app delayed loading</strong></td>
+            <td>Disabled duplicate Reamaze and Alia app embed loading on staging and replaced them with equivalent delayed loaders after page load or first user interaction.</td>
+            <td>Average score +3.0 points; mobile average +6.0; average TBT improved 185ms; average transfer reduced 539KB; average requests reduced 21.</td>
+            <td>Mobile pages, especially Product PDP (+8), Alabama (+9), and Birthday Collection (+7).</td>
+          </tr>
+          <tr>
+            <td><strong>CSS, layout reservation, and delivery form stability</strong></td>
+            <td>Changed Flatpickr and animation CSS to non-blocking loading, reserved desktop space for the product zip/date and action area, and synchronized delivery attributes before add-to-cart.</td>
+            <td>Average score +1.4 points; desktop average +3.6; average LCP improved 1,112ms. Product desktop improved 84 to 90; About mobile improved 47 to 55.</td>
+            <td>Product desktop, About page, and checkout/delivery-form reliability on product pages.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Current Status and Remaining Opportunity</h2>
+      <p>
+        The staging theme has made meaningful progress while keeping live untouched. The remaining large gains are tied to higher-risk areas:
+        Shopify accelerated checkout scripts, Upcart timing, BSS product options, Judge.me, jQuery-dependent inline scripts, duplicate icon/font assets, and app CSS.
+      </p>
+      <p>
+        The recommended path from here is controlled staging experiments: one change at a time, verify product selection, delivery date, add-to-cart, Upcart, checkout entry, and then run mobile and desktop PageSpeed tests before keeping or reverting the change.
+      </p>
+    </section>
+
+    <footer class="small">
+      <p>Raw Lighthouse evidence is stored locally under performance-baselines/2026-07-01/. Git checkpoint: surmarketing-speed-css-reserve-and-delivery-sync-2026-07-01.</p>
+    </footer>
+  </main>
+</body>
+</html>
