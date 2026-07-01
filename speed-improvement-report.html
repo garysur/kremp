@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kremp Speed Improvement Report</title>
+  <title>Surmarketing Kremp Speed Improvement Report</title>
   <style>
     :root {
-      --ink: #15202b;
-      --muted: #5f6f7d;
-      --line: #d9e1e8;
-      --soft-line: #edf2f6;
+      --ink: #071927;
+      --muted: #5a6875;
+      --line: #d8e2eb;
+      --soft-line: #edf4f8;
       --paper: #ffffff;
-      --band: #f6f8fb;
-      --blue: #004275;
-      --blue-soft: #e8f1f8;
-      --green: #12643a;
-      --green-soft: #e8f5ee;
-      --gold: #f2b84b;
-      --gold-soft: #fff7e6;
+      --band: #f5f9fc;
+      --navy: #06172a;
+      --blue: #0b5cab;
+      --blue-soft: #e7f2fb;
+      --cyan: #20b6d2;
+      --cyan-soft: #e7f8fb;
+      --green: #137a4a;
+      --green-soft: #e8f7ef;
+      --gold: #f2b544;
+      --gold-soft: #fff6df;
       --red: #9f2b2b;
       --red-soft: #fbeded;
     }
@@ -29,7 +32,7 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--paper);
+      background: #f3f7fa;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
       line-height: 1.5;
@@ -42,11 +45,13 @@
     }
 
     header {
-      padding: 24px 24px 22px;
+      padding: 28px 28px 24px;
       margin-bottom: 24px;
-      border: 1px solid var(--line);
-      border-top: 7px solid var(--blue);
-      background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+      color: #ffffff;
+      border: 0;
+      background:
+        linear-gradient(135deg, rgba(32, 182, 210, .26) 0%, rgba(32, 182, 210, 0) 36%),
+        linear-gradient(135deg, var(--navy) 0%, #0a3d70 100%);
     }
 
     h1,
@@ -95,6 +100,50 @@
       text-transform: uppercase;
     }
 
+    .brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    .brand-mark span {
+      color: var(--cyan);
+    }
+
+    .brand-pill {
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, .28);
+      background: rgba(255, 255, 255, .08);
+      color: #e7f8ff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    header .kicker {
+      color: #8fe3f4;
+    }
+
+    header h1 {
+      max-width: 820px;
+      color: #ffffff;
+    }
+
+    header .meta {
+      color: #d9eaf6;
+    }
+
     .meta {
       color: var(--muted);
       font-size: 13px;
@@ -109,19 +158,19 @@
 
     .status-item {
       padding: 11px 12px;
-      border: 1px solid var(--line);
-      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(255, 255, 255, .08);
     }
 
     .status-item strong {
       display: block;
       margin-bottom: 2px;
-      color: var(--blue);
+      color: #ffffff;
       font-size: 13px;
     }
 
     .status-item span {
-      color: var(--muted);
+      color: #d9eaf6;
       font-size: 12px;
     }
 
@@ -141,7 +190,7 @@
       min-height: 112px;
       padding: 15px 14px;
       border: 1px solid var(--line);
-      border-left: 5px solid var(--gold);
+      border-left: 5px solid var(--cyan);
       background: var(--band);
     }
 
@@ -370,6 +419,160 @@
       color: var(--blue);
     }
 
+    .recommendations {
+      break-before: page;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 16px 0 22px;
+    }
+
+    .impact-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .impact-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .impact-topline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .rec-id {
+      display: inline-block;
+      margin-right: 6px;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .status-pill {
+      padding: 4px 8px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status-pill.partial {
+      background: var(--gold-soft);
+      color: #7b5200;
+    }
+
+    .status-pill.done {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .impact-copy {
+      min-height: 54px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .bar-set {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .bar-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .bar-track {
+      position: relative;
+      min-height: 28px;
+      overflow: hidden;
+      border: 1px solid var(--soft-line);
+      background: #f7fafc;
+    }
+
+    .bar {
+      display: block;
+      min-width: 38%;
+      height: 100%;
+      padding: 5px 8px;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .bar.expected {
+      background: var(--blue);
+    }
+
+    .bar.actual {
+      background: var(--green);
+    }
+
+    .bar.neutral {
+      background: var(--cyan);
+    }
+
+    .metric-chips {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .metric-chip {
+      padding: 9px 10px;
+      border: 1px solid var(--soft-line);
+      background: var(--band);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .metric-chip strong {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .recommendation-table td:nth-child(1) {
+      width: 20%;
+      font-weight: 700;
+    }
+
+    .recommendation-table td:nth-child(2) {
+      width: 15%;
+    }
+
+    .next-opportunity {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, var(--band) 100%);
+    }
+
     .evidence {
       break-before: page;
     }
@@ -388,6 +591,7 @@
       .summary-grid,
       .score-grid,
       .steps,
+      .impact-grid,
       .status-strip,
       .takeaways,
       .split-results {
@@ -398,6 +602,7 @@
     @media print {
       body {
         font-size: 12px;
+        background: #ffffff;
       }
 
       main {
@@ -410,10 +615,11 @@
         text-decoration: none;
       }
 
-      section,
       .panel,
       .score-card,
       .step,
+      .impact-card,
+      .next-opportunity,
       tr {
         break-inside: avoid;
       }
@@ -442,15 +648,24 @@
       .split-results {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
   <main>
     <header>
+      <div class="brand-row">
+        <div class="brand-mark">Sur<span>Marketing</span></div>
+        <div class="brand-pill">Performance evidence</div>
+      </div>
       <p class="kicker">Staging performance report</p>
       <h1>Kremp Speed Improvement Report</h1>
-      <p class="meta">Prepared July 1, 2026. Measurements compare the original public baseline against the unpublished Shopify staging theme.</p>
+      <p class="meta">Clear reporting, measurable movement, and staging-only implementation. Prepared July 1, 2026.</p>
+      <p class="meta">Measurements compare the original public baseline against the unpublished Shopify staging theme.</p>
       <p class="meta">Staging theme: <strong>Surmarketing Speed Staging 2026-07-01</strong> &bull; Theme ID: <strong>151265837134</strong></p>
 
       <div class="status-strip">
@@ -714,6 +929,217 @@
           <h3>CSS and Product Stability</h3>
           <p>Flatpickr and animation CSS were made non-blocking. Product layout space was reserved. Delivery date and zip attributes were synced before add-to-cart.</p>
           <p class="gain">Average score +1.4. Desktop average +3.6. LCP improved 1,112ms. Product desktop reached 90.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="recommendations">
+      <h2>Recommendations: Expected vs Actual</h2>
+      <p class="section-lead">
+        The original speed recommendation file listed planning estimates from source review. This section maps the work completed on staging back to those recommendations,
+        then shows the measured Lighthouse movement from the accepted staging runs. Items marked partial were improved without removing store functionality.
+      </p>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-topline">
+            <h3><span class="rec-id">#2</span>Defer Third-Party and App Embeds</h3>
+            <span class="status-pill partial">Partial</span>
+          </div>
+          <p class="impact-copy">
+            Reamaze and Alia app embeds were replaced with delayed equivalent loaders on staging. GTM, rlets, MerchantWidget, and other support scripts were pushed later without disabling them.
+          </p>
+          <div class="bar-set">
+            <div class="bar-row">
+              <span class="bar-label">Expected</span>
+              <div class="bar-track"><span class="bar expected" style="width: 88%;">300KB-2MB; 500ms-3s</span></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Actual</span>
+              <div class="bar-track"><span class="bar actual" style="width: 62%;">539KB; 185ms TBT</span></div>
+            </div>
+          </div>
+          <div class="metric-chips">
+            <div class="metric-chip"><strong>+6.0</strong>mobile score from support-app delay pass</div>
+            <div class="metric-chip"><strong>1,707KB</strong>lighter total current average vs original baseline</div>
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-topline">
+            <h3><span class="rec-id">#3</span>Route-Gate Delivery, ZIP, and Date Work</h3>
+            <span class="status-pill partial">Partial</span>
+          </div>
+          <p class="impact-copy">
+            Delivery scripts were scoped and guarded more tightly, product ZIP/date state is synced before add-to-cart, and the staging product flow was verified through cart attributes.
+          </p>
+          <div class="bar-set">
+            <div class="bar-row">
+              <span class="bar-label">Expected</span>
+              <div class="bar-track"><span class="bar expected" style="width: 58%;">50-300KB; 100-600ms</span></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Actual</span>
+              <div class="bar-track"><span class="bar actual" style="width: 72%;">Batch 1: 724ms TBT</span></div>
+            </div>
+          </div>
+          <div class="metric-chips">
+            <div class="metric-chip"><strong>1,281KB</strong>lighter average transfer in Batch 1</div>
+            <div class="metric-chip"><strong>Passed</strong>ZIP, delivery date, add-to-cart, cart attribute QA</div>
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-topline">
+            <h3><span class="rec-id">#6</span>Prioritize LCP Images and Render Hints</h3>
+            <span class="status-pill partial">Partial</span>
+          </div>
+          <p class="impact-copy">
+            High-value first-view media and above-the-fold paths were improved as part of the initial theme-loading pass, with the strongest LCP movement on content pages.
+          </p>
+          <div class="bar-set">
+            <div class="bar-row">
+              <span class="bar-label">Expected</span>
+              <div class="bar-track"><span class="bar expected" style="width: 70%;">200-800ms LCP improvement</span></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Actual</span>
+              <div class="bar-track"><span class="bar actual" style="width: 68%;">722ms LCP avg</span></div>
+            </div>
+          </div>
+          <div class="metric-chips">
+            <div class="metric-chip"><strong>2.3s</strong>faster average LCP, current vs original baseline</div>
+            <div class="metric-chip"><strong>16.6s</strong>mobile About page LCP improvement</div>
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-topline">
+            <h3><span class="rec-id">#7 / #13</span>Nonblocking CSS and Animation Path</h3>
+            <span class="status-pill partial">Partial</span>
+          </div>
+          <p class="impact-copy">
+            Flatpickr and animation CSS were moved to nonblocking load patterns, product layout space was reserved, and animation functionality stayed enabled.
+          </p>
+          <div class="bar-set">
+            <div class="bar-row">
+              <span class="bar-label">Expected</span>
+              <div class="bar-track"><span class="bar expected" style="width: 62%;">100-400ms LCP</span></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Actual</span>
+              <div class="bar-track"><span class="bar actual" style="width: 78%;">1,112ms LCP avg</span></div>
+            </div>
+          </div>
+          <div class="metric-chips">
+            <div class="metric-chip"><strong>+3.6</strong>desktop average score in latest pass</div>
+            <div class="metric-chip"><strong>Mixed</strong>mobile movement, with product rerun at 48</div>
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-topline">
+            <h3><span class="rec-id">#15</span>Automated Performance Evidence</h3>
+            <span class="status-pill done">Complete</span>
+          </div>
+          <p class="impact-copy">
+            Baseline, staging, and rerun Lighthouse data were captured for home, collection, product, About, and Alabama pages in mobile and desktop modes.
+          </p>
+          <div class="bar-set">
+            <div class="bar-row">
+              <span class="bar-label">Expected</span>
+              <div class="bar-track"><span class="bar neutral" style="width: 48%;">No direct KB savings</span></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Actual</span>
+              <div class="bar-track"><span class="bar actual" style="width: 86%;">Before/after evidence</span></div>
+            </div>
+          </div>
+          <div class="metric-chips">
+            <div class="metric-chip"><strong>5 pages</strong>tested across key page types</div>
+            <div class="metric-chip"><strong>Both</strong>mobile and desktop measured</div>
+          </div>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-topline">
+            <h3>Total Accepted Staging Movement</h3>
+            <span class="status-pill done">Measured</span>
+          </div>
+          <p class="impact-copy">
+            This combines the accepted staging work above. It is the clearest account-manager view of where the store started and where staging is now.
+          </p>
+          <div class="bar-set">
+            <div class="bar-row">
+              <span class="bar-label">Scores</span>
+              <div class="bar-track"><span class="bar actual" style="width: 72%;">Mobile +16.8, desktop +8.4</span></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Weight</span>
+              <div class="bar-track"><span class="bar actual" style="width: 76%;">1.7MB lighter, 91 fewer requests</span></div>
+            </div>
+          </div>
+          <div class="metric-chips">
+            <div class="metric-chip"><strong>888ms</strong>less average blocking time</div>
+            <div class="metric-chip"><strong>3.7s</strong>faster average mobile LCP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="next-opportunity">
+        <h3>Remaining Recommendations Not Yet Implemented</h3>
+        <p class="section-lead">
+          These are still available as future staging experiments. They are kept separate because no accepted staging run has measured their direct impact yet.
+        </p>
+        <div class="table-wrap">
+          <table class="recommendation-table">
+            <thead>
+              <tr>
+                <th>Original Recommendation</th>
+                <th>Status</th>
+                <th>Expected Improvement</th>
+                <th>Actual Improvement So Far</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#1 Override mega-bundles</td>
+                <td>Future staging test</td>
+                <td>Up to 1.5MB raw JS per affected page; likely 500ms-2s less mobile parse/compile work.</td>
+                <td>Not isolated yet. High expected upside, higher functionality risk.</td>
+              </tr>
+              <tr>
+                <td>#4 Duplicate jQuery</td>
+                <td>Future staging test</td>
+                <td>30-90KB compressed per duplicate request, two fewer blocking requests, often 100-300ms faster FCP/LCP.</td>
+                <td>Not isolated yet. Needs careful testing because inline scripts may depend on jQuery timing.</td>
+              </tr>
+              <tr>
+                <td>#8 Fonts</td>
+                <td>Future staging test</td>
+                <td>20-90KB less font/CSS transfer and 100-500ms less LCP/CLS risk from late font swaps.</td>
+                <td>Not isolated yet.</td>
+              </tr>
+              <tr>
+                <td>#9 Review widgets in cards</td>
+                <td>Future staging test</td>
+                <td>100-500ms less collection/search INP work, plus fewer DOM nodes.</td>
+                <td>Not isolated yet.</td>
+              </tr>
+              <tr>
+                <td>#10 Videos and iframes</td>
+                <td>Future staging test</td>
+                <td>500KB-1.5MB less third-party/media transfer on video-heavy pages, 300ms-1s less contention.</td>
+                <td>Not measured on the current five-page set.</td>
+              </tr>
+              <tr>
+                <td>#12 Section asset duplication</td>
+                <td>Future staging test</td>
+                <td>10-100ms less JS initialization work on section-heavy pages.</td>
+                <td>Not isolated yet.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
