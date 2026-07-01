@@ -130,9 +130,13 @@
               assign img = block.settings.image_desktop
               assign m_img = block.settings.image_mobile
               assign lazy_load = true
+              assign image_priority = false
               if forloop.first
                 if section.index == 1 or section.settings.prevent_animation
                   assign lazy_load = false
+                endif
+                if section.index == 1
+                  assign image_priority = true
                 endif
               endif
 
@@ -193,7 +197,8 @@
                       sizes: sizes,
                       quality: 1.5,
                       class: 'img-fit sm:hidden',
-                      lazy_load: lazy_load
+                      lazy_load: lazy_load,
+                      priority: image_priority
                     -%}
                   {%- endif -%}
 
@@ -205,7 +210,8 @@
                     sizes: sizes,
                     quality: 1,
                     class: desktop_image_class,
-                    lazy_load: lazy_load
+                    lazy_load: lazy_load,
+                    priority: image_priority
                   -%}
                 {%- elsif block.settings.image_placeholder != blank -%}
                   {%- render 'image',
@@ -216,7 +222,8 @@
                     sizes: sizes,
                     quality: 1,
                     class: 'img-fit',
-                    lazy_load: lazy_load
+                    lazy_load: lazy_load,
+                    priority: image_priority
                   -%}
                 {%- else -%}
                   {{ 'lifestyle-2' | placeholder_svg_tag: 'media__placeholder img-fit' }}

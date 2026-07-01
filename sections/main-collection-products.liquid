@@ -175,7 +175,7 @@
                     {%- assign rendered_product_ids = rendered_product_ids | append: product.id | append: "," -%}
                     {%- assign card_lazy = true -%}
                     {%- if first_product_card -%}{%- assign card_lazy = false -%}{%- endif -%}
-                    <li class="js-pagination-result">{% render 'product-card', product: product, collection: collection, image_ratio: image_ratio, show_compare: settings.enable_compare, lazy_load: card_lazy %}</li>
+                    <li class="js-pagination-result">{% render 'product-card', product: product, collection: collection, image_ratio: image_ratio, show_compare: settings.enable_compare, lazy_load: card_lazy, priority: first_product_card %}</li>
                     {%- if first_product_card -%}{%- assign first_product_card = false -%}{%- endif -%}
                   {%- endunless -%}
                 {%- endif -%}
@@ -219,7 +219,7 @@
                 {%- assign rendered_product_ids = rendered_product_ids | append: product.id | append: "," -%}
                 {%- assign card_lazy = true -%}
                 {%- if first_product_card -%}{%- assign card_lazy = false -%}{%- endif -%}
-                <li class="js-pagination-result">{% render 'product-card', product: product, collection: collection, image_ratio: image_ratio, show_compare: settings.enable_compare, lazy_load: card_lazy %}</li>
+                <li class="js-pagination-result">{% render 'product-card', product: product, collection: collection, image_ratio: image_ratio, show_compare: settings.enable_compare, lazy_load: card_lazy, priority: first_product_card %}</li>
                 {%- if first_product_card -%}{%- assign first_product_card = false -%}{%- endif -%}
               {%- endunless -%}
             {%- endfor -%}

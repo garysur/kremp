@@ -71,6 +71,7 @@
     {%- for media in product.media -%}
         {%- liquid
           assign lazy_load = true
+          assign media_priority = false
           assign select_first_image = false
 
           if featured_media == null and forloop.index == 1
@@ -84,6 +85,7 @@
 
           if forloop.index == 1
             assign lazy_load = false
+            assign media_priority = true
           endif
         -%}
         <li class="media-viewer__item{% if media.id == featured_media.id or select_first_image %} is-current-variant{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} media-viewer__item--variant{% endif %}{% if section.settings.media_layout == 'stacked' and media.id == featured_media.id %}{% if underline_active and section.settings.enable_media_grouping == false %} is-active{% endif %}{% endif %}{% if media_count == 1 %} media-viewer__item--single{% endif %}" data-media-id="{{ media.id }}" data-media-type="{{ media.media_type }}">
@@ -93,6 +95,7 @@
             media_crop: media_crop,
             loop: section.settings.enable_video_looping,
             lazy_load: lazy_load,
+            priority: media_priority,
             zoom: zoom
           %}
         </li>

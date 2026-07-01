@@ -16,6 +16,7 @@
   - alt_text {String} - Custom text for the 'alt' attribute (optional).
   - disable_focal_point {Boolean} - Disables the focussing of a spot on the image (optional, default is false).
   - section_index {Number} - If passed, image lazy load will be prevented if it's the first section
+  - priority {Boolean} - Mark this as the likely LCP image with high fetch priority (optional, default is false).
 
   Usage:
   {% render 'image',
@@ -140,6 +141,7 @@
   endunless
 
   assign disable_focal_point = disable_focal_point | default: false
+  assign image_priority = priority | default: false
 -%}
 
 {%- capture placeholder_image -%}
@@ -162,6 +164,7 @@
            {% if js_class %}class="{{ js_class }}" {% endif -%}
            {% if attributes %}{{ attributes }} {% endif -%}
            {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
+           {% if image_priority %}fetchpriority="high" decoding="sync" {% else %}decoding="async" {% endif -%}
            loading="{% if lazy_load %}lazy{% else %}eager{% endif %}"
            width="{{ image_width }}"
            height="{{ image_height }}"

@@ -238,7 +238,15 @@
               <ul class="{% if carousel %}slider__grid {% endif %}grid {{ grid_classes }}{% if section.settings.layout == 'carousel_on_mobile' and section.settings.card_size_mobile == 'small' and settings.card_contain %} sm:gap-x-theme sm:gap-y-8{% else %} gap-x-theme gap-y-8{% endif %}{% if section.settings.card_size_mobile == 'small' and settings.card_contain %} small__grid{% endif %}" role="list">
                 {%- for product in collection.products limit: section.settings.products_to_show -%}
                   <li {% if carousel %}class="slider__item"{% endif %}{% if settings.animations_enabled != "disabled" %}data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
-                    {% render 'product-card', product: product, collection: collection, image_ratio: image_ratio %}
+                    {%- liquid
+                      assign card_priority = false
+                      assign card_lazy_load = true
+                      if section.index == 1 and forloop.first
+                        assign card_priority = true
+                        assign card_lazy_load = false
+                      endif
+                    -%}
+                    {% render 'product-card', product: product, collection: collection, image_ratio: image_ratio, lazy_load: card_lazy_load, priority: card_priority %}
                   </li>
                 {%- else -%}
                   {%- for i in (1..section.settings.products_to_show) -%}

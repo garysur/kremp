@@ -97,6 +97,11 @@
 {%- elsif image != blank -%}
   {%- liquid
     assign custom_alt = image.alt
+    assign image_priority = false
+    if section.index == 1
+      assign image_priority = true
+    endif
+
     if template.suffix == 'town-pages'
       assign custom_alt = "Kremp Florist - Flower Delivery in " | append: page.title
     endif
@@ -113,7 +118,8 @@
     mobile_widths: '690, 800',
     src_width: 536,
     sizes: sizes,
-    section_index: section.index
+    section_index: section.index,
+    priority: image_priority
   %}
           {%- elsif media_type == 'image' -%}
             {{ 'image' | placeholder_svg_tag: 'media__placeholder dark' }}

@@ -40,6 +40,11 @@
     assign lazy_load_images = true
   endif
 
+  assign image_priority = false
+  if section.index == 1
+    assign image_priority = true
+  endif
+
   if color_scheme == "white"
     assign brightness = section.settings.transparent_content_color | color_brightness
     assign alpha = section.settings.transparent_content_color | color_extract: 'alpha'
@@ -195,6 +200,7 @@
               src_placeholder: true,
               sizes: sizes,
               lazy_load: lazy_load_images,
+              priority: image_priority,
               class: 'img-fit sm:hidden'
             -%}
           {%- endif -%}
@@ -206,6 +212,7 @@
             src_placeholder: true,
             sizes: sizes,
             lazy_load: lazy_load_images,
+            priority: image_priority,
             class: desktop_image_class
           -%}
         {%- else -%}

@@ -17,18 +17,69 @@
   assign gutter_sm = 20
   assign gutter_md = 32
   assign gutter_lg = 64
+  assign is_delivery_template = false
+  if request.page_type == 'product' or request.page_type == 'cart'
+    assign is_delivery_template = true
+  endif
+  assign body_classes = ''
+  if settings.animations_enabled != 'disabled'
+    assign body_classes = template | prepend: 'cc-animate-enabled '
+  endif
 -%}
 
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% if rtl %}rtl{% else %}ltr{% endif %}">
   <head>
+    <script>
+      window.surmarketingLoadAfterReady = window.surmarketingLoadAfterReady || function (callback, delay) {
+        var loaded = false;
+        var timer;
+        var events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+
+        var cleanup = function () {
+          clearTimeout(timer);
+          events.forEach(function (eventName) {
+            window.removeEventListener(eventName, run);
+          });
+        };
+
+        var run = function () {
+          if (loaded) return;
+          loaded = true;
+          cleanup();
+          callback();
+        };
+
+        var schedule = function () {
+          events.forEach(function (eventName) {
+            window.addEventListener(eventName, run, { once: true, passive: true });
+          });
+          timer = setTimeout(run, delay);
+        };
+
+        if (document.readyState === 'complete') {
+          schedule();
+        } else {
+          window.addEventListener('load', schedule, { once: true });
+        }
+      };
+    </script>
+
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WQ6NM2LV');</script>
-<!-- End Google Tag Manager -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      window.surmarketingLoadAfterReady(function () {
+        if (window.__gtmLoaded) return;
+        window.__gtmLoaded = true;
+        var firstScript = document.getElementsByTagName('script')[0];
+        var gtmScript = document.createElement('script');
+        gtmScript.async = true;
+        gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WQ6NM2LV';
+        firstScript.parentNode.insertBefore(gtmScript, firstScript);
+      }, 6500);
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     {% if request.path contains '/pages/the-best-and-worst-states-to-be-a-mom' %}
       <meta
@@ -167,42 +218,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
     
 
-     <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const replacements = {
-    'â€œ': '“',
-    'â€': '”',
-    'â€™': '’',
-    'â€“': '–',
-    'â€”': '—'
-  };
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const replacements = {
+          'â€œ': '“',
+          'â€': '”',
+          'â€™': '’',
+          'â€“': '–',
+          'â€”': '—'
+        };
 
-  function fixTextNodes(node) {
-    if (node.nodeType === 3) {
-      let text = node.nodeValue;
-      for (const [badChar, goodChar] of Object.entries(replacements)) {
-        text = text.replaceAll(badChar, goodChar);
-      }
-      node.nodeValue = text;
-    } else {
-      for (const child of node.childNodes) {
-        fixTextNodes(child);
-      }
-    }
-  }
+        function replaceText(text) {
+          let nextText = text;
+          for (const [badChar, goodChar] of Object.entries(replacements)) {
+            nextText = nextText.replaceAll(badChar, goodChar);
+          }
+          return nextText;
+        }
 
-  function fixAll() {
-    fixTextNodes(document.body);
-  }
+        function fixTextNodes(root) {
+          if (!root) return;
 
-  // Run once on load
-  fixAll();
+          if (root.nodeType === Node.TEXT_NODE) {
+            root.nodeValue = replaceText(root.nodeValue);
+            return;
+          }
 
-  // Run whenever new DOM nodes are added (for Shopify product content)
-  const observer = new MutationObserver(fixAll);
-  observer.observe(document.body, { childList: true, subtree: true });
-});
-</script>
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+          let node;
+          while ((node = walker.nextNode())) {
+            node.nodeValue = replaceText(node.nodeValue);
+          }
+        }
+
+        fixTextNodes(document.body);
+
+        const observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            mutation.addedNodes.forEach(fixTextNodes);
+          });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+        setTimeout(function () {
+          observer.disconnect();
+        }, 10000);
+      });
+    </script>
 
 
 
@@ -212,7 +274,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.sgAddon_money_format = true;
       });
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {%- if template contains 'product' -%}
       <script>
         $(document).ready(function () {
@@ -265,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       </script>
     {% endif %}
+    {%- if is_delivery_template -%}
     <script>
       $(document).ready(function () {
         // Initially disable the date picker and Add to Cart button
@@ -425,6 +487,7 @@ document.addEventListener('DOMContentLoaded', function () {
         true
       ); // useCapture = true to catch the event early
     </script>
+    {%- endif -%}
 
     <style>
 .custom-banner {
@@ -437,17 +500,6 @@ position: relative;
     margin: 0;
 }
     </style>
-    {%- unless template contains 'product' -%}
-      <script src="overrides.js"></script>
-    {% endunless %}
-
-    
-
-    <script
-      type="text/javascript"
-      src="https:cdn.rlets.com/capture_configs/aef/91c/b0a/02b461b86d75d756be89f82.js" async="async">
-    </script>
-
     {%- render 'doc-head-core' -%}
     {%- render 'doc-head-social' -%}
 
@@ -455,8 +507,16 @@ position: relative;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     >
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      >
+    </noscript>
 
     <link rel="preload" href="{{ 'main.css' | asset_url }}" as="style">
 {% comment %}
@@ -726,9 +786,13 @@ position: relative;
       }
     {%- endstyle %}
 
-    <link rel="stylesheet" href="{{ 'simple-notify.css' | asset_url }}">
+    {%- if is_delivery_template -%}
+      <link rel="stylesheet" href="{{ 'simple-notify.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ 'simple-notify.css' | asset_url }}"></noscript>
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'overrides.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'overrides.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ 'overrides.css' | asset_url }}"></noscript>
     <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
 
     {%- unless settings.body_font.system? -%}
@@ -738,7 +802,6 @@ position: relative;
         as="font"
         type="font/woff2"
         crossorigin
-        fetchpriority="high"
       >
     {%- endunless -%}
 
@@ -749,7 +812,6 @@ position: relative;
         as="font"
         type="font/woff2"
         crossorigin
-        fetchpriority="high"
       >
     {%- endunless -%}
 
@@ -806,14 +868,19 @@ position: relative;
         background-image: url('https://cdn.shopify.com/s/files/1/0612/6410/1454/files/assorted-colors_f62efbce-264c-46ea-b02b-b5beb4bd3745.jpg?v=1742656527');
       }
     </style>
-    <script type="text/javascript" src="//cdn.rlets.com/capture_configs/aef/91c/b0a/02b461b86d75d756be89f82.js" async="async"></script>
+    <script>
+      window.surmarketingLoadAfterReady(function () {
+        if (window.__rletsCaptureLoaded) return;
+        window.__rletsCaptureLoaded = true;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://cdn.rlets.com/capture_configs/aef/91c/b0a/02b461b86d75d756be89f82.js';
+        document.head.appendChild(script);
+      }, 8000);
+    </script>
   </head>
 
-  <body
-    {% if settings.animations_enabled != 'disabled' %}
-      class="cc-animate-enabled {{ template }}"
-    {% endif %}
-  >
+  <body class="{{ body_classes }}">
  {% comment %} {% if template contains 'page' and page.metafields.custom.announcement_message %}
   {% assign bg_image = page.metafields.custom.banner_image %}
   <div class="custom-banner" style="background-image: url('{{ bg_image | image_url: width: 1600 }}');">
@@ -983,9 +1050,10 @@ position: relative;
     {%- if request.design_mode == false and settings.preload_links -%}
       <script src="{{ 'instant-page.js' | asset_url }}" type="module" defer="defer"></script>
     {%- endif -%}
-    {%- render 'wfl_zip_processor' -%}
-
-    <script src="{{ 'simple-notify.min.js' | asset_url }}" type="module" defer="defer"></script>
+    {%- if is_delivery_template -%}
+      {%- render 'wfl_zip_processor' -%}
+      <script src="{{ 'simple-notify.min.js' | asset_url }}" type="module" defer="defer"></script>
+    {%- endif -%}
     <script>
       window.localZipCodes = [
         '19090',
@@ -1176,6 +1244,7 @@ position: relative;
 
       window.pageTemplate = '{{ template.name }}';
 
+      {%- if is_delivery_template -%}
       // Global zip code rules
       // This is every zip code rule in the store, regardless of the product or collection
       window.globalZipCodeRules = [
@@ -1388,6 +1457,14 @@ position: relative;
           {%- endfor -%}
         {%- endif -%}
       ];
+      {%- else -%}
+      window.globalZipCodeRules = [];
+      window.flexShippingDates = [];
+      window.shippingOptions = [];
+      window.pdpZipCodeRules = [];
+      window.pdpFlexShippingDates = [];
+      window.pdpDeliverySeasons = [];
+      {%- endif -%}
     </script>
 
     {%- if template contains 'product' -%}
@@ -1403,6 +1480,7 @@ position: relative;
       </script>
     {% endif %}
 
+    {%- if is_delivery_template -%}
     <script>
       window.customMessage1 = '{{ settings.custom_message1 }}';
       window.customMessage2 = "{{ settings.custom_message2 }}";
@@ -1496,12 +1574,14 @@ else{
       lablebtn.on('click', checkZipCodeWarning);
       continuebtn.on('click', checkZipCodeWarning);
     </script>
+    {%- endif -%}
 
+    {%- if is_delivery_template -%}
     <script>
       $(document).ready(function () {
-        let calendarWatcher = setInterval(function () {
+        function positionCalendar(input) {
           const $calendar = $('.flatpickr-calendar.open:visible');
-          const $input = $('#flatpickrButton');
+          const $input = $(input);
 
           if ($calendar.length && $input.length && !$calendar.attr('style')) {
             const offset = $input.offset();
@@ -1513,29 +1593,23 @@ else{
               left: offset.left,
               right: 'auto',
             });
-
-            clearInterval(calendarWatcher);
           }
-        }, 100);
+        }
+
+        function queueCalendarPosition(input) {
+          if (!input) return;
+          requestAnimationFrame(function () {
+            positionCalendar(input);
+            setTimeout(function () {
+              positionCalendar(input);
+            }, 100);
+          });
+        }
+
+        queueCalendarPosition(document.getElementById('flatpickrButton'));
 
         $('#flatpickrButton').on('click', function () {
-          calendarWatcher = setInterval(() => {
-            const $calendar = $('.flatpickr-calendar.open:visible');
-
-            if ($calendar.length && !$calendar.attr('style')) {
-              const offset = $(this).offset();
-              const inputHeight = $(this).outerHeight();
-
-              $calendar.css({
-                position: 'absolute',
-                top: offset.top + inputHeight + 3,
-                left: offset.left,
-                right: 'auto',
-              });
-
-              clearInterval(calendarWatcher);
-            }
-          }, 100);
+          queueCalendarPosition(this);
         });
         fetch('/cart.js')
   .then(response => response.json())
@@ -1597,6 +1671,7 @@ else{
 
       });
     </script>
+    {%- endif -%}
 
 {% if request.path contains '/pages/most-common-birthday-month-and-year-by-state'  %}
 <script>
@@ -1868,6 +1943,7 @@ button.exinent {
 }
 </style>
 {% endif %}
+{%- if template contains 'product' -%}
 <script>
     // Flex shipping dates
       // This is every holiday and the number of days before and after the holiday that are considered "flex" shipping dates
@@ -1884,15 +1960,20 @@ button.exinent {
           {% endfor %}
         {% endpaginate %}
       ];
+</script>
+{%- endif -%}
+<script>
     function blockUpcartCheckout() {
   const upcart = document.querySelector('#upCart');
-  if (!upcart || !upcart.shadowRoot) return;
+  if (!upcart || !upcart.shadowRoot) return false;
 
   const checkoutBtn = upcart.shadowRoot.querySelector(
     'a.upcart-checkout-button'
   );
 
-  if (!checkoutBtn) return;
+  if (!checkoutBtn) return false;
+  if (checkoutBtn.dataset.deliveryGuardBound === 'true') return true;
+  checkoutBtn.dataset.deliveryGuardBound = 'true';
 
   checkoutBtn.addEventListener('click', function (e) {
     e.preventDefault();
@@ -1938,17 +2019,37 @@ button.exinent {
       window.location.href = '/cart';
     });
   });
+  return true;
 }
 
-// Run once
-blockUpcartCheckout();
+function connectUpcartDeliveryGuard() {
+  blockUpcartCheckout();
 
-// Also re-run because Upcart re-renders
-const observer = new MutationObserver(blockUpcartCheckout);
-observer.observe(document.body, { childList: true, subtree: true });
+  const upcart = document.querySelector('#upCart');
+  if (!upcart || !upcart.shadowRoot || window.__upcartDeliveryGuardObserver) return false;
+
+  window.__upcartDeliveryGuardObserver = new MutationObserver(blockUpcartCheckout);
+  window.__upcartDeliveryGuardObserver.observe(upcart.shadowRoot, { childList: true, subtree: true });
+  return true;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (connectUpcartDeliveryGuard()) return;
+
+  const hostObserver = new MutationObserver(function () {
+    if (connectUpcartDeliveryGuard()) {
+      hostObserver.disconnect();
+    }
+  });
+
+  hostObserver.observe(document.body, { childList: true, subtree: true });
+  setTimeout(function () {
+    hostObserver.disconnect();
+  }, 30000);
+});
   </script>
 
-
+{%- if is_delivery_template -%}
  <script>
   document.addEventListener('DOMContentLoaded', function () {
 
@@ -2082,14 +2183,26 @@ if (zipInput) {
  
 })();
 if(window.location.pathname.includes("cart")){
-setInterval(function(){
-    if(jQuery('.flatpickr-day.selected').length && (localStorage.getItem('deliveryDate') == null || localStorage.getItem('deliveryDate') != jQuery('.flatpickr-day.selected').attr('aria-label'))){
-        localStorage.setItem('deliveryDate', jQuery('.flatpickr-day.selected').attr('aria-label'));
-        console.log('deliveryDate saved to localStorage: '+jQuery('.flatpickr-day.selected').attr('aria-label'));
+  function syncCartDeliveryDate() {
+    const selectedDay = document.querySelector('.flatpickr-day.selected');
+    const selectedDate = selectedDay ? selectedDay.getAttribute('aria-label') : null;
+
+    if (selectedDate && localStorage.getItem('deliveryDate') !== selectedDate) {
+      localStorage.setItem('deliveryDate', selectedDate);
     }
-},100);
+  }
+
+  document.addEventListener('click', function (event) {
+    if (event.target.closest('.flatpickr-day')) {
+      setTimeout(syncCartDeliveryDate, 0);
+    }
+  }, true);
+
+  document.addEventListener('change', syncCartDeliveryDate, true);
+  syncCartDeliveryDate();
 }
 </script>
+{%- endif -%}
 
 
 </body>

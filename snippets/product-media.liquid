@@ -5,6 +5,7 @@
   - media_crop {String} - If media should crop to fill available spacfe (Options: none, top, center)
   - loop {Boolean} - Enable video looping.
   - lazy_load {Boolean} - Lazy load the media.
+  - priority {Boolean} - Mark the media poster/image as the likely LCP image.
   - zoom {String} - The level of zoom to apply to the image. (Options: off, medium, large, original)
   - featured_product {Boolean} - Media is for a 'Featured product' section (optional, default is false).
 
@@ -133,6 +134,7 @@
       src_width: src_width,
       sizes: sizes,
       lazy_load: lazy_load,
+      priority: priority,
       class: img_class,
       disable_focal_point: true
     %}
@@ -174,6 +176,7 @@
       src_width: src_width,
       sizes: sizes,
       lazy_load: lazy_load,
+      priority: priority,
       class: img_class,
       alt_text: media.alt,
       disable_focal_point: true

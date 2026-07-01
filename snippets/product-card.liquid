@@ -89,6 +89,7 @@
   endif
 
   assign card_lazy_load = lazy_load | default: true
+  assign card_image_priority = priority | default: false
 
   assign card_class = ''
   if product.template_suffix contains 'preorder'
@@ -135,7 +136,8 @@
             attributes: attributes,
             disable_focal_point: true,
             quality: image_quality,
-            lazy_load: card_lazy_load
+            lazy_load: card_lazy_load,
+            priority: card_image_priority
           %}
 
           {%- if settings.card_colors_style == 'swatches' or settings.card_colors_style == 'variant-images' -%}
@@ -197,11 +199,13 @@
             
           </p>
 
-          <!-- Start of Judge.me code -->
-      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
-        {{ product.metafields.judgeme.badge }}
-      </div>
-      <!-- End of Judge.me code -->
+          {%- if settings.card_show_rating and product.metafields.judgeme.badge != blank -%}
+            <!-- Start of Judge.me code -->
+            <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
+              {{ product.metafields.judgeme.badge }}
+            </div>
+            <!-- End of Judge.me code -->
+          {%- endif -%}
 
           {%- if settings.card_show_subtitle and product.metafields.descriptors.subtitle != blank -%}
             <p class="card__subtitle text-sm text-current mb-1{% unless settings.show_dividers %} mt-1{% endunless %}">
