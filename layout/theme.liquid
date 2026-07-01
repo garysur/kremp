@@ -829,6 +829,86 @@ position: relative;
     {%- endif -%}
 
     {{ content_for_header }}
+    <script>
+      (function () {
+        if (window.__surmarketingDelayedSupportApps) return;
+        window.__surmarketingDelayedSupportApps = true;
+
+        function loadScript(src, callback) {
+          if (document.querySelector('script[src="' + src + '"]')) {
+            if (callback) callback();
+            return;
+          }
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = src;
+          if (callback) {
+            script.onload = callback;
+            script.onerror = callback;
+          }
+          document.head.appendChild(script);
+        }
+
+        function loadReamaze() {
+          var support = window._support || { ui: {}, user: {} };
+          window._support = support;
+          support.account = 'kremp';
+          support.ui = support.ui || {};
+          support.user = support.user || {};
+          support.ui.contactMode = 'default';
+          support.ui.enableKb = 'true';
+          support.ui.styles = { widgetColor: 'rgb(0, 66, 117)' };
+          support.ui.shoutboxFacesMode = 'default';
+          support.ui.shoutboxHeaderLogo = true;
+          support.ui.lightbox_mode = 'kb';
+          support.ui.widget = {
+            icon: 'chat',
+            displayOn: 'all',
+            fontSize: 'default',
+            allowBotProcessing: true,
+            label: {
+              text: 'Let us know if you have any questions! &#128522;',
+              mode: 'notification',
+              delay: 60,
+              duration: 20,
+              primary: 'I have a question',
+              secondary: 'No, thanks',
+              sound: true
+            },
+            position: 'bottom-right',
+            mobilePosition: 'bottom-right'
+          };
+          support.apps = {
+            faq: { enabled: true },
+            recentConversations: {},
+            orders: {}
+          };
+
+          loadScript('https://cdn.reamaze.com/assets/reamaze-loader.js', function () {
+            loadScript('https://cdn.reamaze.com/assets/reamaze.js');
+          });
+        }
+
+        function loadAlia() {
+          if (window.Shopify && window.Shopify.designMode) return;
+
+          window.ALIA_SHOPIFY_EXTENSION_INFO = {
+            customerID: {{ customer.id | default: '' | json }},
+            country: {{ localization.country.iso_code | default: 'US' | json }},
+            market: {{ localization.market.handle | default: 'us' | json }},
+            language: {{ request.locale.iso_code | default: 'en' | json }}
+          };
+
+          loadScript('https://backend.alia-prod.com/public/launcher.js?shop={{ shop.permanent_domain }}');
+        }
+
+        window.surmarketingLoadAfterReady(function () {
+          loadReamaze();
+          loadAlia();
+        }, 6500);
+      })();
+    </script>
 
     {%- if request.design_mode -%}
       <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
