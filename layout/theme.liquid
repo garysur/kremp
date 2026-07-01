@@ -283,6 +283,13 @@
 
         function runZipClearScript() {
           setTimeout(function () {
+            var hasActiveZip = $('input#zipCodeInput').val().trim() || localStorage.getItem('zipCode');
+            var hasActiveDate = $('input#flatpickrButton').val().trim()
+              || $('span#selectedCalendarDate').text().trim()
+              || localStorage.getItem('deliveryDate');
+
+            if (hasActiveZip || hasActiveDate) return;
+
             $('input#zipCodeInput').val('');
             $('span.exinent').text('');
             $('button.zip-n-cal__preview-action').click();
@@ -920,7 +927,8 @@ position: relative;
 
     {% if settings.animations_enabled != 'disabled' %}
       <script src="{{ 'animate-on-scroll.js' | asset_url }}" defer="defer"></script>
-      <link rel="stylesheet" href="{{ 'animate-on-scroll.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'animate-on-scroll.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ 'animate-on-scroll.css' | asset_url }}"></noscript>
     {% endif %}
 
     <script>
@@ -2232,6 +2240,40 @@ if (zipInput) {
       }
     });
   }
+
+  function syncDeliveryAttributes() {
+    var selectedDateEl = document.getElementById('selectedCalendarDate');
+    var deliveryDate = localStorage.getItem('deliveryDate')
+      || (selectedDateEl ? selectedDateEl.textContent.trim() : '')
+      || (dateInput ? dateInput.value : '');
+    var zipCode = localStorage.getItem('zipCode')
+      || (zipInput ? zipInput.value.trim() : '');
+
+    document.querySelectorAll('input[name="attributes[deliveryDate]"]').forEach(function (input) {
+      if (deliveryDate) input.value = deliveryDate;
+    });
+
+    document.querySelectorAll('input[name="attributes[zipCode]"]').forEach(function (input) {
+      if (zipCode) input.value = zipCode;
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (
+      e.target.closest('button[name="add"]') ||
+      e.target.closest('order-conflict-checker')
+    ) {
+      syncDeliveryAttributes();
+    } else if (e.target.closest('.flatpickr-day')) {
+      setTimeout(syncDeliveryAttributes, 0);
+    }
+  }, true);
+
+  document.addEventListener('change', function (e) {
+    if (e.target.closest('#flatpickrButton') || e.target.closest('#zipCodeInput')) {
+      setTimeout(syncDeliveryAttributes, 0);
+    }
+  }, true);
  
   document.addEventListener('click', function (e) {
  
