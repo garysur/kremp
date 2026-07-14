@@ -2,7 +2,7 @@
 
 ## surmarketing-new-theme-staging-first-pass-2026-07-14
 
-This checkpoint marks the first speed pass on the July 2026 town-page redesign export in the unpublished Shopify staging theme `Surmarketing Speed Staging 2026-07-01` (`151265837134`).
+This checkpoint marks the first speed pass on the July 2026 town-page redesign export in the unpublished Shopify staging theme `Surmarketing Speed Staging 2026-07-14` (`151265837134`).
 
 Scope:
 
@@ -19,7 +19,7 @@ Scope:
 
 ## surmarketing-speed-known-good-2026-07-01
 
-This checkpoint marks the last known-good speed optimization pass for the unpublished Shopify staging theme `Surmarketing Speed Staging 2026-07-01` (`151265837134`).
+This checkpoint marks the last known-good speed optimization pass for the unpublished Shopify staging theme `Surmarketing Speed Staging 2026-07-14` (`151265837134`).
 
 Scope:
 
