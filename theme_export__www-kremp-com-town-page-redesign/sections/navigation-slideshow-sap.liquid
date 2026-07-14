@@ -245,9 +245,15 @@
                     {%- endif -%}
 
                     {%- if block.settings.heading != blank -%}
-                      <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="text-overlay__heading {{ block.settings.heading_size }}">
+                      {%- liquid
+                        assign heading_tag = 'h2'
+                        if block.settings.heading_h1
+                          assign heading_tag = 'h1'
+                        endif
+                      -%}
+                      <{{ heading_tag }} class="text-overlay__heading {{ block.settings.heading_size }}">
                         {% render 'multiline-text' with block.settings.heading %}
-                      </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+                      </{{ heading_tag }}>
                     {%- endif -%}
 
                     {%- if block.settings.text != blank -%}

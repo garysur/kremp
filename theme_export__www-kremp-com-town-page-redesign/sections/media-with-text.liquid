@@ -93,7 +93,7 @@
         {%- assign image_ratio = section.settings.image_aspect_ratio -%}
         <div class="media{% if media_type == 'video' %} absolute{% if section.settings.image_fit == "cover" %} top-0 left-0 h-full{% else %} video-section__media{% endif %} video-played-hidden{% else %} relative{% if section.settings.image_fit == "cover" %} h-full video-section__media--cover{% endif %}{% endif %}"{% if image_ratio != 'natural' %} style="overflow: hidden;"{% endif %}>
           {%- if section.settings.coordinates != blank -%}
-            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ section.settings.coordinates }}&scale=2&zoom=13&size=600x600&maptype=roadmap&key=AIzaSyDdCrG4Y7tNNTpAXYtz9mV7P7P6DJ1RKsI">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ section.settings.coordinates }}&scale=2&zoom=13&size=600x600&maptype=roadmap&key=AIzaSyDdCrG4Y7tNNTpAXYtz9mV7P7P6DJ1RKsI" width="600" height="600" loading="lazy">
 {%- elsif image != blank -%}
   {%- liquid
     assign custom_alt = image.alt
@@ -158,9 +158,15 @@
 
               {%- when 'heading' -%}
                 {%- if block.settings.heading != blank -%}
-                  <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="section__block section__block--heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                  {%- liquid
+                    assign heading_tag = 'h2'
+                    if block.settings.heading_h1
+                      assign heading_tag = 'h1'
+                    endif
+                  -%}
+                  <{{ heading_tag }} class="section__block section__block--heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                     {% render 'multiline-text' with block.settings.heading %}
-                  </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+                  </{{ heading_tag }}>
                 {%- endif -%}
 
               {%- when 'text' -%}

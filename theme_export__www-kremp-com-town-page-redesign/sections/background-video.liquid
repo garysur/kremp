@@ -132,9 +132,15 @@
               {%- case block.type -%}
                 {%- when 'heading' -%}
                   {%- if block.settings.heading != blank -%}
-                    <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="text-overlay__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                    {%- liquid
+                      assign heading_tag = 'h2'
+                      if block.settings.heading_h1
+                        assign heading_tag = 'h1'
+                      endif
+                    -%}
+                    <{{ heading_tag }} class="text-overlay__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                       {{- block.settings.heading | newline_to_br -}}
-                    </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+                    </{{ heading_tag }}>
                   {%- endif -%}
 
                 {%- when 'subheading' -%}

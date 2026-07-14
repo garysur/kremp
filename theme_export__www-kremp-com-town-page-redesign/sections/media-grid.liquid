@@ -130,8 +130,12 @@
           if block.settings.title contains "<a" or block.settings.button_link != blank or block.settings.link_url == blank
             assign is_link = false
           endif
+          assign wrapper_tag = 'a'
+          unless is_link
+            assign wrapper_tag = 'div'
+          endunless
         -%}
-        {% if is_link %}<a href="{{ block.settings.link_url }}" {% else %}<div {% endif %}class="block-{{ block.id }} block relative flex flex-col gallery-block h-full{% if section.settings.gallery_cols_min == '2' and block.settings.columns >= 2 %} md-down:col-span-2{% endif %} row-span-{{ block.settings.rows }} lg:col-span-{{ block.settings.columns }} {% if is_link %} hover:grow-media{% endif %}" {%- unless forloop.first %}tabindex="-1"{% endunless %} {{ block.shopify_attributes }}>
+        <{{ wrapper_tag }}{% if is_link %} href="{{ block.settings.link_url }}"{% endif %} class="block-{{ block.id }} block relative flex flex-col gallery-block h-full{% if section.settings.gallery_cols_min == '2' and block.settings.columns >= 2 %} md-down:col-span-2{% endif %} row-span-{{ block.settings.rows }} lg:col-span-{{ block.settings.columns }} {% if is_link %} hover:grow-media{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %} {{ block.shopify_attributes }}>
 
             <div class="gallery-block__image{% if block.settings.video_shopify != blank %} video-section{% endif %} overflow-hidden flex relative w-full h-full {{ overlay_position | first }} {{ overlay_position | last }}{% if is_link %} card__media{% endif %}">
               <div class="media media--has-overlay flex absolute top-0 left-0 w-full h-full has-motion">
@@ -181,16 +185,22 @@
 
                   {%- if block.settings.button_label != blank -%}
                     <div class="text-overlay__block text-overlay__buttons inline-flex flex-wrap mt-4{% if section.settings.text_alignment == 'text-start' %} justify-start{% elsif section.settings.text_alignment == 'text-end' %} justify-end{% else %} justify-center{% endif %}">
-                      <{% if block.settings.button_link == blank %}button{% else %}a{% endif %} class="{{ block.settings.button_style }}" {% if block.settings.button_link == blank and is_link == false %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.button_link }}"{% endif %}>
-                        {{- block.settings.button_label | escape -}}
-                      </{% if block.settings.button_link == blank %}button{% else %}a{% endif %}>
+                      {%- if block.settings.button_link == blank -%}
+                        <button class="{{ block.settings.button_style }}" role="link" aria-disabled="true">
+                          {{- block.settings.button_label | escape -}}
+                        </button>
+                      {%- else -%}
+                        <a class="{{ block.settings.button_style }}" href="{{ block.settings.button_link }}">
+                          {{- block.settings.button_label | escape -}}
+                        </a>
+                      {%- endif -%}
                     </div>
                   {%- endif -%}
                 </div>
               {%- endif -%}
             </div>
 
-          {% if is_link %}</a>{% else %}</div>{% endif %}
+          </{{ wrapper_tag }}>
 
       {%- endfor -%}
     </div>
