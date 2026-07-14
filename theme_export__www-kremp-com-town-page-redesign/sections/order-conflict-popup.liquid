@@ -1,0 +1,43 @@
+<order-conflict-modal data-show="false">
+  <div data-inner>
+    {% if section.settings.heading != blank %}
+      <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.message != blank %}
+      <p>{{ section.settings.message }}</p>
+    {% endif %}
+
+    <button type="button" class="btn btn--primary">
+      {{ section.settings.btn_text }}
+    </button>
+  </div>
+</order-conflict-modal>
+
+{% schema %}
+{
+  "name": "Order Conflict Pop-up",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Order Conflict Message Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "message",
+      "label": "Message",
+      "info": "Message to display when customer tries add a non-direct ship product when there is a direct ship product in cart (or vice verse).",
+      "default": "Order conflict message. Order conflict message. Order conflict message. Order conflict message. Order conflict message."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "OK"
+    }
+  ]
+}
+{% endschema %}

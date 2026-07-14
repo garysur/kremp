@@ -1,0 +1,110 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+{%- unless section.settings.full_width -%}
+  <div class="container">
+{%- endunless -%}
+
+<div class="section section--padded color-scheme color-scheme--{{ color_scheme }}{% if section.settings.custom_class != blank %} {{ section.settings.custom_class }}{% endif %}" id="{{ section.id }}">
+  <div class="container">
+    <div class="reading-width cc-animate-init cc-animate-in" data-cc-animate="">
+      
+      {%- comment -%} 1. MAIN HEADING {%- endcomment -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="h4 section__heading mb-12 text-center">
+          {{ section.settings.heading | escape }}
+        </h2>
+      {%- endif -%}
+
+      {%- comment -%} 2. BLOCK LOOP {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          
+          {%- when 'category' -%}
+            <h3 class="text-h5 xs:text-h6 font-bold mb-6">
+              {{ block.settings.text }}
+            </h3>
+
+            {%- comment -%} 3. INJECT METAFIELDS IMMEDIATELY {%- endcomment -%}
+            {%- if page.metafields.custom.custom_faq != blank -%}
+              {%- assign nodes = page.metafields.custom.custom_faq.value.children -%}
+              {%- for node in nodes -%}
+                {%- if node.type == 'heading' and node.level == 3 -%}
+                  {%- unless forloop.first -%}
+                        </div></div></details></details-disclosure>
+                  {%- endunless -%}
+
+                  <details-disclosure>
+                    <details class="disclosure disclosure--row">
+                      <summary>
+                        <div class="flex justify-between items-center">
+                          <h4 class="disclosure__title disclosure__title--small xs:regular-text h6 font-body flex flex-auto items-center mb-0 text-current">
+                            {{ node.children[0].value }}
+                          </h4>
+                          <span class="disclosure__toggle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation" class="icon"><path d="M20 8.5 12.5 16 5 8.5" stroke="currentColor" stroke-width="1.5" fill="none"></path></svg>
+                          </span>
+                        </div>
+                      </summary>
+                      <div class="disclosure__panel has-motion">
+                        <div class="disclosure__content rte">
+                {%- elsif node.type == 'paragraph' -%}
+                  <p>{{ node.children[0].value }}</p>
+                {%- endif -%}
+
+                {%- if forloop.last -%}
+                        </div></div></details></details-disclosure>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+
+          {%- when 'question' -%}
+            {%- comment -%} 
+              ONLY show this if the Metafield is empty. 
+              This prevents the "extra questions" problem.
+            {%- endcomment -%}
+            {%- if page.metafields.custom.custom_faq == blank -%}
+              <details-disclosure {{ block.shopify_attributes }}>
+                <details class="disclosure disclosure--row">
+                  <summary>
+                    <div class="flex justify-between items-center">
+                      <h4 class="disclosure__title disclosure__title--small xs:regular-text h6 font-body flex flex-auto items-center mb-0 text-current">
+                        {{- block.settings.heading -}}
+                      </h4>
+                      <span class="disclosure__toggle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation" class="icon"><path d="M20 8.5 12.5 16 5 8.5" stroke="currentColor" stroke-width="1.5" fill="none"></path></svg>
+                      </span>
+                    </div>
+                  </summary>
+                  <div class="disclosure__panel has-motion">
+                    <div class="disclosure__content rte">
+                      {{ block.settings.text }}
+                    </div>
+                  </div>
+                </details>
+              </details-disclosure>
+            {%- endif -%}
+
+        {%- endcase -%}
+      {%- endfor -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ Final Fix",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Need some help?" },
+    { "type": "select", "id": "color_scheme", "label": "Color scheme", "options": [{ "value": "1", "label": "1" }, { "value": "none", "label": "None" }], "default": "none" },
+    { "type": "checkbox", "id": "full_width", "label": "Full Width", "default": true },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" }
+  ],
+  "blocks": [
+    { "type": "question", "name": "Question", "settings": [ { "type": "text", "id": "heading", "label": "Heading" }, { "type": "richtext", "id": "text", "label": "Text" } ] },
+    { "type": "category", "name": "Category", "settings": [ { "type": "text", "id": "text", "label": "Text" } ] }
+  ]
+}
+{% endschema %}

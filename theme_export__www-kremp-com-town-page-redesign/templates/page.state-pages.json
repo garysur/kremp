@@ -1,0 +1,622 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "heading_align": "text-center"
+      }
+    },
+    "navigation_slideshow_e9gCjL": {
+      "type": "navigation-slideshow",
+      "blocks": {
+        "slide_nKdpXr": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/white-flower-hero-D.jpg",
+            "image_mobile": "shopify://shop_images/white-flower-hero-M.jpg",
+            "use_checkmarks": true,
+            "overlay_text_align": "text-start",
+            "mob_center_text": true,
+            "subheading": "",
+            "heading": "Flower Delivery Service in {{ page.title }}",
+            "heading_size": "h2",
+            "heading_h1": true,
+            "text": "<ul><li>3rd generation, family-owned and operated florist.</li><li>Same-day delivery available to most towns.</li><li>Have questions? Give us a call, we are happy to help!</li></ul>",
+            "enlarge_text": false,
+            "button_1_label": "",
+            "button_1_link": "",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff"
+          }
+        },
+        "trust_icon_tnxGJW": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges1_0fc1ec5a-3240-440a-ae4b-9744331c7a91.png"
+          }
+        },
+        "trust_icon_PjeGma": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges4_1e16e340-0176-46a3-8694-45e87bfd8242.png"
+          }
+        },
+        "trust_icon_DB4WB6": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges3_d94e9853-e03e-42a0-9818-7af935ad29c4.png"
+          }
+        },
+        "trust_icon_rjMg6z": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges5_ba64d4e9-4851-419b-95c3-ae2026646f54.png"
+          }
+        },
+        "trust_icon_Jh8hkc": {
+          "type": "trust_icon",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges6_e6cf2389-03d1-4235-ba5a-3c277a72d095.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nKdpXr",
+        "trust_icon_tnxGJW",
+        "trust_icon_PjeGma",
+        "trust_icon_DB4WB6",
+        "trust_icon_rjMg6z",
+        "trust_icon_Jh8hkc"
+      ],
+      "settings": {
+        "height_mode": "fixed",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 50,
+        "show_zip_field": true,
+        "quick_nav_menu": "homepage-hero",
+        "quick_nav_title": "Get Started",
+        "quick_nav_image_ratio": "1",
+        "quick_nav_image_fit": "contain",
+        "quick_nav_use_product_image": false,
+        "quick_nav_color_scheme": "none",
+        "quick_nav_show_price": false,
+        "menu_1_text": "Choose Category",
+        "menu_1_display": "large_image_text",
+        "menu_2_text": "Choose Occasion",
+        "menu_2_display": "large_image_text",
+        "menu_3_text": "Choose an option",
+        "menu_3_display": "large_text",
+        "nav_style": "slideshow_nav_lines",
+        "pagination_color": "#ffffff",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "color_scheme": "white",
+        "full_width": true,
+        "tint_color": "#000000",
+        "tint_opacity": 40,
+        "accessibility_info": "Featured collections and new arrivals",
+        "prevent_animation": false
+      }
+    },
+    "featured_collection_GETWjg": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Seasonal Favorites in {{ page.title }}",
+        "heading_align": "text-start",
+        "show_view_all": true,
+        "collection": "town-page-banner",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8,
+        "show_promo_info": false,
+        "image_ratio": "fill",
+        "promo_title": "A headline to grab attention",
+        "content": "<p>Use this card with an image to highlight your collections or introduce a promotion.</p>",
+        "link_url": "",
+        "button_label": "Button",
+        "color_scheme": "2",
+        "button_style": "btn btn--primary"
+      }
+    },
+    "media_with_text_wkaVWB": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_KbjjYB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kremp Florist Delivery<br>Service in {{ page.title }}",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_rX3Anw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ page.metafields.custom.state_paragraph.value }}</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KbjjYB",
+        "text_rX3Anw"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "{{ page.metafields.custom.state_image.value }}",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "multi_column_ffR8kP": {
+      "type": "multi-column",
+      "blocks": {
+        "column_HnabAF": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.state_list_of_cities | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_rMmiFm": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.state_list_of_cities_2 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_y78tRR": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.state_list_of_cities_3 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_hiiGiT": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.state_list_of_cities_4 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_HnabAF",
+        "column_rMmiFm",
+        "column_y78tRR",
+        "column_hiiGiT"
+      ],
+      "settings": {
+        "title": "Local Flower Delivery in {{ page.title }}",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "auto_adjust_column_size": false,
+        "column_size": "small",
+        "column_align": "center",
+        "media_align": "text-center",
+        "image_ratio": "1",
+        "color_scheme": "2",
+        "apply_color_scheme_to_parent": true,
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "featured_collection_amE9Qf": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "show_view_all": false,
+        "collection": "state-best-sellers",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8,
+        "show_promo_info": true,
+        "image": "shopify://shop_images/Best_Sellers_bfc5f74b-2605-4c7e-a071-8afb96580ec8.jpg",
+        "image_ratio": "natural",
+        "promo_title": "Most popular in {{ page.title }}",
+        "content": "<p>Browse all the top selling flowers and gifts suitable for all occasions.</p>",
+        "link_url": "shopify://collections/all-flowers",
+        "button_label": "Shop All Best Sellers",
+        "color_scheme": "3",
+        "button_style": "btn btn--primary"
+      }
+    },
+    "video_WEiV6Q": {
+      "type": "video",
+      "settings": {
+        "video_shopify": "shopify://files/videos/KREMP.mp4",
+        "video_external": "",
+        "video_description": "Kremp intro video",
+        "poster_image": "shopify://shop_images/meet-top-video-cover.jpg",
+        "video_size": "lg",
+        "video_autoplay": false,
+        "text_align": "text-center",
+        "color_scheme": "default"
+      }
+    },
+    "link_lists_T8bKMT": {
+      "type": "link-lists",
+      "blocks": {
+        "column_aiw3tw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/in-the-garden-bouquet.jpg",
+            "heading": "Flowers",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-flowers",
+            "button_label": "See all",
+            "button_link": "shopify://collections/all-flowers"
+          }
+        },
+        "column_6EmG6U": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/deepest-sympathy-gourmet-gi_1.jpg",
+            "heading": "Occasions",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-occasions",
+            "button_label": "See all",
+            "button_link": "shopify://collections/all-flowers"
+          }
+        },
+        "column_GAQDDY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/leather-trunk-succulent-garden-2.jpg",
+            "heading": "Plants",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-plants",
+            "button_label": "See all",
+            "button_link": "shopify://collections/all-flowers"
+          }
+        },
+        "column_xbLQhV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/bo_big_foot_bo2bf_jellycat.jpg",
+            "heading": "Gift Shop",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-gifts",
+            "button_label": "See all",
+            "button_link": "shopify://collections/gift-shop"
+          }
+        }
+      },
+      "block_order": [
+        "column_aiw3tw",
+        "column_6EmG6U",
+        "column_GAQDDY",
+        "column_xbLQhV"
+      ],
+      "settings": {
+        "title": "Shop Popular Categories",
+        "heading_align": "text-start",
+        "button_label": "All Collection",
+        "button_link": "shopify://collections",
+        "layout": "grid",
+        "column_size": "small",
+        "column_align": "left",
+        "color_scheme": "none",
+        "image_ratio": "1",
+        "button_style": "btn--primary"
+      }
+    },
+    "testimonials_yRpxgN": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_yLweQY": {
+          "type": "testimonial",
+          "repeater": "{{ page.metafields.custom.testimonials.value }}",
+          "settings": {
+            "testimonial": "<h3>{{ block.repeater.quote_text.value }}</h3>",
+            "author": "{{ block.repeater.name.value }}",
+            "author_info": "",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_yLweQY"
+      ],
+      "settings": {
+        "heading": "",
+        "show_quotes": false,
+        "testimonial_size": "h4",
+        "text_position": "justify-center",
+        "text_align": "text-center justify-center",
+        "nav_style": "slideshow_nav_lines",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "color_scheme": "1",
+        "full_width": true
+      }
+    },
+    "promo_grid_CDcCUQ": {
+      "type": "promo-grid",
+      "blocks": {
+        "media_rNmifM": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/birthday_sparkle_deluxe.jpg",
+            "link_url": "shopify://collections/birthday",
+            "columns": 2,
+            "rows": 2,
+            "line1_text": "All New For",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "2025",
+            "line2_text_type_scale": "text-h3",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": true,
+            "background_color": "#d8f19c",
+            "text_color": "#004275",
+            "subheading": "Celebrate the Big Day!",
+            "link_text": "Shop Our Birthday Collection",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_PAY3TK": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/sky2dd_jellycat_sky_dragon.jpg",
+            "link_url": "shopify://collections/jellycat-plush",
+            "columns": 2,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#e32b2b",
+            "text_color": "#ffffff",
+            "subheading": "The Jellycat Collection",
+            "link_text": "Browse Our Huge Selection",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_iE6Bk3": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/state-plants.jpg",
+            "link_url": "shopify://collections/succulent-boutique",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#e32b2b",
+            "text_color": "#ffffff",
+            "subheading": "The Succulent Collection",
+            "link_text": "Browse our boutique",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_9xQqQ6": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/state-gift-shop.jpg",
+            "link_url": "shopify://collections/willow-tree-figurines",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#e32b2b",
+            "text_color": "#ffffff",
+            "subheading": "The Willow Tree Collection",
+            "link_text": "Shop All Keepsake Figurines",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_rNmifM",
+        "media_PAY3TK",
+        "media_iE6Bk3",
+        "media_9xQqQ6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 200,
+        "fixed_height_mobile": 280,
+        "text_overlay_font": "body",
+        "color_scheme": "default"
+      }
+    },
+    "rich_text_ywWKpm": {
+      "type": "rich-text",
+      "blocks": {
+        "text_97ACwJ": {
+          "type": "text",
+          "settings": {
+            "text": "{{ page.metafields.custom.state_page_descriptions | metafield_tag }}",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_97ACwJ"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-start",
+        "mob_center_text": false,
+        "wide": true,
+        "hide_if_empty": false,
+        "color_scheme": "1",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "image_banner_rKwdwm": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_fGC8WG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still Not Sure Where To Start?",
+            "heading_size": "h4",
+            "heading_h1": false
+          }
+        },
+        "text_WRXtDB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let us help you to choose the perfect gift for your special occasion. Give us a call or send us an email. We are happy to help!</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_eRTmab": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "(800) 345-7367",
+            "button_1_link": "tel:18003457367",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "Contact Us Online",
+            "button_2_link": "shopify://pages/contact",
+            "button_2_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fGC8WG",
+        "text_WRXtDB",
+        "button_eRTmab"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Last_Bite_-_D.jpg",
+        "image_mobile": "shopify://shop_images/last_bite_-_M.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "text-start",
+        "mob_center_text": true,
+        "mobile_stacked": true,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#004275",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "prevent_animation": false
+      }
+    },
+    "custom_liquid_GJXcYC": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "Add SEO HTML or Liquid code to create advanced customizations.",
+        "section_height": "default",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "navigation_slideshow_e9gCjL",
+    "featured_collection_GETWjg",
+    "media_with_text_wkaVWB",
+    "multi_column_ffR8kP",
+    "featured_collection_amE9Qf",
+    "video_WEiV6Q",
+    "link_lists_T8bKMT",
+    "testimonials_yRpxgN",
+    "promo_grid_CDcCUQ",
+    "rich_text_ywWKpm",
+    "image_banner_rKwdwm",
+    "custom_liquid_GJXcYC"
+  ]
+}

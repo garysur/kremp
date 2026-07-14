@@ -1,0 +1,226 @@
+{%- liquid
+  assign pt = section.settings.padding_top
+  assign pb = section.settings.padding_bottom
+  assign pt_mobile = section.settings.padding_top_mobile
+  assign pb_mobile = section.settings.padding_bottom_mobile
+  assign bg = section.settings.background_color
+  assign narrow = section.settings.narrow_container
+-%}
+
+<div class="section cc-town-weather" id="section-{{ section.id }}" style="background-color: {{ bg }};padding-top: {{ pt }}px;padding-bottom: {{ pb }}px;">
+
+  <div class="container{% if narrow %} cc-town-weather__container--narrow{% endif %}">
+    <div class="cc-town-weather__inner">
+
+      <div class="cc-town-weather__content">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'heading' -%}
+              {%- if block.settings.heading != blank -%}
+                <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="{{ block.settings.heading_size }} cc-town-weather__heading"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %} {{ block.shopify_attributes }}>
+                  {{- block.settings.heading | escape -}}
+                </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+              {%- endif -%}
+
+            {%- when 'richtext' -%}
+              {%- if block.settings.text != blank -%}
+                <div class="rte cc-town-weather__text"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %} {{ block.shopify_attributes }}>
+                  {{- block.settings.text -}}
+                </div>
+              {%- endif -%}
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="cc-town-weather__widget"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
+        {% render 'town-weather' %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  #section-{{ section.id }} .cc-town-weather__container--narrow {
+    max-width: 1360px;
+  }
+  #section-{{ section.id }} .cc-town-weather__inner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    justify-content: space-between;
+  }
+  #section-{{ section.id }} .cc-town-weather__content {
+    flex: 1 1 0%;
+    max-width: 1000px;
+  }
+  #section-{{ section.id }} .cc-town-weather__widget {
+    flex: 0 0 auto;
+    min-width: 400px;
+  }
+  #section-{{ section.id }} .cc-town-weather__heading {
+    margin-bottom: 16px;
+  }
+  @media (max-width: 768px) {
+    #section-{{ section.id }} .cc-town-weather__widget {
+      min-width: 50%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} {
+      padding-top: {{ pt_mobile }}px !important;
+      padding-bottom: {{ pb_mobile }}px !important;
+    }
+    #section-{{ section.id }} .cc-town-weather__inner {
+      flex-direction: column;
+      gap: 0;
+    }
+    #section-{{ section.id }} .cc-town-weather__widget {
+      width: 100%;
+    }
+    #section-{{ section.id }} .cc-town-weather__widget {
+      min-width: 100%;
+    }
+    
+    #section-{{ section.id }} .cc-town-weather__content {
+        text-align: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Town weather",
+  "tag": "section",
+  "class": "cc-town-weather-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "narrow_container",
+      "label": "Narrow container",
+      "info": "Limits the container width to 1360px",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f0f7d4"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Why the Local Weather Matters For Your Flower Delivery"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "options": [
+            { "value": "h6", "label": "Extra extra small" },
+            { "value": "h5", "label": "Extra small" },
+            { "value": "h4", "label": "Small" },
+            { "value": "h3", "label": "Medium" },
+            { "value": "h2", "label": "Large" },
+            { "value": "h1", "label": "Extra large" },
+            { "value": "h0", "label": "Extra extra large" }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "checkbox",
+          "id": "heading_h1",
+          "label": "Set as page heading (uses h1 tag)",
+          "info": "For optimum SEO, a page should only have one h1 and it should be the first heading on the page.",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Share information about how local weather affects your flower delivery service.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Town weather",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "richtext" }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "footer", "aside"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,92 @@
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"></noscript>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+{% liquid 
+  assign zip_step_icon = 'icon_step-2.svg'
+  assign date_step_icon = 'icon_step-3.svg'
+  if product.variants.size == 1
+    assign zip_step_icon = 'icon_step-1.svg'
+    assign date_step_icon = 'icon_step-2.svg'
+  endif
+%}
+<div class="wfl__zip-n-cal" data-zip-n-cal>
+  <div class="zip-n-cal__step zipcode-picker">
+    <form id="zipForm">
+      <Label class="product-step-wrap">
+        {% unless hide_icon %}
+          <span class="ico-step">
+            <img src="{{ zip_step_icon | asset_url }}" width="29" height="29" class="svg-icon">
+          </span>
+        {% endunless %}
+        Recipient Zip Code
+        {% comment %}
+          <a class="ico-info">
+            <img src="{{ 'icon_info.svg' | asset_url }}" class="svg-icon">
+          </a>
+        {% endcomment %}
+      </Label>
+
+      <div class="zip-n-cal__input-area" data-zip-code-input-area>
+        <input id="zipCodeInput" class="input" type="text" title="Five digit zip code"  placeholder="Start Here..">
+        <button type="submit" class="btn btn--primary" id="continuebtn">Continue</button>
+      </div>
+      <div class="zip-n-cal__preview-area" data-zip-code-preview-area style="display:none;">
+        <div class="zip-n-cal__preview-zip-code">
+           <span data-zip-code-selected></span>
+          <button class="zip-n-cal__preview-action" aria-label="Click to edit zip code" data-zip-code-edit-action>
+            (edit)
+          </button>
+        </div>
+        <div class="zip-code-msg" data-zip-code-messages></div>
+      </div>
+      <div class="product-info__error-msg"></div>
+    </form>
+  </div>
+
+  <div class="zip-n-cal__step delivery-date-picker">
+    <Label class="product-step-wrap">
+      {% unless hide_icon %}
+        <span class="ico-step">
+          <img src="{{ date_step_icon | asset_url }}" width="29" height="29" class="svg-icon">
+        </span>
+      {% endunless %}
+      Requested Delivery Date
+    </Label>
+    <div class="zip-n-cal__input-area" data-calendar-input-area>
+      <input type="text" id="flatpickrButton" class="input" placeholder="Select date">
+    </div>
+    <div class="zip-n-cal__calendar-preview-area" data-calendar-preview-area style="display:none;">
+      <div id="selectedDeliveryDateDisplay" class="zip-n-cal__calendar-preview-date">
+        <span id="selectedCalendarDate"></span>
+        <button class="zip-n-cal__preview-action" aria-label="Click to edit delivery date" data-calendar-edit-action>
+          (edit)
+        </button>
+      </div>
+      <div class="delivery-date-picker-msg" data-datepicker-messages></div>
+    </div>
+  </div>
+</div>
+
+{% comment %}
+  {% for product_collection in product.collections %}
+    <h5>Collection: {{ product_collection.handle }}</h5>
+    <div><strong>Rules: </strong></div>
+    {% assign collection_metafields = product_collection.metafields %}
+    {% if collection_metafields.custom.zipcode_rules != blank %}
+      {% for rule in collection_metafields.custom.zipcode_rules.value %}
+        <div>{{ rule.name }}</div>
+      {% endfor %}
+    {% else %}
+      <p>No zipcode rules available.</p>
+    {% endif %}
+  {% endfor %}
+{% endcomment %}
+<script>
+  // Get ZIP code from Liquid and store in localStorage
+  const zipCodeFromCart = "{{ cart.attributes.zipCode | escape }}";
+
+  if (zipCodeFromCart) {
+    localStorage.setItem('zipCode', zipCodeFromCart);
+    console.log('ZIP code saved to localStorage:', zipCodeFromCart);
+  }
+</script>

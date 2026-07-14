@@ -1,0 +1,1681 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "heading_align": "text-center"
+      }
+    },
+    "navigation_slideshow_e9gCjL": {
+      "type": "navigation-slideshow",
+      "blocks": {
+        "slide_nKdpXr": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Gerbera_Daisy_Background.jpg",
+            "image_mobile": "shopify://shop_images/blue-snowflake-christmas-ornament.jpg",
+            "use_checkmarks": true,
+            "overlay_text_align": "text-start",
+            "mob_center_text": true,
+            "subheading": "",
+            "heading": "Send Flowers Today in {{ page.title }}",
+            "heading_size": "h2",
+            "heading_h1": true,
+            "text": "<h2>{{ page.metafields.custom.hero_subheadline.value }}</h2>{{ page.metafields.custom.town_top_block | metafield_tag }}<ul><li>3rd generation, family-owned and operated florist.</li><li>Same-day delivery available to most towns.</li><li>Have questions? Give us a call, we are happy to help!</li></ul>",
+            "enlarge_text": false,
+            "button_1_label": "",
+            "button_1_link": "",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary",
+            "transparent_content_color": "#ffffff"
+          }
+        },
+        "trust_icon_KbeBjT": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges4_1e16e340-0176-46a3-8694-45e87bfd8242.png"
+          }
+        },
+        "trust_icon_xi3XdN": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges1_0fc1ec5a-3240-440a-ae4b-9744331c7a91.png"
+          }
+        },
+        "trust_icon_JxCmtA": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges3_d94e9853-e03e-42a0-9818-7af935ad29c4.png"
+          }
+        },
+        "trust_icon_iQj9dx": {
+          "type": "trust_icon",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges5_ba64d4e9-4851-419b-95c3-ae2026646f54.png"
+          }
+        },
+        "trust_icon_AxUmm8": {
+          "type": "trust_icon",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges6_e6cf2389-03d1-4235-ba5a-3c277a72d095.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nKdpXr",
+        "trust_icon_KbeBjT",
+        "trust_icon_xi3XdN",
+        "trust_icon_JxCmtA",
+        "trust_icon_iQj9dx",
+        "trust_icon_AxUmm8"
+      ],
+      "settings": {
+        "height_mode": "fixed",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "show_zip_field": true,
+        "quick_nav_menu": "homepage-hero",
+        "quick_nav_title": "Get Started",
+        "quick_nav_image_ratio": "1",
+        "quick_nav_image_fit": "contain",
+        "quick_nav_use_product_image": false,
+        "quick_nav_color_scheme": "none",
+        "quick_nav_show_price": false,
+        "menu_1_text": "Choose Category",
+        "menu_1_display": "large_image_text",
+        "menu_2_text": "Choose Occasion",
+        "menu_2_display": "large_image_text",
+        "menu_3_text": "Choose an option",
+        "menu_3_display": "large_text",
+        "nav_style": "slideshow_nav_lines",
+        "pagination_color": "#ffffff",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "color_scheme": "white",
+        "full_width": true,
+        "tint_color": "#000000",
+        "tint_opacity": 40,
+        "accessibility_info": "Featured collections and new arrivals",
+        "prevent_animation": false
+      }
+    },
+    "rich_text_TjRcrx": {
+      "type": "rich-text",
+      "blocks": {
+        "text_NVVpDK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ page.metafields.custom.town_top_block | metafield_tag }}</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "text_NVVpDK"
+      ],
+      "settings": {
+        "custom_class": "",
+        "text_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": true,
+        "hide_if_empty": true,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "media_with_text_Bqz38r": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_rVwjDW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kremp Florist DeliveryService in {{ page.title }}",
+            "heading_size": "h2",
+            "heading_h1": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_rVwjDW"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "",
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/KrempFamPhoto06_ai_remix_3.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "image_aspect_ratio": "natural",
+        "full_width": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "cover",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "featured_collection_GETWjg": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n .kremp-section-custom {\n margin-top: -15px;\n padding-top: 0 !important;\n }\n .kremp-section-custom .section__header {\n margin-bottom: 20px !important;\n }\n .kremp-single-row {\n display: flex;\n flex-wrap: nowrap;\n overflow-x: auto;\n margin: 0 -10px;\n list-style: none;\n padding: 0 0 20px 0;\n -webkit-overflow-scrolling: touch;\n }\n .kremp-single-row li {\n flex: 0 0 50%;\n padding: 10px;\n box-sizing: border-box;\n }\n @media (min-width: 768px) {\n .kremp-single-row li { flex: 0 0 25%; }\n }\n @media (min-width: 1200px) {\n .kremp-single-row li { flex: 0 0 20%; }\n }\n .kremp-single-row::-webkit-scrollbar { height: 4px; }\n .kremp-single-row::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }\n </style>\n\n <div class=\"section kremp-section-custom\">\n <div class=\"container\">\n <div class=\"section__header items-center flex flex-col text-center\">\n <h2 class=\"h4 section__heading\">Top Rated in {{ page.title }}</h2>\n </div>\n\n <div class=\"products-grid-container\">\n <ul class=\"kremp-single-row\">\n {% assign default_collection = collections['town-page-banner'] %}\n {% assign total_products = default_collection.products_count %}\n {% assign random_seed = 'now' | date: '%S' | plus: 0 %}\n {% assign max_offset = total_products | minus: 5 %}\n {% if max_offset < 0 %}{% assign max_offset = 0 %}{% endif %}\n {% assign random_offset = random_seed | times: max_offset | divided_by: 60 %}\n {% assign image_ratio = settings.prod_card_image_ratio | default: '1' %}\n\n {% assign custom_products = page.metafields.custom.town_top_products.value %}\n\n {% if custom_products != blank %}\n   {% for product in custom_products limit: 5 %}\n     <li>{% render 'product-card', product: product, image_ratio: image_ratio %}</li>\n   {% endfor %}\n {% else %}\n   {% for product in default_collection.products limit: 5 offset: random_offset %}\n     <li>{% render 'product-card', product: product, image_ratio: image_ratio %}</li>\n   {% endfor %}\n {% endif %}\n </ul>\n </div>\n </div>\n </div>",
+        "section_height": "default",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "custom_liquid_6mefMe": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"town-weather-wrapper\" style=\"max-width:420px;margin:0 auto;\">\n\n<div style=\"margin-top:12px;\">\n{% render 'town-weather' %}\n</div>\n\n</div>",
+        "section_height": "default",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "media_with_text_wkaVWB": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_KbjjYB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Servicing {{ page.title }} and the surrounding region for over 65 years",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_rX3Anw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From fresh flowers to premium plants, there is something for everyone at Kremp Florist.  Our online store is packed with hundreds of unique choices for your occasion. Looking for something custom?  Feel free to give us a call.  We are honored to be your florist and take pride in making your gift extra special.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KbjjYB",
+        "text_rX3Anw"
+      ],
+      "settings": {
+        "custom_class": "",
+        "is_award": false,
+        "coordinates": "{{ page.metafields.custom.town_map_latitude.value }},{{ page.metafields.custom.town_map_longitude.value }}",
+        "image": "shopify://shop_images/map_placeholder.png",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "image_aspect_ratio": "natural",
+        "full_width": false,
+        "vertical_padding": "default",
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "media_with_text_WxXCka": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_jcxGDt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Trust the Kremp family with the most memorable moments in your life.",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_zB4R7W": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For 3 generations, the Kremp family has been turning feelings into flowers with breathtaking bouquets, beautiful plants, delectable chocolates, gourmet baskets and unique gifts.  A lot has changed in 65 years but our reliable service and high quality has not.  We look forward to helping you.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jcxGDt",
+        "text_zB4R7W"
+      ],
+      "settings": {
+        "custom_class": "",
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/Town_-_historical_photo.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "image_aspect_ratio": "natural",
+        "full_width": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "video_kLC76B": {
+      "type": "video",
+      "blocks": {
+        "heading_wcfXhm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Video",
+            "heading_size": "h1",
+            "heading_h1": false
+          }
+        },
+        "text_N3Ujt4": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Add text to a video to showcase a detail of your brand or product line.</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_wcfXhm",
+        "text_N3Ujt4"
+      ],
+      "disabled": true,
+      "settings": {
+        "video_external": "https://www.youtube.com/watch?v=osM0gQT_7zA",
+        "video_description": "",
+        "video_size": "md",
+        "video_autoplay": true,
+        "text_align": "text-center",
+        "color_scheme": "1"
+      }
+    },
+    "link_lists_T8bKMT": {
+      "type": "link-lists",
+      "blocks": {
+        "column_aiw3tw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/in-the-garden-bouquet.jpg",
+            "heading": "Flowers",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-flowers",
+            "button_label": "See all",
+            "button_link": "shopify://collections/all-flowers"
+          }
+        },
+        "column_6EmG6U": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/deepest-sympathy-gourmet-gi_1.jpg",
+            "heading": "Occasions",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-occasions",
+            "button_label": "See all",
+            "button_link": "shopify://collections/occasions"
+          }
+        },
+        "column_GAQDDY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/leather-trunk-succulent-garden-2.jpg",
+            "heading": "Plants",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-plants",
+            "button_label": "See all",
+            "button_link": "shopify://collections/plants"
+          }
+        },
+        "column_xbLQhV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/a2bc__amuseable_birthday_cake_jellycat.jpg",
+            "heading": "Gift Shop",
+            "heading_bg_color": "#ffffff",
+            "heading_text_color": "#004275",
+            "menu": "hp-categories-gifts",
+            "button_label": "See all",
+            "button_link": "shopify://collections/gift-shop"
+          }
+        }
+      },
+      "block_order": [
+        "column_aiw3tw",
+        "column_6EmG6U",
+        "column_GAQDDY",
+        "column_xbLQhV"
+      ],
+      "settings": {
+        "title": "Shop Popular Categories",
+        "heading_size": "h4",
+        "heading_align": "text-start",
+        "button_label": "All Collection",
+        "button_link": "shopify://collections",
+        "layout": "grid",
+        "column_size": "small",
+        "column_align": "left",
+        "color_scheme": "none",
+        "image_ratio": "1",
+        "button_style": "btn--primary",
+        "custom_class": ""
+      }
+    },
+    "media_with_text_6YWadG": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_cXmkWn": {
+          "type": "heading",
+          "settings": {
+            "heading": "National Retail Florist of the Year Award!",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_YFCXcH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Learn what this means for you and why this is  such a huge honor for us</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_GJaQem": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read more",
+            "button_link": "shopify://pages/national-retail-florist-of-the-year",
+            "button_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cXmkWn",
+        "text_YFCXcH",
+        "button_GJaQem"
+      ],
+      "settings": {
+        "custom_class": "",
+        "is_award": true,
+        "coordinates": "",
+        "image": "shopify://shop_images/national-retail-florist-badge.png",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "image_aspect_ratio": "natural",
+        "full_width": false,
+        "vertical_padding": "default",
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 25,
+        "media_scale": 82,
+        "text_align": "text-start",
+        "color_scheme": "2",
+        "only_content_color_scheme": false
+      }
+    },
+    "image_banner_AM4RzY": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_6GPdED": {
+          "type": "heading",
+          "settings": {
+            "heading": "Order Online For Same-day Delivery in {{ page.title }}",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_mM68y9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When couples want to give flowers to their partners in {{ page.title }} they go all out with Kremp.com and their elegant luxury flowers. Kremp Florist is a 3rd generation family owned and operated business that for over 65 years has given their customers the best quality flowers, gifts and so much more. US residents may also take advantage of same day delivery service for flower orders placed before 12:30 p.m. for recipients in the same time zone.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6GPdED",
+        "text_mM68y9"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/D_-_Town_-_same_day.jpg",
+        "image_mobile": "shopify://shop_images/M_-_Town_-_same_day.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "text-start",
+        "mob_center_text": true,
+        "mobile_stacked": true,
+        "mobile_stacked_reverse": false,
+        "mobile_stacked_text_bg": "#ffffff",
+        "mobile_stacked_text_bg_opacity": 0,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#004275",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "tint_tablet_only": false,
+        "custom_class": "",
+        "prevent_animation": false
+      }
+    },
+    "promo_grid_CDcCUQ": {
+      "type": "promo-grid",
+      "blocks": {
+        "media_rNmifM": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/birthday_sparkle_deluxe.jpg",
+            "link_url": "shopify://collections/birthday-flowers",
+            "columns": 2,
+            "rows": 2,
+            "line1_text": "All New For",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "2026",
+            "line2_text_type_scale": "text-h2",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": true,
+            "background_color": "#d8f19c",
+            "text_color": "#004275",
+            "subheading": "The Birthday Collection",
+            "link_text": "Make their day extra special!",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_PAY3TK": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/sky2dd_jellycat_sky_dragon.jpg",
+            "link_url": "shopify://collections/jellycat-plush",
+            "columns": 2,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#e32b2b",
+            "text_color": "#ffffff",
+            "subheading": "The Jellycat Collection",
+            "link_text": "Browse our huge selection",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_iE6Bk3": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/state-plants.jpg",
+            "link_url": "shopify://collections/succulent-boutique",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#e32b2b",
+            "text_color": "#ffffff",
+            "subheading": "The Succulent Collection",
+            "link_text": "Shop our boutique",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_9xQqQ6": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/state-gift-shop.jpg",
+            "link_url": "shopify://collections/willow-tree-figurines",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#e32b2b",
+            "text_color": "#ffffff",
+            "subheading": "The Willow Tree Collection",
+            "link_text": "Browse all keepsake figurines",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_rNmifM",
+        "media_PAY3TK",
+        "media_iE6Bk3",
+        "media_9xQqQ6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 200,
+        "fixed_height_mobile": 280,
+        "text_overlay_font": "body",
+        "color_scheme": "default"
+      }
+    },
+    "testimonials_yRpxgN": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_79YEbA": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"It is hard to find family run shops that have such a high level of service like Kremp does.  Amazing customer service every single time.\"</h3>",
+            "author": "William C.",
+            "author_info": "",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "testimonial_xBAei8": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Thank you for always being there to get me out of the doghouse.  Your flowers always do the trick!\"</h3>",
+            "author": "Paul R.",
+            "author_info": "",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "testimonial_6qnBQA": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"After you did our wedding flowers, I have used you for all occasions and have never been disappointed.\"</h3>",
+            "author": "Stacy W.",
+            "author_info": "",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "testimonial_i4dF6F": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"The best service and the best flowers.  I would never think to shop elsewhere.  Great job!\"</h3>",
+            "author": "Margie L.",
+            "author_info": "",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "testimonial_qNjRqG": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Kremp has been my go-to florist for many years.  The quality is always amazing and delivery is timely.  Thanks!\"</h3>",
+            "author": "Thomas H.",
+            "author_info": "",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_01": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Great Service!\"</h3><p>Ordered at 8:00am and arrived at their door at 11:00am just as pictured!</p>",
+            "author": "Susan",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_02": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Gorgeous!\"</h3><p>Arrived just like the picture. The tulips were absolutely beautiful. My new favorite arrangement.</p>",
+            "author": "Tina",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_03": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Best Experience Ever!\"</h3><p>Website easy to navigate and easy to purchase products. Delivery was perfect! Customer service was what has me sold as a repeat customer for life!</p>",
+            "author": "Daniel B.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_04": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Happy\"</h3><p>The plant is beautiful! My sister loved it… we have so many positive comments on it… thank you so much!</p>",
+            "author": "Linda H.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_05": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Always Beautiful\"</h3><p>Flowers are always beautiful and always delivered on time. We can always count on Kremps.</p>",
+            "author": "Lois W.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_06": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Very pleased all around!\"</h3><p>I was impressed with the kind customer service and prompt email communication. The delivery was on time as well.</p>",
+            "author": "Aries S.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_07": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"First time customer here\"</h3><p>I was pleased with the assistance I received when calling customer service. Communication was great and the order arrived on time!</p>",
+            "author": "Aries S.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_08": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Everything you could ask for\"</h3><p>Excellent quality flowers. Fast delivery. Thank you!</p>",
+            "author": "Alexander F.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_09": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Beautiful Planter\"</h3><p>Sent this to a family member... it is the most beautiful planter I’ve ever seen! The flowers were so fresh and beautiful! Highly recommend!</p>",
+            "author": "Jennifer G.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_10": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Wonderful\"</h3><p>Thank you so much. The flowers were beautiful and my niece loved them. I’m going with you from now on.</p>",
+            "author": "Patricia S.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_11": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Extensive collection\"</h3><p>They have a great team to answer your questions. Great doing business with them.</p>",
+            "author": "Robert N.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_12": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Excellent service\"</h3><p>Excellent bouquet and service. Delivery made on time and as requested. Pleased and HAPPY recipient.</p>",
+            "author": "Anne-Marie M.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_13": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Always reliable!!\"</h3><p>Always reliable and beautiful flowers every single time.</p>",
+            "author": "Eileen B.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_14": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Beautiful!\"</h3><p>Beautiful plant and great customer service! Couldn’t have asked for anything more.</p>",
+            "author": "Elaine H.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_15": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Housewarming Gift!\"</h3><p>Beautiful plant! Right on time! I am on the other side of the world and it exceeded my expectation. Thank you!</p>",
+            "author": "Susan K.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_16": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Amazing Experience\"</h3><p>Cannot recommend Kremp Florist enough. The bouquet was beautiful, the deluxe version is worth it!</p>",
+            "author": "Sydney H.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_17": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Beautifully easy!\"</h3><p>Placed orders on-line, very easy, and beautiful flowers delivered on my desired date!</p>",
+            "author": "Douglas M.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_18": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Fresh and fragrant\"</h3><p>The flowers were so fresh and they smell incredibly sweet. Everything was perfect.</p>",
+            "author": "Shay W.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_19": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Fast shipping and great selection\"</h3><p>Great looking products and arrived in excellent condition. Well packed order.</p>",
+            "author": "T.K.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_20": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Another Beautiful Piece\"</h3><p>Perfect condition as usual. My wife loves these and has been collecting them for years.</p>",
+            "author": "Michael P.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_21": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Great Experience\"</h3><p>This was delivered quick and was well packed! Great products at a fair price!</p>",
+            "author": "Kevin G.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_22": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Thank you!\"</h3><p>Two thumbs up! Shipping was extremely quick, especially considering it was the holidays! The product was perfect!</p>",
+            "author": "Donna P.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_23": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Super high quality\"</h3><p>Super adorable and cute; great quality. Packaged well and fast shipping!</p>",
+            "author": "Julia M.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_24": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Excellent service\"</h3><p>Beautiful comfort plant. Got there in time for services. Very pleased with plant and service.</p>",
+            "author": "Theresa R.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_25": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Always beautiful\"</h3><p>I have gotten these every year since 1998. They are always beautiful. Delivery on time and reasonably priced.</p>",
+            "author": "Terry C.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_26": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Kinkade Collectable\"</h3><p>Intricate detail & lights up beautifully. A lovely addition to our collection!</p>",
+            "author": "Jan O.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_27": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Awesome flowers and service !!\"</h3><p>Great flower arrangement. The flowers lasted over a week! I will only order from Kremp’s!!!</p>",
+            "author": "Melissa A.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_28": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Seamless ordering\"</h3><p>Impeccable customer service and the timeliness of their delivery. I will highly recommend them to friends and family!</p>",
+            "author": "Kaira N.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_29": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Gorgeous flowers\"</h3><p>Gorgeous flowers delivered on time. Very pleased. Would use again.</p>",
+            "author": "Amy F.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_30": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Fall Radiance\"</h3><p>My friend could not say enough about how beautiful this arrangement was. As always, I am so pleased with Kremp and their staff.</p>",
+            "author": "Rosemarie C.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_31": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Dependability\"</h3><p>I can always count on Kremp! Beautiful display, quick delivery - thank you!</p>",
+            "author": "Patricia S.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_32": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Amazing choices\"</h3><p>The choices are unreal when it comes to Kremp's. Absolutely beautiful floral arrangement!</p>",
+            "author": "Margaret K.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_33": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Packed great\"</h3><p>Order received and packed great and in perfect condition. Thank you.</p>",
+            "author": "Carol R.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_34": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Adorable!\"</h3><p>Arrived exactly like the picture. Reasonably priced, beautiful and delivered on time. Thank you!</p>",
+            "author": "Margie",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_35": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Fantastic everything!\"</h3><p>Easy website navigation, quick delivery - thank you! Everything was top notch!</p>",
+            "author": "Margaret K.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_36": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Long lasting\"</h3><p>Saw a photo 2 weeks later, they are still beautiful, very long lasting! Kremps never disappoints!</p>",
+            "author": "Kathy E.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_37": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Delightfully surprised!\"</h3><p>The recipient loved the Rose Bouquet. She was delightfully surprised. Very well from start to finish.</p>",
+            "author": "Nina W.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_38": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Always the best\"</h3><p>Always the best. Item arrived fast and in perfect condition.</p>",
+            "author": "Kathleen P.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_39": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"High Recommend\"</h3><p>Highly recommend. My mom loved them & they lasted for a couple weeks!</p>",
+            "author": "Karen G.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_40": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Quick and perfect\"</h3><p>Flowers were beautiful and shipped same day! Delivered right on time!</p>",
+            "author": "Colleen M.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_41": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Stunningly beautiful\"</h3><p>Stunningly beautiful arrangement. It was still beautiful several days later. I will definitely order from Kremp again!</p>",
+            "author": "Martha R.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_42": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Excellent product!\"</h3><p>Excellent service and beautiful product! Delivered on time and with care!</p>",
+            "author": "Kimberly W.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_43": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Smooth experience\"</h3><p>All went smoothly and on time! Lovely bouquet and good service!</p>",
+            "author": "Frank M.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_44": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Fresh :)\"</h3><p>Arrived on time and the flowers great shape, very fresh. Would buy again anytime!</p>",
+            "author": "Jacob W.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "rev_gen_45": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>\"Full and lush\"</h3><p>Recipient said it was beautiful, very full and lush. Love your business.",
+            "author": "Cynthia T.",
+            "author_info": "Verified Buyer in {{ page.title }}",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_79YEbA",
+        "testimonial_xBAei8",
+        "testimonial_6qnBQA",
+        "testimonial_i4dF6F",
+        "testimonial_qNjRqG",
+        "rev_gen_01",
+        "rev_gen_02",
+        "rev_gen_03",
+        "rev_gen_04",
+        "rev_gen_05",
+        "rev_gen_06",
+        "rev_gen_07",
+        "rev_gen_08",
+        "rev_gen_09",
+        "rev_gen_10",
+        "rev_gen_11",
+        "rev_gen_12",
+        "rev_gen_13",
+        "rev_gen_14",
+        "rev_gen_15",
+        "rev_gen_16",
+        "rev_gen_17",
+        "rev_gen_18",
+        "rev_gen_19",
+        "rev_gen_20",
+        "rev_gen_21",
+        "rev_gen_22",
+        "rev_gen_23",
+        "rev_gen_24",
+        "rev_gen_25",
+        "rev_gen_26",
+        "rev_gen_27",
+        "rev_gen_28",
+        "rev_gen_29",
+        "rev_gen_30",
+        "rev_gen_31",
+        "rev_gen_32",
+        "rev_gen_33",
+        "rev_gen_34",
+        "rev_gen_35",
+        "rev_gen_36",
+        "rev_gen_37",
+        "rev_gen_38",
+        "rev_gen_39",
+        "rev_gen_40",
+        "rev_gen_41",
+        "rev_gen_42",
+        "rev_gen_43",
+        "rev_gen_44",
+        "rev_gen_45"
+      ],
+      "settings": {
+        "heading": "{{ page.title }} Flower Delivery Reviews",
+        "show_quotes": false,
+        "testimonial_size": "h5",
+        "text_position": "justify-center",
+        "text_align": "text-center justify-center",
+        "new_design": false,
+        "nav_style": "slideshow_nav_dots",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "color_scheme": "1",
+        "full_width": true
+      }
+    },
+    "rich_text_ywWKpm": {
+      "type": "rich-text",
+      "blocks": {
+        "text_97ACwJ": {
+          "type": "text",
+          "settings": {
+            "text": "{{ page.metafields.custom.town_local_description | metafield_tag }}",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "text_97ACwJ"
+      ],
+      "settings": {
+        "custom_class": "",
+        "text_position": "justify-center",
+        "text_align": "text-start",
+        "mob_center_text": false,
+        "wide": true,
+        "hide_if_empty": false,
+        "color_scheme": "2",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "multi_column_6cmfQc": {
+      "type": "multi-column",
+      "blocks": {
+        "column_r4ppeB": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_facilities_links_column_1 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_fzijeM": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_facilities_links_column_2 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_tNx3At": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_facilities_links_column_3 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_APPHdB": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_facilities_links_column_4 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_CyYm3P": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_facilities_links_column_5 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_r4ppeB",
+        "column_fzijeM",
+        "column_tNx3At",
+        "column_APPHdB",
+        "column_CyYm3P"
+      ],
+      "settings": {
+        "custom_class": "",
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "auto_adjust_column_size": true,
+        "column_size": "x-small",
+        "column_align": "left",
+        "media_align": "text-center",
+        "image_ratio": "1",
+        "color_scheme": "none",
+        "apply_color_scheme_to_parent": false,
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "promo_grid_8PKcdB": {
+      "type": "promo-grid",
+      "blocks": {
+        "media_xWYUkK": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/serenity-prayer-wind-chime.jpg",
+            "link_url": "shopify://collections/sympathy-wind-chimes",
+            "columns": 2,
+            "rows": 2,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": true,
+            "background_color": "#d8f19c",
+            "text_color": "#004275",
+            "subheading": "The Windchime Collection",
+            "link_text": "Browse our unique selection",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_qUVzKH": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/gold-dipped-pink-amethyst-rose.jpg",
+            "link_url": "shopify://collections/gold-dipped-roses",
+            "columns": 2,
+            "rows": 2,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": true,
+            "background_color": "#d8f19c",
+            "text_color": "#004275",
+            "subheading": "Gold Dipped Roses",
+            "link_text": "Shop all of our beautiful colors",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "media_xWYUkK",
+        "media_qUVzKH"
+      ],
+      "settings": {
+        "title": "Looking for more unique gift ideas?",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 200,
+        "fixed_height_mobile": 280,
+        "text_overlay_font": "body",
+        "color_scheme": "default"
+      }
+    },
+    "faq_idg6iP": {
+      "type": "faq",
+      "blocks": {
+        "category_mNnQcn": {
+          "type": "category",
+          "settings": {
+            "text": "Here are some of our most-asked questions:"
+          }
+        },
+        "question_TtcyLE": {
+          "type": "question",
+          "settings": {
+            "heading": "Can I send flowers to someone same day?",
+            "text": "<p>Yes, it is easy to buy flowers and send them to someone same day. No matter what the occasion may be, same day delivery is available nationwide by ordering online here. With a fast and easy checkout, your gift will be prepared right away and delivered to the recipient in a timely manner. Be sure to order before 12:30pm in the recipient’s time zone for fast, same day delivery. Note- during peak holidays like Valentine’s Day and Mother’s Day, same day delivery may only be available to local towns.</p>"
+          }
+        },
+        "question_X6qiqY": {
+          "type": "question",
+          "settings": {
+            "heading": "What are the best flowers for same-day flower delivery?",
+            "text": "<p>The best flowers for same-day flower delivery would be whatever is the most fresh and in stock. When you order in advance, specific flower varieties can be ordered in for your future order. With same-day orders, we must use what is in stock at the time. Not to worry! Our flower shop coolers are always stocked with the freshest, most popular flower varieties such as roses, lilies, orchids, hydrangeas, gerbera daisies, sunflowers, and more! Our professional flower designers always select what looks the most beautiful for your gift while being suitable for the occasion.</p>"
+          }
+        },
+        "question_g76JtV": {
+          "type": "question",
+          "settings": {
+            "heading": "What is the best flower delivery site?",
+            "text": "<p>The best flower delivery website is one that you can trust, not only to deliver on time but also to create a gift that both you and the recipient are happy with. Kremp Florist is a real retail florist, family owned and operated so you can trust the personalized level of service, the quality of the product to be fresh, and on-time flower delivery.</p>"
+          }
+        },
+        "question_UP4WEb": {
+          "type": "question",
+          "settings": {
+            "heading": "How much does flower delivery cost?",
+            "text": "<p>The cost of flower delivery can vary depending on the location of the recipient. Delivery charges can range from $5 up to $30. Labor, vehicle, and gas charges need to be covered somewhere in the transaction so be weary of websites that offer free delivery. Chances are, you will either be paying another mysterious service charge to cover this expense or the delivery fees may be deducted from the product price possibly leading to a smaller bouquet. If an offer sounds too good to be true, this is likely the case.</p>"
+          }
+        },
+        "question_qVCdip": {
+          "type": "question",
+          "settings": {
+            "heading": "How long does it take to have flowers delivered?",
+            "text": "<p>Most flower deliveries are made by early afternoon on the requested date of delivery. If the order is placed for same-day delivery before 12:30 pm in the recipient’s time zone, the order will go out in the afternoon. Flower delivery drivers can deliver into the evening if need be. Note- during peak holidays like Valentine’s Day and Mother’s Day, some areas may reach capacity in advance of the holiday. This means your order will be delivered as quickly as possible once delivery services start accepting more deliveries.</p>"
+          }
+        },
+        "question_TYV9Lc": {
+          "type": "question",
+          "settings": {
+            "heading": "Who delivers flowers near me?",
+            "text": "<p>Our local flower delivery experts are the best choice for flower delivery near you. As one of the top real retail florists in the country, in business for over 65 years, Kremp Florist is proud to offer the highest level of service for flower delivery anywhere in the United States. Whether it is a same-day birthday flower delivery, a get-well wish to cheer up someone in the hospital or a planned sympathy flower gift, Kremp Florist will fulfill your order in a timely manner with personalized service.</p>"
+          }
+        },
+        "question_gigjtL": {
+          "type": "question",
+          "settings": {
+            "heading": "How can I get flowers delivered fast?",
+            "text": "<p>The easiest way to get flowers delivered fast is to order online from a flower shop you can trust. Within minutes, you can check out on our fast, easy and secure website. By ordering flowers and plants from a real retail florist, you can eliminate any concerns that may arise when ordering from large online websites that are not real florists. Shop Kremp Florist today and we will deliver fast.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_mNnQcn",
+        "question_TtcyLE",
+        "question_X6qiqY",
+        "question_g76JtV",
+        "question_UP4WEb",
+        "question_qVCdip",
+        "question_TYV9Lc",
+        "question_gigjtL"
+      ],
+      "settings": {
+        "heading": "Need some help?",
+        "color_scheme": "none",
+        "full_width": true,
+        "custom_class": ""
+      }
+    },
+    "featured_collection_amE9Qf": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "show_view_all": false,
+        "collection": "all-flowers",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8,
+        "show_promo_info": true,
+        "image": "shopify://shop_images/Best_Sellers_bfc5f74b-2605-4c7e-a071-8afb96580ec8.jpg",
+        "image_ratio": "natural",
+        "promo_title": "Most popular in {{ page.title }}",
+        "content": "<p>Use this card with an image to highlight your collections or introduce a promotion.</p>",
+        "link_url": "",
+        "button_label": "Shop All",
+        "color_scheme": "3",
+        "button_style": "btn btn--primary"
+      }
+    },
+    "video_WEiV6Q": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "video_shopify": "shopify://files/videos/KREMP.mp4",
+        "video_external": "",
+        "video_description": "Kremp intro video",
+        "poster_image": "shopify://shop_images/meet-top-video-cover.jpg",
+        "video_size": "lg",
+        "video_autoplay": false,
+        "text_align": "text-center",
+        "color_scheme": "default"
+      }
+    },
+    "image_banner_rKwdwm": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_fGC8WG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still Not Sure Where To Start?",
+            "heading_size": "h4",
+            "heading_h1": false
+          }
+        },
+        "text_WRXtDB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let us help you to choose the perfect gift for your special occasion. Give us a call or send us an email. We are happy to help!</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_eRTmab": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "(800) 345-7367",
+            "button_1_link": "tel:18003457367",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "Contact Us Online",
+            "button_2_link": "shopify://pages/contact",
+            "button_2_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fGC8WG",
+        "text_WRXtDB",
+        "button_eRTmab"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Last_Bite_-_D.jpg",
+        "image_mobile": "shopify://shop_images/last_bite_-_M.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "text-start",
+        "mob_center_text": true,
+        "mobile_stacked": true,
+        "mobile_stacked_reverse": false,
+        "mobile_stacked_text_bg": "#ffffff",
+        "mobile_stacked_text_bg_opacity": 0,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#004275",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "tint_tablet_only": false,
+        "custom_class": "",
+        "prevent_animation": false
+      }
+    },
+    "local_resources_block": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% assign resource_content = page.metafields.custom.local_ressources.value | strip %}{% if resource_content != blank %}<style>.kremp-resource-outer { padding: 100px 0; background-color: #fcfcfc; border-top: 1px solid #eee; }.kremp-resource-outer h2.main-title { font-size: 3.2rem !important; text-align: center; margin-bottom: 60px; color: #111; font-weight: 800; text-transform: capitalize; }.kremp-grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; padding: 0 20px; align-items: start; }.kremp-grid-layout h3 { font-size: 1.8rem !important; color: #004b91; margin-bottom: 25px; margin-top: 0; font-weight: 700; border-bottom: 3px solid #004b91; padding-bottom: 10px; display: inline-block; }.kremp-grid-layout ul { list-style: none; padding: 0; margin: 0; text-align: left; }.kremp-grid-layout li { background: #fff; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; transition: transform 0.3s ease; }.kremp-grid-layout li:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }.kremp-grid-layout li strong { display: block; font-size: 1.25rem; color: #111; margin-bottom: 8px; }.kremp-grid-layout li p { font-size: 1.1rem; color: #555; line-height: 1.5; margin: 0; }.kremp-grid-layout a { color: #004b91; text-decoration: none; font-weight: 700; border-bottom: 2px solid transparent; transition: all 0.2s ease; }.kremp-grid-layout a:hover { border-bottom: 2px solid #004b91; }</style><div class='kremp-resource-outer'><div class='page-width'><h2 class='main-title'>Local Services & Resources in {{ page.title }}</h2><div class='kremp-grid-layout'>{{ page.metafields.custom.local_ressources | metafield_tag }}</div></div></div>{% endif %}",
+        "section_height": "default",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "multi_column_YdGWPB": {
+      "type": "multi-column",
+      "blocks": {
+        "column_nAgH3d": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_bottom_links_column_1 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_U4FcJY": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_bottom_links_column_2 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_tjPVUY": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_bottom_links_column_3 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_KkkpNF": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_bottom_links_column_4 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_XRbW3Q": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "{{ page.metafields.custom.town_bottom_links_column_5 | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_nAgH3d",
+        "column_U4FcJY",
+        "column_tjPVUY",
+        "column_KkkpNF",
+        "column_XRbW3Q"
+      ],
+      "settings": {
+        "custom_class": "",
+        "title": "",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "auto_adjust_column_size": false,
+        "column_size": "x-small",
+        "column_align": "center",
+        "media_align": "text-center",
+        "image_ratio": "1",
+        "color_scheme": "none",
+        "apply_color_scheme_to_parent": false,
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "neighbor_towns_block": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% assign neighbor_content = page.metafields.custom.neighbor_towns | strip %}{% if neighbor_content != blank %}<style>.kremp-neighbor-section { background-color: #f8f9fa; padding: 60px 20px; margin: 40px 0; border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; } .kremp-neighbor-inner { max-width: 800px; margin: 0 auto; text-align: center; } .kremp-neighbor-inner ul { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; list-style: none; padding: 0; margin: 0 auto; max-width: 600px; } .kremp-neighbor-inner li a { display: block; padding: 12px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; text-decoration: none; color: #333; transition: all 0.3s ease; } .kremp-neighbor-inner li a:hover { background: #004b91; color: #fff; border-color: #004b91; }</style><div class='kremp-neighbor-section'><div class='kremp-neighbor-inner'>{{ page.metafields.custom.neighbor_towns | metafield_tag }}</div></div>{% endif %}",
+        "section_height": "default",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "navigation_slideshow_e9gCjL",
+    "rich_text_TjRcrx",
+    "media_with_text_Bqz38r",
+    "featured_collection_GETWjg",
+    "custom_liquid_6mefMe",
+    "media_with_text_wkaVWB",
+    "media_with_text_WxXCka",
+    "video_kLC76B",
+    "link_lists_T8bKMT",
+    "media_with_text_6YWadG",
+    "image_banner_AM4RzY",
+    "promo_grid_CDcCUQ",
+    "testimonials_yRpxgN",
+    "rich_text_ywWKpm",
+    "multi_column_6cmfQc",
+    "promo_grid_8PKcdB",
+    "faq_idg6iP",
+    "featured_collection_amE9Qf",
+    "video_WEiV6Q",
+    "image_banner_rKwdwm",
+    "local_resources_block",
+    "multi_column_YdGWPB",
+    "neighbor_towns_block"
+  ]
+}

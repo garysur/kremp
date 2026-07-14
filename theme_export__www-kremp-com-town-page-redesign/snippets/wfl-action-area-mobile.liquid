@@ -1,0 +1,333 @@
+<style>
+.product-info__column.product-info__column--left product-form label {
+    font-weight: 600;
+}
+ 
+.product-info__column.product-info__column--left product-form span {
+    height: 30px;
+    display: inline-block;
+    width: 30px;
+    background: #004275;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+}
+ 
+.product-info__column.product-info__column--left product-form input{
+  display: block;
+  margin-top: 1em;
+}
+ 
+
+
+ textarea.po-option--type-text {
+    max-width: 100%;
+    margin: 0;
+    padding: var(--input-padding-y, 11px) 24px;
+    transition: border-color .2s, box-shadow .2s, outline .2s;
+    border: var(--input-border-width) solid rgba(var(--input-text-color) / .2);
+    border-radius: var(--input-border-radius, 0);
+    background-color: rgb(var(--input-bg-color));
+    color: rgb(var(--input-text-color));
+    font-size: .88em;
+    line-height: 1.2em;
+}
+ 
+.product-info__block.product-options .po-stack.po-stack--vertical {
+    flex-direction: row;
+    align-items: center;
+}
+.product-info__block.product-options .po-label-container {
+    width: 31%;
+}
+.product-info__block.product-options .po-option--container {
+    width: 63%;
+}
+.product-info__block.product-options textarea.po-option--type-text {
+    max-width: 100%;
+    margin: 0;
+    padding: var(--input-padding-y, 11px) 24px;
+    transition: border-color .2s, box-shadow .2s, outline .2s;
+    border: var(--input-border-width) solid rgba(var(--input-text-color) / .2);
+    border-radius: var(--input-border-radius, 0);
+    background-color: rgb(var(--input-bg-color));
+    color: rgb(var(--input-text-color));
+    font-size: .88em;
+    line-height: 1.2em;
+}
+ 
+.product-info__block.product-options .po-stack .po-label-container .po-label span:first-child {
+    font-weight: 700;
+    font-family: var(--body-font-family);
+} 
+</style>
+
+
+{%- liquid
+  if breakpoint and breakpoint == 'desktop'
+    assign breakpoint_class = 'product-info__block--desktop'
+  else
+    assign breakpoint_class = 'product-info__block--mobile'
+  endif
+-%}
+<div class="product-info__block {{ breakpoint_class }}" {{ block.shopify_attributes }}>
+  <product-form>
+    <div class="product-action-area" data-action-area  id ="product-form-area">
+      {%- form 'product', product, class: 'js-product-form js-product-form-main', id: product_form_id -%}
+        {%- liquid
+          assign gift_card_recipient_feature_active = false
+          if block.settings.show_gift_card_recipient and product.gift_card?
+            assign gift_card_recipient_feature_active = true
+          endif
+
+          assign enable_dynamic_checkout = false
+          if block.settings.enable_dynamic_checkout and product.selling_plan_groups == empty and gift_card_recipient_feature_active == false
+            unless product.template_suffix contains 'preorder'
+              assign enable_dynamic_checkout = true
+            endunless
+          endif
+
+          assign reserve_product = false
+          for tag in product.tags
+            if tag == 'reserve'
+              assign reserve_product = true
+            endif
+          endfor
+        -%}
+
+        <div class="product-info__price">
+         
+        </div>
+
+        {%- if block.settings.show_tax_and_shipping -%}
+          {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
+            <div class="product-policies text-sm rte">
+              {%- if cart.taxes_included -%}
+                {{ 'products.product.include_taxes' | t }}
+              {%- endif -%}
+              {%- if shop.shipping_policy.body != blank -%}
+                {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+        {% comment %}
+          {%- assign instalments_form_id = 'instalments-form-' | append: section.id -%}
+          {%- form 'product', product, class: 'js-instalments-form  text-sm mt-2', id: instalments_form_id -%}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+            {{ form | payment_terms }}
+          {%- endform -%}
+        {% endcomment %}
+
+        {%- if gift_card_recipient_feature_active -%}
+          {% render 'gift-card-recipient', section: section %}
+        {%- endif -%}
+
+        <div
+          class="alert mb-8 bg-error-bg text-error-text js-form-error text-start"
+          role="alert"
+          hidden
+        >
+        </div>
+       
+        
+
+ <script> 
+  /*let txtRibbonColor1 = document.querySelector('#ribboncolor1');
+  let txtRibbonColor = document.querySelector('#ribboncolor');
+
+  txtRibbonColor1.addEventListener('change', function() {
+    var ribbonColorValue = document.getElementById("ribboncolor1").value;
+    alert("in...");
+    alert(ribbonColorValue);
+    document.getElementById("ribboncolor").value = ribbonColorValue;
+    alert(ribbonColorValue);
+    //txtRibbonColor.textContent = this.value;
+  });
+*/
+  
+/*document.getElementById("addToCart").addEventListener("click", function() {
+    // Get value from ribboncolor1 (outside form)
+    var ribbonColorValue = document.getElementById("ribboncolor1").value;
+alert("test..."+ribbonColorValue);
+  
+    // Assign the value to the hidden input inside the product form
+    document.getElementById("ribboncolor").value = ribbonColorValue;
+
+   
+});*/
+</script>
+        
+        {%- if reserve_product -%}
+          {% liquid
+            assign reserved_metaobj = shop.metaobjects.product_cart_attribute.reserved
+            assign reserved_name = reserved_metaobj.name.value
+            assign reserved_value = reserved_metaobj.value.value
+          %}
+          <input
+            type="hidden"
+            name="properties[{{ reserved_name }}]"
+            value="{{ reserved_value }}"
+            hidden
+          >
+          {% if breakpoint_class == 'product-info__block--desktop' %}
+            <reserve-button-checker></reserve-button-checker>
+          {% endif %}
+        {%- endif -%}
+        <input
+          type="hidden"
+          name="properties[_shipping_type]"
+          value="{{ product.metafields.custom.shipping_type.value }}"
+        >
+        <input
+          type="hidden"
+          name="properties[_box_size]"
+          value="{{ product.metafields.custom.box_size.value }}"
+        >
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+        <div class="product-info__add-to-cart flex{% if enable_dynamic_checkout %} qty-input--secondary-btn{% endif %}">
+          {%- if block.settings.show_qty_selector -%}
+            {% render 'quantity-input', layout_style: 'combined' %}
+          {%- else -%}
+            <input type="hidden" name="quantity" value="1">
+          {%- endif -%}
+
+          <order-conflict-checker
+            class="product-info__add-button"
+            shipping-type="{{ product.metafields.custom.shipping_type.value }}"
+          >
+            {%- capture add_to_cart_text -%}
+              {%- if product.template_suffix contains 'preorder' -%}
+                {{- 'products.product.preorder' | t -}}
+              {%- else -%}
+                {{- 'products.product.add_to_cart' | t -}}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            <input
+              type="hidden"
+              name="attributes[deliveryDate]"
+            >
+            <input
+              type="hidden"
+              name="attributes[zipCode]"
+            >
+            <input
+              type="hidden"
+              name="attributes[shippingType]"
+              value="{{ product.metafields.custom.shipping_type.value }}"
+            >
+
+            <button
+              type="submit"
+              data-add-to-cart-text="{{ add_to_cart_text | escape }}"
+              class="btn btn--primary w-full"
+              name="add"
+              id ="addToCart"
+              {% if product.available == false %}
+                disabled
+              {% endif %}
+            >
+               {%- if product.available -%}
+                {{- add_to_cart_text -}}  &nbsp; - &nbsp;   
+                <div class="product-info__price custom">
+                 {% render 'price', product: product, use_variant: true  %}
+               </div>
+                
+              {%- else -%}
+                {{- 'products.product.sold_out' | t -}}&nbsp; - &nbsp; 
+                 <div class="product-info__price custom">
+                 {% render 'price', product: product, use_variant: true  %}
+               </div>
+              {%- endif -%}
+            </button>
+          </order-conflict-checker>
+        </div>
+
+        {%- if enable_dynamic_checkout -%}
+          {{ form | payment_button }}
+        {%- endif -%}
+
+        <div class="product-action-area__action-messages" data-action-messages></div>
+
+        {%- if block.settings.show_product_messages -%}
+          {% comment %}
+            <div class="product-action-area__product-messages">
+              {%- for product_message in product.metafields.custom.product_messages.value -%}
+                <div class="product-message-pill">
+                  {{ product_message.icon.value | image_url: width: 24 | image_tag: loading: 'lazy' }}
+                  <span>{{ product_message.message.value }}</span>
+                </div>
+              {%- endfor -%}
+            </div>
+          {% endcomment %}
+          <div class="product-action-area__product-messages">
+            <div
+              class="product-message-pill{% if product.selected_or_first_available_variant.available %} product-message-pill--active{% endif %}"
+              data-product-message-pill="in-stock"
+            >
+              <img
+                src="//956aaa-f0.myshopify.com/cdn/shop/files/Checkmark_Outline.svg?v=1724437687&amp;width=24"
+                alt=""
+                srcset="//956aaa-f0.myshopify.com/cdn/shop/files/Checkmark_Outline.svg?v=1724437687&amp;width=24 24w"
+                width="24"
+                height="25"
+                loading="lazy"
+              >
+              <span>In Stock</span>
+            </div>
+
+            <div
+              class="
+                product-message-pill{% if product.selected_or_first_available_variant.compare_at_price
+                and product.selected_or_first_available_variant.compare_at_price
+                  > product.selected_or_first_available_variant.price %} product-message-pill--active{% endif %}
+              "
+              data-product-message-pill="on-sale"
+            >
+              <img
+                src="//956aaa-f0.myshopify.com/cdn/shop/files/on_sale.svg?v=1724437744&amp;width=24"
+                alt=""
+                srcset="//956aaa-f0.myshopify.com/cdn/shop/files/on_sale.svg?v=1724437744&amp;width=24 24w"
+                width="24"
+                height="25"
+                loading="lazy"
+              >
+              <span>On Sale</span>
+            </div>
+
+            <div
+              class="product-message-pill product-message-pill--active"
+              data-product-message-pill="guaranteed-delivery"
+            >
+              <img
+                src="//956aaa-f0.myshopify.com/cdn/shop/files/location.svg?v=1724437744&amp;width=24"
+                alt=""
+                srcset="//956aaa-f0.myshopify.com/cdn/shop/files/location.svg?v=1724437744&amp;width=24 24w"
+                width="24"
+                height="25"
+                loading="lazy"
+              >
+              <span>Guaranteed Delivery</span>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.show_product_notes and product.metafields.custom.short_description.value -%}
+          <div class="product-action-area__note">
+            {{ product.metafields.custom.short_description.value }}
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+   
+      </product-form>
+   </div>
+
+  {%- if block.settings.show_pickup_availability -%}
+    {% render 'pickup-availability', current_variant: current_variant %}
+  {%- endif -%}
+
+

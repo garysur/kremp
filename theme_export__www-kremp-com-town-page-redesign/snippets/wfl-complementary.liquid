@@ -1,0 +1,21 @@
+{%- liquid
+  if breakpoint and breakpoint == 'desktop'
+    assign breakpoint_class = 'product-info__block--desktop'
+  else
+    assign breakpoint_class = 'product-info__block--mobile'
+  endif
+-%}
+<div class="product-info__block {{ breakpoint_class }}" {{ block.shopify_attributes }}>
+  {%- liquid
+    if block.settings.layout == 'carousel'
+      assign grid_classes = 'grid grid-flow-col auto-cols-1 gap-x-theme'
+    endif
+  -%}
+  {%- render 'recommendations',
+    intent: 'complementary',
+    products_to_show: block.settings.products_to_show,
+    heading: block.settings.heading,
+    layout: block.settings.layout,
+    grid_classes: grid_classes
+  -%}
+</div>

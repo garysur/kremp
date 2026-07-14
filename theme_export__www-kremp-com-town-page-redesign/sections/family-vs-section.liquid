@@ -1,0 +1,341 @@
+<style>
+  .kremp-family-vs {
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 620px;
+  max-width: 1620px;
+  margin: 0 auto;
+  }
+  .kremp-family-vs .kfv-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+  }
+  .kremp-family-vs .kfv-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .kremp-family-vs .kfv-panel {
+    padding: 52px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .kremp-family-vs .kfv-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+  }
+  .kremp-family-vs .kfv-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    padding: 5px 0;
+  }
+  .kremp-family-vs .kfv-vs-box {
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 14px 16px;
+    background: rgba(0,0,0,0.2);
+    margin-bottom: 24px;
+  }
+  .kremp-family-vs .kfv-vs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-top: 10px;
+  }
+  .kremp-family-vs .kfv-vs-table td {
+    padding: 7px 8px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .kremp-family-vs .kfv-vs-table td:first-child {
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.35);
+    width: 48%;
+  }
+  .kremp-family-vs .kfv-vs-table td:last-child {
+    font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    .kremp-family-vs {
+      grid-template-columns: 1fr;
+    }
+    .kremp-family-vs .kfv-image {
+      min-height: 280px;
+    }
+    .kremp-family-vs .kfv-panel {
+      padding: 32px 20px;
+    }
+  }
+</style>
+
+<div class="kremp-family-vs" style="margin-top: {{ section.settings.padding_top }}px; margin-bottom: {{ section.settings.padding_bottom }}px;">
+
+  <!-- Left: Image -->
+  <div class="kfv-image">
+    {%- if section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 900 }}"
+        alt="{{ section.settings.image_alt | escape }}"
+        loading="lazy"
+        width="900"
+      >
+    {%- else -%}
+      <div style="width:100%; height:100%; min-height:400px; background:#d9e4d9; display:flex; align-items:center; justify-content:center; color:#555; font-size:14px;">Select an image in the sidebar →</div>
+    {%- endif -%}
+  </div>
+
+  <!-- Right: Dark content panel -->
+  <div class="kfv-panel" style="background-color: {{ section.settings.panel_bg }};">
+
+    <!-- Small label -->
+    <p style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: {{ section.settings.label_color }}; margin: 0 0 14px 0;">{{ section.settings.label }}</p>
+
+    <!-- Heading -->
+    <h2 style="font-size: clamp(20px, 2.4vw, 45px); line-height: 1.25; color: {{ section.settings.heading_color }}; margin: 0 0 16px 0; font-weight: 400;">
+      {{ section.settings.heading_plain }} <em style="color: {{ section.settings.heading_accent }};">{{ section.settings.heading_italic }}</em>
+    </h2>
+
+    <!-- Body paragraph -->
+    <p style="font-size: 14px; line-height: 1.75; color: {{ section.settings.body_color }}; margin: 0 0 20px 0;">{{ section.settings.body_text }}</p>
+
+    <!-- Bullet points -->
+    <ul class="kfv-bullets">
+      {%- if section.settings.bullet1 != blank -%}
+      <li>
+        <span style="color: {{ section.settings.check_color }}; font-weight: 700; flex-shrink: 0;">✓</span>
+        <span style="color: {{ section.settings.body_color }};">{{ section.settings.bullet1 }}</span>
+      </li>
+      {%- endif -%}
+      {%- if section.settings.bullet2 != blank -%}
+      <li>
+        <span style="color: {{ section.settings.check_color }}; font-weight: 700; flex-shrink: 0;">✓</span>
+        <span style="color: {{ section.settings.body_color }};">{{ section.settings.bullet2 }}</span>
+      </li>
+      {%- endif -%}
+      {%- if section.settings.bullet3 != blank -%}
+      <li>
+        <span style="color: {{ section.settings.check_color }}; font-weight: 700; flex-shrink: 0;">✓</span>
+        <span style="color: {{ section.settings.body_color }};">{{ section.settings.bullet3 }}</span>
+      </li>
+      {%- endif -%}
+      {%- if section.settings.bullet4 != blank -%}
+      <li>
+        <span style="color: {{ section.settings.check_color }}; font-weight: 700; flex-shrink: 0;">✓</span>
+        <span style="color: {{ section.settings.body_color }};">{{ section.settings.bullet4 }}</span>
+      </li>
+      {%- endif -%}
+    </ul>
+
+    <!-- VS comparison box -->
+    <div class="kfv-vs-box">
+      <p style="font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: {{ section.settings.label_color }}; margin: 0;">{{ section.settings.table_label }}</p>
+      <table class="kfv-vs-table">
+        <tbody>
+          <tr>
+            <td>Order processed remotely, unknown florist</td>
+            <td style="color: {{ section.settings.check_color }};">✓ Designed by the Kremp family team</td>
+          </tr>
+          <tr>
+            <td>Stock photos, unknown quality</td>
+            <td style="color: {{ section.settings.check_color }};">✓ Fresh, hand-crafted arrangements</td>
+          </tr>
+          <tr>
+            <td>Hidden wire-service fees</td>
+            <td style="color: {{ section.settings.check_color }};">✓ Transparent, honest pricing</td>
+          </tr>
+          <tr>
+            <td>Call center — no local knowledge</td>
+            <td style="color: {{ section.settings.check_color }};">✓ Speak directly to the Kremp family</td>
+          </tr>
+          <tr>
+            <td>No Philadelphia roots or history</td>
+            <td style="color: {{ section.settings.check_color }};">✓ Serving Philadelphia since 1956</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA Button -->
+    {%- if section.settings.button_label != blank -%}
+    <a href="{{ section.settings.button_link }}" style="display: inline-block; padding: 13px 28px; background: {{ section.settings.button_bg }}; color: {{ section.settings.button_text_color }}; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 4px; letter-spacing: 0.02em;">{{ section.settings.button_label }} →</a>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Family Story",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left side image (use the vintage Kremp family photo)"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "The Kremp family — Philadelphia florists since 1956"
+    },
+    {
+  "type": "header",
+  "content": "Spacing"
+},
+{
+  "type": "range",
+  "id": "padding_top",
+  "label": "Margin top (px)",
+  "min": 0,
+  "max": 100,
+  "step": 4,
+  "default": 0
+},
+{
+  "type": "range",
+  "id": "padding_bottom",
+  "label": "Margin bottom (px)",
+  "min": 0,
+  "max": 100,
+  "step": 4,
+  "default": 0
+},
+    {
+      "type": "header",
+      "content": "Panel colors"
+    },
+    {
+      "type": "color",
+      "id": "panel_bg",
+      "label": "Panel background",
+      "default": "#1b3a6b"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Small label color",
+      "default": "#a8c0d8"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_accent",
+      "label": "Heading italic accent",
+      "default": "#d9f09c"
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Body text color",
+      "default": "#c8d8e8"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Check / accent color",
+      "default": "#d9f09c"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#d9f09c"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#1b3a6b"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Small uppercase label",
+      "default": "Why Philadelphia chooses Kremp"
+    },
+    {
+      "type": "text",
+      "id": "heading_plain",
+      "label": "Heading — plain part",
+      "default": "Not Just Any Philadelphia Florist —"
+    },
+    {
+      "type": "text",
+      "id": "heading_italic",
+      "label": "Heading — italic accent",
+      "default": "The Kremp Family"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body paragraph",
+      "default": "For 3 generations, the Kremp family has been turning feelings into flowers with breathtaking bouquets, beautiful plants, and unique gifts. A lot has changed in 65 years — but our reliable service and high quality has not."
+    },
+    {
+      "type": "text",
+      "id": "bullet1",
+      "label": "Bullet 1",
+      "default": "Hand-crafted fresh daily by our family team"
+    },
+    {
+      "type": "text",
+      "id": "bullet2",
+      "label": "Bullet 2",
+      "default": "Same-day flower delivery across Philadelphia by 2pm"
+    },
+    {
+      "type": "text",
+      "id": "bullet3",
+      "label": "Bullet 3",
+      "default": "Named National Retail Florist of the Year"
+    },
+    {
+      "type": "text",
+      "id": "bullet4",
+      "label": "Bullet 4",
+      "default": "Serving Philadelphia, Main Line & surrounding areas"
+    },
+    {
+      "type": "text",
+      "id": "table_label",
+      "label": "Comparison table label",
+      "default": "Kremp Florist vs. wire services"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Philadelphia Flowers"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Family Story Section"
+    }
+  ]
+}
+{% endschema %}

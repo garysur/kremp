@@ -1,0 +1,455 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": false,
+        "heading_align": "text-center"
+      }
+    },
+    "image-banner-1": {
+      "type": "image-banner",
+      "blocks": {
+        "banner-heading-2": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse Our Wedding Gallery",
+            "heading_size": "h0",
+            "heading_h1": false
+          }
+        },
+        "banner-text-3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Making memories for your special day...</p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "banner-heading-2",
+        "banner-text-3"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/beautiful-wedding-bouquet-and-bride.jpg",
+        "url": "",
+        "height_mode": "fixed",
+        "fixed_height_desktop": 420,
+        "fixed_height_mobile": 410,
+        "overlay_position": "justify-start items-start",
+        "overlay_text_align": "text-start",
+        "mob_center_text": true,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 40,
+        "prevent_animation": false
+      }
+    },
+    "rich-text-1": {
+      "type": "rich-text",
+      "blocks": {
+        "rich-text-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Wedding Flowers, Rental Items and More",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "rich-text-text-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Click below to browse each gallery.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "rich-text-heading-1",
+        "rich-text-text-2"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": false,
+        "hide_if_empty": false,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "promo-grid-1": {
+      "type": "promo-grid",
+      "blocks": {
+        "promo-grid-1-block-2": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/bridal-rose-bouquet.jpg",
+            "link_url": "shopify://pages/bridal-bouquets",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Bridal Bouquets",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "promo-grid-1-block-3": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/WBordaCouple.jpg",
+            "link_url": "shopify://pages/our-brides",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Our Brides",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "promo-grid-1-block-1": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/wChalDownaisle.jpg",
+            "link_url": "shopify://pages/ceremony-decoration",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h2",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": true,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Ceremony Decorations",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "promo-grid-1-block-4": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/wChalElevatedCloseup.jpg",
+            "link_url": "shopify://pages/bouts-corsages",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Reception Decorations",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "promo-grid-1-block-5": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/CTRCakeFinished.jpg",
+            "link_url": "shopify://pages/cakes",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Cake Decorations",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_tcXwVd": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Aldie1.jpg",
+            "link_url": "shopify://pages/reception-venues",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Venues",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "promo-grid-1-block-6": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/wGarden-Centerpiece-in-Cylinder.jpg",
+            "link_url": "shopify://pages/centerpieces",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Centerpieces",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "promo-grid-1-block-7": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/wRannun-Bout.jpg",
+            "link_url": "shopify://pages/boutonnieres-corsages",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Boutonnieres & Corsages",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "promo-grid-1-block-8": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/all_peonies.jpg",
+            "link_url": "shopify://pages/examples-by-price",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Examples By Price",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_nVmPrp": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/wLanternWreathofGreens.jpg",
+            "link_url": "shopify://pages/rental-items",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Rental Items",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        },
+        "media_cRrzjr": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/CTRrunnerBTS.jpg",
+            "link_url": "shopify://pages/behind-the-scenes",
+            "columns": 1,
+            "rows": 1,
+            "line1_text": "",
+            "line1_text_type_scale": "text-h6",
+            "line2_text": "",
+            "line2_text_type_scale": "text-h0",
+            "line3_text": "",
+            "line3_text_type_scale": "text-h6",
+            "overlay_position": "justify-start items-start",
+            "text_alignment": "text-center",
+            "promo_circle": false,
+            "background_color": "#d21a66",
+            "text_color": "#ffffff",
+            "subheading": "Behind the Scenes",
+            "link_text": "",
+            "text_type_scale": "h6",
+            "tint_color": "#000000",
+            "tint_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "promo-grid-1-block-2",
+        "promo-grid-1-block-3",
+        "promo-grid-1-block-1",
+        "promo-grid-1-block-4",
+        "promo-grid-1-block-5",
+        "media_tcXwVd",
+        "promo-grid-1-block-6",
+        "promo-grid-1-block-7",
+        "promo-grid-1-block-8",
+        "media_nVmPrp",
+        "media_cRrzjr"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "gallery_cols_max": 4,
+        "mobile_carousel": false,
+        "gallery_cols_min": "1",
+        "fixed_height_desktop": 300,
+        "fixed_height_mobile": 370,
+        "text_overlay_font": "body",
+        "color_scheme": "default"
+      }
+    },
+    "rich_text_Y9tRFz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_d4QmjN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Set up a FREE floral consultation:",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text_YbJf4i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Are you getting married?  We'd love to set up a complimentary consultation!</p>",
+            "enlarge_text": true
+          }
+        },
+        "button_Veqh9r": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "Click Here",
+            "button_1_link": "shopify://pages/wedding-flower-consultation-form",
+            "button_1_style": "btn--primary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_d4QmjN",
+        "text_YbJf4i",
+        "button_Veqh9r"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "wide": false,
+        "hide_if_empty": false,
+        "color_scheme": "none",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image-banner-1",
+    "rich-text-1",
+    "promo-grid-1",
+    "rich_text_Y9tRFz"
+  ]
+}

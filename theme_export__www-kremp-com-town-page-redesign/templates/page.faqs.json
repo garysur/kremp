@@ -1,0 +1,296 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": false,
+        "heading_align": "text-center"
+      }
+    },
+    "image-banner": {
+      "type": "image-banner",
+      "blocks": {
+        "banner-heading-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Frequently Asked Questions",
+            "heading_size": "h1",
+            "heading_h1": true
+          }
+        }
+      },
+      "block_order": [
+        "banner-heading-0"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/FAQ_Header_-_D.jpg",
+        "image_mobile": "shopify://shop_images/FAQ_Header_-_M.jpg",
+        "url": "",
+        "height_mode": "fixed",
+        "fixed_height_desktop": 400,
+        "fixed_height_mobile": 270,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": true,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 10,
+        "prevent_animation": false
+      }
+    },
+    "faqs": {
+      "type": "faq",
+      "blocks": {
+        "faq-category-1": {
+          "type": "category",
+          "settings": {
+            "text": "Substitutions"
+          }
+        },
+        "faq-question-2": {
+          "type": "question",
+          "settings": {
+            "heading": "Our Substitution Policy",
+            "text": "<p>All orders are made as close as possible to the item selected.  There are hundreds of different varieties of flowers and each come in many different colors.  Not all are available at all times and not all can be kept in stock at all times.  Due to this, substitutions may be necessary to ensure a timely delivery.  Our designers always do their very best to make your floral arrangement as similar as possible to what is selected.  In some areas, specific containers may not be available at all in which case the designer would substitute with another container.  In all substitution scenarios, your order will be filled to the full value spent(if not more).  If you would prefer to not allow any substitutions, please feel free to reply to your order confirmation email to notify us.  It is important to know that this could delay your delivery and require some back and forth to get your approval on what is available.  We will do our best to meet your request.</p><p>For plants and all non-floral related items, the same basic rules apply.  The items shown online are representations of what will be delivered.  The order will be filled as close as possible and filled to full value.</p><p>A more in depth explanation of our substitution policy can be viewed on all product pages.</p>"
+          }
+        },
+        "question_ChGTYj": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "heading": "Deliveries to Guam, Puerto Rico, Virgin Islands, APO Addresses & Internationally",
+            "text": "<p>If you have already placed your order to one of these areas, please refer to your order confirmation email for important things to know about delivery to these areas.  The same information can be viewed on all product pages under the substitution policy tab.</p>"
+          }
+        },
+        "faq-category-2": {
+          "type": "category",
+          "settings": {
+            "text": "Delivery"
+          }
+        },
+        "faq-question-3": {
+          "type": "question",
+          "settings": {
+            "heading": "What countries do you ship to?",
+            "text": "<p>If you have already placed your order to one of these areas, please refer to your order confirmation email for important things to know about delivery to these areas.  The same information can be viewed on all product pages under the substitution policy tab.</p>"
+          }
+        },
+        "question_bD3pCP": {
+          "type": "question",
+          "settings": {
+            "heading": "What time will my gift be delivered?",
+            "text": "<p>There are several delivery trips that go out throughout the day. Depending upon when the order comes in and the product request, we will send it out on the earliest possible delivery trip on your requested delivery date.  Drivers may only be in certain towns at specific times of the day so timed delivery requests cannot be guaranteed.</p>"
+          }
+        },
+        "question_8ypDHK": {
+          "type": "question",
+          "settings": {
+            "heading": "My order is being delivered to a business.  What time will it arrive?",
+            "text": "<p>All business deliveries are made by 5pm.  If for some reason the recipient works odd hours or leaves before 5pm, please let us know.  We will make every effort to meet your request.  However time requests are not guaranteed.  Feel free to contact us with any special delivery requests and we can discuss the options further.  If morning delivery is requested, we recommend placing your order at least the day before.</p>"
+          }
+        },
+        "question_aah9iM": {
+          "type": "question",
+          "settings": {
+            "heading": "What happens if no one is home?",
+            "text": "<p>Our professional drivers may choose to leave the gift with a neighbor to ensure delivery that day. Some deliveries may be left at the door or on the porch if it is safe(weather permitting). In all cases, the goal is to ensure that the recipient gets their gift in a timely manner. If an order has a request to leave at the door, the decision to do so will still be the driver's since weather, product type, time of day, location and neighborhood can determine whether or not your gift will be safe.  The last resort is to tag the recipient's door and bring the package back to the shop. When the recipient calls, we will redeliver the fresh package.  Redeliveries will be made on the first available trip which could be the following day.</p>"
+          }
+        },
+        "question_94MchV": {
+          "type": "question",
+          "settings": {
+            "heading": "Do you deliver on Sundays?",
+            "text": "<p>Yes! We are open and delivering in our local area 7 days a week, 365 a year. On orders being sent outside of our local delivery area, we will do our best to get your item delivered on Sunday. Some smaller towns however, may not have a delivery service available to deliver. In this case, your order will be delivered on the first available trip the next day they open.</p>"
+          }
+        },
+        "question_CV99b7": {
+          "type": "question",
+          "settings": {
+            "heading": "Is it more expensive to have something delivered outside of your delivery area?",
+            "text": "<p>No. We have no hidden or extra fees. In some cases where the recipient's address is remote, the delivery service may require an additional fee in which case we will contact you in advance for approval. If your order is going to an international address or to Puerto Rico, Hawaii, Alaska, Guam or the Virgin Islands, the delivery service may require additional funds to match the picture or to deliver to a distant area. In all cases, we will contact you first.</p>"
+          }
+        },
+        "question_zNLcBJ": {
+          "type": "question",
+          "settings": {
+            "heading": "What happens if I place an order after the cut-off for same day delivery?",
+            "text": "<p>We make every effort to have your order delivered on the requested day. If the order is placed after the same day cut-off(12:30 in the recipient’s time zone), we will have your order set up for delivery the next available day.</p>"
+          }
+        },
+        "question_yK6GN4": {
+          "type": "question",
+          "settings": {
+            "heading": "What about gift baskets that are shipped directly?",
+            "text": "<p>We use Fedex to ship within the US and USPS for all orders going outside of the country and to APO addresses. Tracking numbers are emailed to you. If shipping via USPS, they do not guarantee their delivery dates. Your order is shipped in a timely manner so it will arrive as close as possible if not on the requested delivery date.</p>"
+          }
+        },
+        "question_mCxYnx": {
+          "type": "question",
+          "settings": {
+            "heading": "I ordered something to go to an APO/FPO address, when will it arrive?",
+            "text": "<p>Deliveries to APO addresses and FPO addresses can be tricky.  Perishable products such as fresh flower and plant items are delivered locally so your requested delivery date should not be a problem.  We would contact you if that were the case.  However some APO and FPO addresses are remote with no floral delivery service available.  In these scenarios, our only option is to ship a non-perishable item such as a gift basket, teddy bear, artificial arrangement or gift item.  These shipments are controlled by the goverment so we cannot control or request specific dates.  We have seen some orders get delivered in just a week while others take several weeks.  We cannot discount or refund orders due to delayed delivery since that is out of our control.</p>"
+          }
+        },
+        "question_xXTPMW": {
+          "type": "question",
+          "settings": {
+            "heading": "My order is going to Guam, when will it get there?",
+            "text": "<p>With the time difference, it is basically already tomorrow there. If you select today's date, they will deliver as soon as possible. Some areas of Guam are distant for our delivery service so an additional delivery fee may be required. If this is the case, we will contact you first before proceeding.</p>"
+          }
+        },
+        "question_ebpt9f": {
+          "type": "question",
+          "settings": {
+            "heading": "My order is going to Puerto Rico. Are there any details I should know about?",
+            "text": "<p>While our delivery services do cover most of Puerto Rico, they are all very limited when it comes to specific varieties of flowers and unique containers. In order to guarantee delivery, they may make substitutions of flowers and/or container. In all instances, the order will be filled to the value of your selected item.</p><p>Regarding delivery in Puerto Rico, we respect the local traditions.  Funerals can last all day or multiple days.  Because the service stretches over such a long period, floral deliveries are spread out rather than arriving all at once. This steady arrival of flowers is seen as a sign of ongoing support and remembrance, not a disruption. Flowers are a very visible part of showing respect. A continuous stream of deliveries is considered thoughtful and respectful.</p><p>Please also note that plants are very rarely ever available for delivery to Puerto Rico.  If a planter is ordered, we will reach out to you with other options/recommendations.</p>"
+          }
+        },
+        "question_AWey8f": {
+          "type": "question",
+          "settings": {
+            "heading": "My item is being shipped via Fedex and I need to change the address or cancel.",
+            "text": "<p>Unfortunately, once a shipped item is out on delivery with Fedex(or USPS), we cannot guarantee address changes.  We will contact the shipping service and make every effort to make the change but since they do not guarantee changes, we cannot.  Additional charges may apply for re-routing.  Cancellation requests after an item is shipped cannot be honored since Fedex fees are already charged.  If a Fedex package is delivered after the guaranteed delivery date/time, we will refund the charges.  Please note that Fedex Ground shipments do not guarantee arrival dates.  Therefore shipping charges cannot be refunded if the package arrives early or late.  If the product is perishable(fresh flowers/plants), we will apply a discount off the product since it cannot be re-used.  If the product is not perishable, we will refund the full product price once it is returned back to us.</p>"
+          }
+        },
+        "faq-category-3": {
+          "type": "category",
+          "settings": {
+            "text": "Product"
+          }
+        },
+        "faq-question-4": {
+          "type": "question",
+          "settings": {
+            "heading": "How will my flowers arrive?",
+            "text": "<p>All fresh flower arrangements are hand delivered, not shipped in a box. This means they will actually arrive professionally designed and already looking like the picture. Our local delivery services do an excellent job of getting each and every gift delivered in a timely manner. If you selected one of our Kremp Direct bouquets, they arrive as wrapped bouquets via Fedex.</p>"
+          }
+        },
+        "question_qHdG4K": {
+          "type": "question",
+          "settings": {
+            "heading": "Will the product look exactly like the picture?",
+            "text": "<p>Many of the products on our site are our own unique designs. This means they may not be available for delivery to all areas. We make all orders as close as possible to the picture. If a certain flower variety or container is out of stock, we will substitute with something similar. All orders are always filled to value and made as close as possible to the requested item. If there is any problem, we will contact you.</p>"
+          }
+        },
+        "question_NALxmm": {
+          "type": "question",
+          "settings": {
+            "heading": "What if I want something that isn't pictured?",
+            "text": "<p>Provide an answer to the question here, with as much detail as possible to help your customers.</p>"
+          }
+        },
+        "question_yNixXY": {
+          "type": "question",
+          "settings": {
+            "heading": "What is the cancellation policy?",
+            "text": "<p>Orders can be cancelled no questions asked up until the order is made by the design team.  Once an item is made, the flowers cannot be re-used and the labor has already been applied.  Similarly on balloon orders, if the balloons are already blown up, we must charge a fee to cover the helium cost and balloon cost since they cannot be re-used.  If a product has already been delivered and you would like to cancel, the delivery service may return to the location to retrieve the package and only approve the refund once the product has been retrieved.  If you would prefer the package to remain with the recipient, we can discuss a partial discount to address the issue.  On direct ship orders that have already left the building with Fedex, UPS or USPS, please see our answer above regarding shipping products and requesting a change or cancellation.</p><p>Our refund/return policy can be viewed <a href=\"https://www.kremp.com/pages/refund-and-return-policy\">here</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-category-1",
+        "faq-question-2",
+        "question_ChGTYj",
+        "faq-category-2",
+        "faq-question-3",
+        "question_bD3pCP",
+        "question_8ypDHK",
+        "question_aah9iM",
+        "question_94MchV",
+        "question_CV99b7",
+        "question_zNLcBJ",
+        "question_yK6GN4",
+        "question_mCxYnx",
+        "question_xXTPMW",
+        "question_ebpt9f",
+        "question_AWey8f",
+        "faq-category-3",
+        "faq-question-4",
+        "question_qHdG4K",
+        "question_NALxmm",
+        "question_yNixXY"
+      ],
+      "settings": {
+        "heading": "",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "blocks": {
+        "contact-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If the answers you're looking for aren't in our FAQ, please send us an email by completing the form below.</p>",
+            "half_width": false
+          }
+        },
+        "contact-name-2": {
+          "type": "name",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "contact-email-3": {
+          "type": "email",
+          "settings": {
+            "required": true,
+            "half_width": true
+          }
+        },
+        "contact-dropdown-4": {
+          "type": "dropdown",
+          "settings": {
+            "title": "How can we help?",
+            "options": "Option 1\nOption 2\nOption 3",
+            "half_width": false
+          }
+        },
+        "contact-body-5": {
+          "type": "body",
+          "settings": {
+            "required": true,
+            "half_width": false
+          }
+        }
+      },
+      "block_order": [
+        "contact-text-1",
+        "contact-name-2",
+        "contact-email-3",
+        "contact-dropdown-4",
+        "contact-body-5"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Still looking for answers?",
+        "heading_align": "text-center",
+        "image_position": "top",
+        "color_scheme": "1",
+        "full_width": false,
+        "button_style": "btn btn--primary"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image-banner",
+    "faqs",
+    "contact-form"
+  ]
+}

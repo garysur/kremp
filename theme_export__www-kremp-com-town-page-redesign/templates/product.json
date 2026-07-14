@@ -1,0 +1,558 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product-labels": {
+          "type": "product-labels",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_weight": false
+          }
+        },
+        "judge_me_reviews_preview_badge_9my4yB": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "vendor_sku_VN4xVL": {
+          "type": "vendor-sku",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": true,
+            "show_barcode": false
+          }
+        },
+        "custom_liquid_w6Jd4H": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.short_description.value -%}\n          <div class=\"product-short-description\">\n            {{ product.metafields.custom.short_description.value }}\n          </div>\n        {%- endif -%}"
+          }
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "buttons",
+            "enable_dynamic_availability": true,
+            "dynamic_availability_downwards": false,
+            "show_backorder_text": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "optis_product_options_variant_option_set_4fDP9E": {
+          "type": "shopify://apps/optis-product-options/blocks/option-set/2c446099-c349-4e73-80cd-49c9770b7807",
+          "settings": {}
+        },
+        "epa_easy_product_addons_spice_addons_PHjAgk": {
+          "type": "shopify://apps/epa-easy-product-addons/blocks/spice_addons/0099190e-a0cb-49e7-8d26-026c9d26f337",
+          "settings": {}
+        },
+        "complementary_Y9qifK": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "heading": "Finishing Touches",
+            "products_to_show": 4,
+            "layout": "list"
+          }
+        },
+        "zip_n_cal_giFWzr": {
+          "type": "zip-n-cal",
+          "settings": {}
+        },
+        "wfl_action_area_RJchni": {
+          "type": "wfl-action-area",
+          "settings": {
+            "show_qty_selector": false,
+            "enable_dynamic_checkout": false,
+            "show_pickup_availability": true,
+            "show_tax_and_shipping": false,
+            "show_gift_card_recipient": false,
+            "show_product_messages": true,
+            "show_product_notes": false
+          }
+        },
+        "description_aDih7w": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": false
+          }
+        },
+        "collapsible-content-2": {
+          "type": "collapsible-content",
+          "disabled": true,
+          "settings": {
+            "heading": "From the Designer",
+            "icon": "none",
+            "text": "<p>{{ product.metafields.custom.note_from_the_designer.value }}</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible-content-1": {
+          "type": "collapsible-content",
+          "disabled": true,
+          "repeater": "{{ product.metafields.custom.product_tabs.value }}",
+          "settings": {
+            "heading": "{{ block.repeater.header.value }}",
+            "icon": "none",
+            "text": "{{ block.repeater.tab_content | metafield_tag }}",
+            "page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "product-labels",
+        "title",
+        "judge_me_reviews_preview_badge_9my4yB",
+        "vendor_sku_VN4xVL",
+        "custom_liquid_w6Jd4H",
+        "variant-picker",
+        "optis_product_options_variant_option_set_4fDP9E",
+        "epa_easy_product_addons_spice_addons_PHjAgk",
+        "complementary_Y9qifK",
+        "zip_n_cal_giFWzr",
+        "wfl_action_area_RJchni",
+        "description_aDih7w",
+        "collapsible-content-2",
+        "collapsible-content-1"
+      ],
+      "settings": {
+        "stick_on_scroll": false,
+        "sticky_atc_panel": false,
+        "sticky_atc_position": "end",
+        "sticky_atc_mobile": true,
+        "media_layout": "slider",
+        "media_size": "small",
+        "media_ratio": "1",
+        "media_crop": "none",
+        "hover_zoom": "large",
+        "enable_video_looping": false,
+        "stacked_scroll": "always",
+        "underline_active": true,
+        "media_thumbs": "desktop",
+        "thumb_ratio": "1",
+        "thumb_crop": "none",
+        "media_arrows": "desktop",
+        "show_slide_count": true,
+        "border_color": "rgba(0,0,0,0)",
+        "bg_color": "#f4f4f4",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "details": {
+      "type": "product-details",
+      "blocks": {
+        "highlight-text": {
+          "type": "highlight-text",
+          "settings": {
+            "title": "Highlight title",
+            "text": "<p>Text to highlight a key feature of your product</p>"
+          }
+        },
+        "tabs": {
+          "type": "tabs",
+          "settings": {
+            "style": "collapsible",
+            "open_first": false,
+            "show_description": false,
+            "show_reviews": false,
+            "custom_reviews": "",
+            "show_specification": false,
+            "spec_metafields": "",
+            "spec_right_align": false,
+            "spec_show_empty_metafields": true,
+            "spec_empty_field_text": "-",
+            "tab_1_title": "",
+            "tab_1_text": "",
+            "tab_1_page": "",
+            "tab_2_title": "",
+            "tab_2_text": "",
+            "tab_2_page": "",
+            "tab_3_title": "",
+            "tab_3_text": "",
+            "tab_3_page": ""
+          }
+        },
+        "payment-methods": {
+          "type": "payment-methods",
+          "settings": {
+            "title": "Payment & Security",
+            "title1": "Payment methods",
+            "show_payment_icons": true,
+            "text1": "<p>Your payment information is processed securely. We do not store credit card details nor have access to your credit card information.</p>",
+            "title2": "",
+            "text2": ""
+          }
+        }
+      },
+      "block_order": [
+        "highlight-text",
+        "tabs",
+        "payment-methods"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "details-section-kremp": {
+      "type": "details-section-kremp",
+      "custom_css": [],
+      "settings": {}
+    },
+    "logo_list_iNrkje": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_wHEg4m": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges1.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_Y7CWMW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges5.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_YzxFrF": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges3.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_UeQNxY": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges4.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        },
+        "logo_FTrrp8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KF-Badges6.png",
+            "url": "",
+            "logo_width": 160,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_wHEg4m",
+        "logo_Y7CWMW",
+        "logo_YzxFrF",
+        "logo_UeQNxY",
+        "logo_FTrrp8"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "vertical_padding": "default",
+        "layout": "grid",
+        "spacing": 40,
+        "logo_grid_align": "justify-center",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "testimonials_ErczpM": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_GaCpeN": {
+          "type": "testimonial",
+          "repeater": "{{ product.metafields.custom.testimonials.value }}",
+          "settings": {
+            "testimonial": "<h3>{{ block.repeater.quote_text.value }}</h3>",
+            "author": "{{ block.repeater.name.value }}",
+            "author_info": "",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_GaCpeN"
+      ],
+      "settings": {
+        "heading": "",
+        "show_quotes": false,
+        "testimonial_size": "h3",
+        "text_position": "justify-center",
+        "text_align": "text-center justify-center",
+        "new_design": false,
+        "nav_style": "arrows",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "slider_pause": false,
+        "autoplay_speed": 5,
+        "color_scheme": "1",
+        "full_width": true
+      }
+    },
+    "176306340748ce74ea": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_E8mWqa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_E8mWqa"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Shop Related Products",
+        "heading_align": "text-center",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "collections_faq_mQTmky": {
+      "type": "collections-faq",
+      "name": "Collections FAQ",
+      "settings": {
+        "heading": "Need some Help?",
+        "color_scheme": "none",
+        "randomize_by_collection": true,
+        "full_width": true,
+        "custom_class": ""
+      }
+    },
+    "faq_xkrfT9": {
+      "type": "faq",
+      "blocks": {
+        "category_QnXNYp": {
+          "type": "category",
+          "settings": {
+            "text": "Here are some of our most-asked questions:"
+          }
+        },
+        "question_xU8jNR": {
+          "type": "question",
+          "repeater": "{{ product.metafields.custom.product_faq.value }}",
+          "settings": {
+            "heading": "{{ block.repeater.question.value }}",
+            "text": "<p>{{ block.repeater.answer | metafield_tag }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_QnXNYp",
+        "question_xU8jNR"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Need some Help?",
+        "color_scheme": "none",
+        "full_width": true,
+        "custom_class": ""
+      }
+    },
+    "multi_column_FaKCaj": {
+      "type": "multi-column",
+      "blocks": {
+        "column_DfhRqJ": {
+          "type": "column",
+          "repeater": "{{ product.metafields.custom.seo_link_module.value }}",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "<p><strong>Top Categories</strong></p>{{ block.repeater.links | metafield_tag }}",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_gipDKC": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "<p><strong>Special Occasions</strong></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_L68yBg": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "<p><strong>Popular Products</strong></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_YQdD76": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "<p><strong>Plant Inspirations</strong></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_wpVNg9": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "",
+            "heading_link": "",
+            "text": "<p><strong>Send Flowers Anywhere</strong></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_DfhRqJ",
+        "column_gipDKC",
+        "column_L68yBg",
+        "column_YQdD76",
+        "column_wpVNg9"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "",
+        "title": "",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "auto_adjust_column_size": false,
+        "column_size": "x-small",
+        "column_align": "center",
+        "media_align": "text-center",
+        "image_ratio": "1",
+        "color_scheme": "none",
+        "apply_color_scheme_to_parent": false,
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "image_banner_pMwFL9": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_MdApfi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still Not Sure Where To Start?",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_MqKEKi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let us help you to choose the perfect gift for your special occasion. Give us a call or send us an email. We are happy to help!</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_tbeGaB": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "(800) 345-7367",
+            "button_1_link": "tel:18003457367",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "Contact Us Online",
+            "button_2_link": "shopify://pages/contact",
+            "button_2_style": "btn btn--secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MdApfi",
+        "text_MqKEKi",
+        "button_tbeGaB"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Last_Bite_-_D.jpg",
+        "image_mobile": "shopify://shop_images/last_bite_-_M.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "text-start",
+        "mob_center_text": true,
+        "mobile_stacked": true,
+        "mobile_stacked_reverse": false,
+        "mobile_stacked_text_bg": "#ffffff",
+        "mobile_stacked_text_bg_opacity": 0,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#004275",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "tint_tablet_only": false,
+        "custom_class": "",
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "details",
+    "details-section-kremp",
+    "logo_list_iNrkje",
+    "testimonials_ErczpM",
+    "176306340748ce74ea",
+    "recommendations",
+    "collections_faq_mQTmky",
+    "faq_xkrfT9",
+    "multi_column_FaKCaj",
+    "image_banner_pMwFL9"
+  ]
+}

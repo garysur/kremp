@@ -1,0 +1,90 @@
+{% comment %}
+  Parameters:
+  - is_cart {Boolean} - Quantity input is in a cart items element (optional, default is false).
+  - is_quick_order {Boolean} - Quantity input is in a quick order element (optional, default is false).
+  - item {Object} - Cart line item (optional).
+  - variant_id {String} - The variant id that the quantity related to (optional).
+  - hide_label {Boolean} - Visually hide the label (optional, default is true).
+  - layout_style {String} - Layout style. Default is 'joined' (optional).
+
+  Usage:
+  {% render 'quantity-input',
+    layout_style: 'spaced',
+    item: item
+  %}
+{% endcomment %}
+
+{%- liquid
+  unless is_cart == true
+    assign is_cart = false
+  endunless
+
+  if is_cart and is_quick_order != true
+    assign id = item.index | plus: 1 | prepend: 'quantity-'
+  else
+    assign id = 'quantity-' | append: section.id
+  endif
+
+  unless hide_label == false
+    assign hide_label = true
+  endunless
+
+  if layout_style == blank
+    assign layout_style = 'joined'
+  endif
+
+  assign reserved = false
+  for property in item.properties
+    if property.first == 'Reserved'
+      assign reserved = true
+    endif
+  endfor
+-%}
+
+<quantity-input class="inline-block">
+  <label class="label{% if hide_label %} visually-hidden{% endif %}" for="{{ id }}">
+    {{- 'products.product.qty' | t -}}
+  </label>
+  <div class="qty-input qty-input--{{ layout_style }} inline-flex items-center w-full">
+    {% unless reserved %}
+    <button type="button" class="qty-input__btn btn btn--minus no-js-hidden" name="minus" min="1">
+      <span class="visually-hidden">-</span>
+    </button>
+    {% endunless %}
+    <input type="number"
+           class="qty-input__input input"
+           {%- if is_cart %}
+             id="{{ id }}"
+             name="updates[]"
+             min="0"
+             {% if max_qty %}
+               max="{{ max_qty }}"
+               data-max="{{ max_qty }}"
+             {% endif %}
+             value="{% if is_quick_order %}{{ cart | item_count_for_variant: item.id }}{% else %}{{ item.quantity }}{% endif %}"
+             data-index="{{ item.index | plus: 1 }}"
+             data-initial-value="{% if is_quick_order %}{{ cart | item_count_for_variant: item.id }}{% else %}{{ item.quantity }}{% endif %}"
+             aria-label="{{ 'cart.items.quantity' | t }}"
+           {%- else %}
+             id="{{ id }}"
+             name="quantity"
+             min="{% if is_quick_order %}0{% else %}1{% endif %}"
+             {% if max_qty %}
+               max="{{ max_qty }}"
+               data-max="{{ max_qty }}"
+             {% endif %}
+             value="{% if is_quick_order %}0{% else %}1{% endif %}"
+           {%- endif %}
+           {% if variant_id %}data-variant-id="{{ variant_id }}"{% endif %}
+           {% if reserved %}disabled{% endif %}
+          >
+    {% unless reserved %}
+    <button type="button" class="qty-input__btn btn btn--plus no-js-hidden" name="plus"  {% if max_qty %}
+               max="{{ max_qty }}"
+               data-max="{{ max_qty }}"
+             {% endif %}>
+      <span class="visually-hidden">+</span>
+    </button>
+  {% endunless %}
+  </div>
+</quantity-input>

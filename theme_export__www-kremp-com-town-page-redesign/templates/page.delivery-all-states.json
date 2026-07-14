@@ -1,0 +1,974 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "heading_align": "text-center"
+      }
+    },
+    "image_banner_zTkhFw": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_A8yrCL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kremp Local<br>Flower Delivery",
+            "heading_size": "h1",
+            "heading_h1": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_A8yrCL"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/KrempFamPhoto06_ai_remix_88d2e499-343e-4a0a-9a30-f9d24e3d41ff.jpg",
+        "url": "",
+        "height_mode": "fixed",
+        "fixed_height_desktop": 500,
+        "fixed_height_mobile": 290,
+        "overlay_position": "justify-start items-end",
+        "overlay_text_align": "text-start",
+        "mob_center_text": false,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 15,
+        "prevent_animation": false
+      }
+    },
+    "media_with_text_Bqz38r": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_rVwjDW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Local Flower Delivery",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_JVVBBm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Kremp Florist, we take pride in delivering happiness across the country with our premium flower and gift delivery services. Whether you're celebrating love, marking an anniversary, or simply want to bring a smile to someone's face, we've got you covered. We deliver directly by hand in our own trucks, ship direct via UPS, and have our preferred delivery services in distant towns fill special orders when we cannot. In all cases, your order is backed by our 100% satisfaction guarantee.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rVwjDW",
+        "text_JVVBBm"
+      ],
+      "settings": {
+        "is_award": false,
+        "coordinates": "",
+        "image": "shopify://shop_images/meet-top-video-cover.jpg",
+        "video_shopify": "shopify://files/videos/KREMP.mp4",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 40,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "multi_column_ffR8kP": {
+      "type": "multi-column",
+      "blocks": {
+        "column_HnabAF": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Alabama",
+            "heading_link": "shopify://pages/alabama",
+            "text": "<p><a href=\"/pages/florist-huntsville-al\" title=\"/pages/florist-huntsville-al\">Huntsville</a><br/><a href=\"/pages/florist-montgomery-al\" title=\"/pages/florist-montgomery-al\">Montgomery</a><br/><a href=\"/pages/florist-birmingham-al\" title=\"/pages/florist-birmingham-al\">Birmingham</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_rMmiFm": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Alaska",
+            "heading_link": "/pages/alaska",
+            "text": "<p><a href=\"/pages/florist-anchorage-ak\" title=\"/pages/florist-anchorage-ak\">Anchorage</a><br/><a href=\"/pages/florist-juneau-ak\" title=\"/pages/florist-juneau-ak\">Juneau</a><br/><a href=\"/pages/florist-fairbanks-ak\" title=\"/pages/florist-fairbanks-ak\">Fairbanks</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_y78tRR": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Arizona",
+            "heading_link": "/pages/arizona",
+            "text": "<p><a href=\"/pages/florist-phoenix-az\" title=\"/pages/florist-phoenix-az\">Phoenix</a><br/><a href=\"/pages/florist-tucson-az\" title=\"/pages/florist-tucson-az\">Tucson</a><br/><a href=\"/pages/florist-mesa-az\" title=\"/pages/florist-mesa-az\">Mesa</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_hiiGiT": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Arkansas",
+            "heading_link": "/pages/arkansas",
+            "text": "<p><a href=\"/pages/florist-little-rock-ar\" title=\"/pages/florist-little-rock-ar\">Little Rock</a><br/><a href=\"/pages/florist-fayetteville-ar\" title=\"/pages/florist-fayetteville-ar\">Fayetteville</a><br/><a href=\"/pages/florist-springdale-ar\" title=\"/pages/florist-springdale-ar\">Springdale</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_QCzk4U": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Armed Forces - Europe",
+            "heading_link": "shopify://pages/armed-forces-europe",
+            "text": "<p>APO<br/>FPO</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_FKrj8m": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Armed Forces - Pacific",
+            "heading_link": "shopify://pages/armed-forces-pacific",
+            "text": "<p><a href=\"/pages/florist-apo\" title=\"/pages/florist-apo\">APO</a><br/><a href=\"/pages/florist-fpo\" title=\"/pages/florist-fpo\">FPO</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_yMLAAy": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "California",
+            "heading_link": "/pages/california",
+            "text": "<p><a href=\"/pages/florist-san-jose-ca\" title=\"/pages/florist-san-jose-ca\">San Jose</a><br/><a href=\"/pages/florist-fresno-ca\" title=\"/pages/florist-fresno-ca\">Fresno</a><br/><a href=\"/pages/florist-sacramento-ca\" title=\"/pages/florist-sacramento-ca\">Sacramento</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_qN3D9D": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Colorado",
+            "heading_link": "/pages/colorado",
+            "text": "<p><a href=\"/pages/florist-aurora-co\" title=\"/pages/florist-aurora-co\">Aurora</a><br/><a href=\"/pages/florist-colorado-springs-co\" title=\"/pages/florist-colorado-springs-co\">Colorado Springs</a><br/><a href=\"/pages/florist-fort-collins-co\" title=\"/pages/florist-fort-collins-co\">Fort Collins</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_cV3efq": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Connecticut",
+            "heading_link": "/pages/connecticut",
+            "text": "<p><a href=\"/pages/florist-bridgeport-ct\" title=\"/pages/florist-bridgeport-ct\">Bridgeport</a><br/><a href=\"/pages/florist-stamford-ct\" title=\"/pages/florist-stamford-ct\">Stamford</a><br/><a href=\"/pages/florist-new-haven-ct\" title=\"/pages/florist-new-haven-ct\">New Haven</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_9CWXAy": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Delaware",
+            "heading_link": "/pages/delaware",
+            "text": "<p><a href=\"/pages/florist-wilmington-de\" title=\"/pages/florist-wilmington-de\">Wilmington</a><br/><a href=\"/pages/florist-dover-de\" title=\"/pages/florist-dover-de\">Dover</a><br/><a href=\"/pages/florist-newark-de\" title=\"/pages/florist-newark-de\">Newark</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_htAgpA": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "District of Columbia",
+            "heading_link": "shopify://pages/florist-washington-dc",
+            "text": "<p><a href=\"/pages/florist-washington-dc\" title=\"/pages/florist-washington-dc\">Washington</a><br/></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_KzmHUQ": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Florida",
+            "heading_link": "/pages/florida",
+            "text": "<p><a href=\"/pages/florist-jacksonville-fl\" title=\"/pages/florist-jacksonville-fl\">Jacksonville</a><br/><a href=\"/pages/florist-miami-fl\" title=\"/pages/florist-miami-fl\">Miami</a><br/><a href=\"/pages/florist-tampa-fl\" title=\"/pages/florist-tampa-fl\">Tampa</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_QdyhGJ": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Georgia",
+            "heading_link": "/pages/georgia",
+            "text": "<p><a href=\"/pages/florist-columbus-ga\" title=\"/pages/florist-columbus-ga\">Columbus</a><br/><a href=\"/pages/florist-augusta-ga\" title=\"/pages/florist-augusta-ga\">Augusta</a><br/><a href=\"/pages/florist-macon-ga\" title=\"/pages/florist-macon-ga\">Macon</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_nidJaF": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Guam",
+            "heading_link": "/pages/guam",
+            "text": "<p><a href=\"/pages/florist-dededo-gu\" title=\"/pages/florist-dededo-gu\">Dededo</a><br/><a href=\"/pages/florist-tamuning-gu\" title=\"/pages/florist-tamuning-gu\">Tamuning</a><br/><a href=\"/pages/florist-barrigada-gu\" title=\"/pages/florist-barrigada-gu\">Barrigada</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_HQmtbE": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Hawaii",
+            "heading_link": "/pages/hawaii",
+            "text": "<p><a href=\"/pages/florist-honolulu-hi\" title=\"/pages/florist-honolulu-hi\">Honolulu</a><br/><a href=\"/pages/florist-pearl-city-hi\" title=\"/pages/florist-pearl-city-hi\">Pearl City</a><br/><a href=\"/pages/florist-hilo-hi\" title=\"/pages/florist-hilo-hi\">Hilo</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_yzc77F": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Idaho",
+            "heading_link": "/pages/idaho",
+            "text": "<p><a href=\"/pages/florist-meridian-id\" title=\"/pages/florist-meridian-id\">Meridian</a><br/><a href=\"/pages/florist-boise-id\" title=\"/pages/florist-boise-id\">Boise</a><br/><a href=\"/pages/florist-idaho-falls-id\" title=\"/pages/florist-idaho-falls-id\">Idaho Falls</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_fqkELa": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Illinois",
+            "heading_link": "/pages/illinois",
+            "text": "<p><a href=\"/pages/florist-aurora-il\" title=\"/pages/florist-aurora-il\">Aurora</a><br/><a href=\"/pages/florist-naperville-il\" title=\"/pages/florist-naperville-il\">Naperville</a><br/><a href=\"/pages/florist-rockford-il\" title=\"/pages/florist-rockford-il\">Rockford</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_pDzbXV": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Indiana",
+            "heading_link": "/pages/indiana",
+            "text": "<p><a href=\"/pages/florist-fort-wayne-in\" title=\"/pages/florist-fort-wayne-in\">Fort Wayne</a><br/><a href=\"/pages/florist-evansville-in\" title=\"/pages/florist-evansville-in\">Evansville</a><br/><a href=\"/pages/florist-south-bend-in\" title=\"/pages/florist-south-bend-in\">South Bend</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_cRyXbw": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Iowa",
+            "heading_link": "/pages/iowa",
+            "text": "<p><a href=\"/pages/florist-des-moines-ia\" title=\"/pages/florist-des-moines-ia\">Des Moines</a><br/><a href=\"/pages/florist-sioux-city-ia\" title=\"/pages/florist-sioux-city-ia\">Sioux City</a><br/><a href=\"/pages/florist-eldridge-ia\" title=\"/pages/florist-eldridge-ia\">Eldridge</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_Tk7ELT": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Kansas",
+            "heading_link": "/pages/kansas",
+            "text": "<p><a href=\"/pages/florist-wichita-ks\" title=\"/pages/florist-wichita-ks\">Wichita</a><br/><a href=\"/pages/florist-overland-park-ks\" title=\"/pages/florist-overland-park-ks\">Overland Park</a><br/><a href=\"/pages/florist-olathe-ks\" title=\"/pages/florist-olathe-ks\">Olathe</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_KG8JbW": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Kentucky",
+            "heading_link": "/pages/kentucky",
+            "text": "<p><a href=\"/pages/florist-bowling-green-ky\" title=\"/pages/florist-bowling-green-ky\">Bowling Green</a><br/><a href=\"/pages/florist-owensboro-ky\" title=\"/pages/florist-owensboro-ky\">Owensboro</a><br/><a href=\"/pages/florist-frankfort-ky\" title=\"/pages/florist-frankfort-ky\">Frankfort</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_6LVyry": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Louisiana",
+            "heading_link": "/pages/louisiana",
+            "text": "<p><a href=\"/pages/florist-shreveport-la\" title=\"/pages/florist-shreveport-la\">Shreveport</a><br/><a href=\"/pages/florist-lafayette-la\" title=\"/pages/florist-lafayette-la\">Lafayette</a><br/><a href=\"/pages/florist-baton-rouge-la\" title=\"/pages/florist-baton-rouge-la\">Baton Rouge</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_aCtECr": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Maine",
+            "heading_link": "/pages/maine",
+            "text": "<p><a href=\"/pages/florist-augusta-me\" title=\"/pages/florist-augusta-me\">Augusta</a><br/><a href=\"/pages/florist-bangor-me\" title=\"/pages/florist-bangor-me\">Bangor</a><br/><a href=\"/pages/florist-portland-me\" title=\"/pages/florist-portland-me\">Portland</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_Mjid33": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Maryland",
+            "heading_link": "/pages/maryland",
+            "text": "<p><a href=\"/pages/florist-columbia-md\" title=\"/pages/florist-columbia-md\">Columbia</a><br/><a href=\"/pages/florist-silver-spring-md\" title=\"/pages/florist-silver-spring-md\">Silver Spring</a><br/><a href=\"/pages/florist-waldorf-md\" title=\"/pages/florist-waldorf-md\">Waldorf</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_Ay7jaF": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Massachusetts",
+            "heading_link": "/pages/massachusetts",
+            "text": "<p><a href=\"/pages/florist-worcester-ma\" title=\"/pages/florist-worcester-ma\">Worcester</a><br/><a href=\"/pages/florist-cambridge-ma\" title=\"/pages/florist-cambridge-ma\">Cambridge</a><br/><a href=\"/pages/florist-springfield-ma\" title=\"/pages/florist-springfield-ma\">Springfield</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_DwkAFU": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Michigan",
+            "heading_link": "/pages/michigan",
+            "text": "<p><a href=\"/pages/florist-grand-rapids-mi\" title=\"/pages/florist-grand-rapids-mi\">Grand Rapids</a><br/><a href=\"/pages/florist-warren-mi\" title=\"/pages/florist-warren-mi\">Warren</a><br/><a href=\"/pages/florist-sterling-heights-mi\" title=\"/pages/florist-sterling-heights-mi\">Sterling Heights</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_VMenNp": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Minnesota",
+            "heading_link": "/pages/minnesota",
+            "text": "<p><a href=\"/pages/florist-Rochester-mn\" title=\"/pages/florist-Rochester-mn\">Rochester</a><br/><a href=\"/pages/florist-duluth-mn\" title=\"/pages/florist-duluth-mn\">Duluth</a><br/><a href=\"/pages/florist-saint-paul-mn\" title=\"/pages/florist-saint-paul-mn\">Saint Paul</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_7dWLmA": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Mississippi",
+            "heading_link": "/pages/mississippi",
+            "text": "<p><a href=\"/pages/florist-biloxi-ms\" title=\"/pages/florist-biloxi-ms\">Biloxi</a><br/><a href=\"/pages/florist-gulfport-ms\" title=\"/pages/florist-gulfport-ms\">Gulfport</a><br/><a href=\"/pages/florist-jackson-mi\" title=\"/pages/florist-jackson-mi\">Jackson</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_QnjbzD": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Missouri",
+            "heading_link": "/pages/missouri",
+            "text": "<p><a href=\"/pages/florist-springfield-mo\" title=\"/pages/florist-springfield-mo\">Springfield</a><br/><a href=\"/pages/florist-columbia-mo\" title=\"/pages/florist-columbia-mo\">Columbia</a><br/><a href=\"/pages/florist-saint-louis-mo\" title=\"/pages/florist-saint-louis-mo\">Saint Louis</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_DKfaXw": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Montana",
+            "heading_link": "/pages/montana",
+            "text": "<p><a href=\"/pages/florist-great-falls-mt\" title=\"/pages/florist-great-falls-mt\">Great Falls</a><br/><a href=\"/pages/florist-billings-mt\" title=\"/pages/florist-billings-mt\">Billings</a><br/><a href=\"/pages/florist-bozeman-mt\" title=\"/pages/florist-bozeman-mt\">Bozeman</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_PELdUm": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Nebraska",
+            "heading_link": "/pages/nebraska",
+            "text": "<p><a href=\"/pages/florist-bennington-ne\" title=\"/pages/florist-bennington-ne\">Bennington</a><br/><a href=\"/pages/florist-omaha-ne\" title=\"/pages/florist-omaha-ne\">Omaha</a><br/><a href=\"/pages/florist-lincoln-ne\" title=\"/pages/florist-lincoln-ne\">Lincoln</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_QGGfC3": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Nevada",
+            "heading_link": "/pages/nevada",
+            "text": "<p><a href=\"/pages/florist-henderson-nv\" title=\"/pages/florist-henderson-nv\">Henderson</a><br/><a href=\"/pages/florist-carson-city-nv\" title=\"/pages/florist-carson-city-nv\">Carson City</a><br/><a href=\"/pages/florist-fernley-nv\" title=\"/pages/florist-fernley-nv\">Fernley</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_m8MCGW": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "New Hampshire",
+            "heading_link": "/pages/new-hampshire",
+            "text": "<p><a href=\"/pages/florist-nashua-nh\" title=\"/pages/florist-nashua-nh\">Nashua</a><br/><a href=\"/pages/florist-manchester-nh\" title=\"/pages/florist-manchester-nh\">Manchester</a><br/><a href=\"/pages/florist-concord-nh\" title=\"/pages/florist-concord-nh\">Concord</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_dyP37W": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "New Jersey",
+            "heading_link": "/pages/new-jersey",
+            "text": "<p><a href=\"/pages/florist-cherry-hill-nj\" title=\"/pages/florist-cherry-hill-nj\">Cherry Hill</a><br/><a href=\"/pages/florist-jersey-city-nj\" title=\"/pages/florist-jersey-city-nj\">Jersey City</a><br/><a href=\"/pages/florist-edison-nj\" title=\"/pages/florist-edison-nj\">Edison</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_PHE9MX": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "New Mexico",
+            "heading_link": "/pages/new-mexico",
+            "text": "<p><a href=\"/pages/florist-rio-rancho-nm\" title=\"/pages/florist-rio-rancho-nm\">Rio Rancho</a><br/><a href=\"/pages/florist-alamogordo-nm\" title=\"/pages/florist-alamogordo-nm\">Alamogordo</a><br/><a href=\"/pages/florist-las-cruces-nm\" title=\"/pages/florist-las-cruces-nm\">Las Cruces</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_z4x3cm": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "New York",
+            "heading_link": "/pages/new-york",
+            "text": "<p><a href=\"/pages/florist-buffalo-ny\" title=\"/pages/florist-buffalo-ny\">Buffalo</a><br/><a href=\"/pages/florist-syracuse-ny\" title=\"/pages/florist-syracuse-ny\">Syracuse</a><br/><a href=\"/pages/florist-rochester-ny\" title=\"/pages/florist-rochester-ny\">Rochester</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_UdVFyg": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "North Carolina",
+            "heading_link": "/pages/north-carolina",
+            "text": "<p><a href=\"/pages/florist-raleigh-nc\" title=\"/pages/florist-raleigh-nc\">Raleigh</a><br/><a href=\"/pages/florist-durham-nc\" title=\"/pages/florist-durham-nc\">Durham</a><br/><a href=\"/pages/florist-charlotte-nc\" title=\"/pages/florist-charlotte-nc\">Charlotte</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_MYHPLR": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "North Dakota",
+            "heading_link": "/pages/north-dakota",
+            "text": "<p><a href=\"/pages/florist-bismarck-nd\" title=\"/pages/florist-bismarck-nd\">Bismarck</a><br/><a href=\"/pages/florist-fargo-nd\" title=\"/pages/florist-fargo-nd\">Fargo</a><br/><a href=\"/pages/florist-grand-forks-nd\" title=\"/pages/florist-grand-forks-nd\">Grand Forks</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_aBmPMr": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Northern Mariana Islands",
+            "heading_link": "/pages/northern-mariana-islands",
+            "text": "<p><a href=\"/pages/florist-saipan-mp\" title=\"/pages/florist-saipan-mp\">Saipan</a><br/></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_LDkADT": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Ohio",
+            "heading_link": "/pages/ohio",
+            "text": "<p><a href=\"/pages/florist-akron-oh\" title=\"/pages/florist-akron-oh\">Akron</a><br/><a href=\"/pages/florist-toledo-oh\" title=\"/pages/florist-toledo-oh\">Toledo</a><br/><a href=\"/pages/florist-columbus-oh\" title=\"/pages/florist-columbus-oh\">Columbus</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_ffcY8j": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Oklahoma",
+            "heading_link": "/pages/oklahoma",
+            "text": "<p><a href=\"/pages/florist-norman-ok\" title=\"/pages/florist-norman-ok\">Norman</a><br/><a href=\"/pages/florist-edmond-ok\" title=\"/pages/florist-edmond-ok\">Edmond</a><br/><a href=\"/pages/florist-tulsa-ok\" title=\"/pages/florist-tulsa-ok\">Tulsa</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_r8K3ER": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Oregon",
+            "heading_link": "/pages/oregon",
+            "text": "<p><a href=\"/pages/florist-salem-or\" title=\"/pages/florist-salem-or\">Salem</a><br/><a href=\"/pages/florist-bend-or\" title=\"/pages/florist-bend-or\">Bend</a><br/><a href=\"/pages/florist-gresham-or\" title=\"/pages/florist-gresham-or\">Gresham</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_W4ByCn": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Pennsylvania",
+            "heading_link": "/pages/pennsylvania",
+            "text": "<p><a href=\"/pages/florist-philadelphia-pa\" title=\"/pages/florist-philadelphia-pa\">Philadelphia</a><br/><a href=\"/pages/florist-pittsburgh-pa\" title=\"/pages/florist-pittsburgh-pa\">Pittsburgh</a><br/><a href=\"/pages/florist-allentown-pa\" title=\"/pages/florist-allentown-pa\">Allentown</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_LNazy4": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Puerto Rico",
+            "heading_link": "/pages/puerto-rico",
+            "text": "<p><a href=\"/pages/florist-bayamon-pr\" title=\"/pages/florist-bayamon-pr\">Bayamon</a><br/><a href=\"/pages/florist-san-juan-pr\" title=\"/pages/florist-san-juan-pr\">San Juan</a><br/><a href=\"/pages/florist-carolina-pr\" title=\"/pages/florist-carolina-pr\">Carolina</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_LbxjJr": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Rhode Island",
+            "heading_link": "/pages/rhode-island",
+            "text": "<p><a href=\"/pages/florist-warwick-ri\" title=\"/pages/florist-warwick-ri\">Warwick</a><br/><a href=\"/pages/florist-cranston-ri\" title=\"/pages/florist-cranston-ri\">Cranston</a><br/><a href=\"/pages/florist-providence-ri\" title=\"/pages/florist-providence-ri\">Providence</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_i3MyYP": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "South Carolina",
+            "heading_link": "/pages/south-carolina",
+            "text": "<p><a href=\"/pages/florist-myrtle-beach-sc\" title=\"/pages/florist-myrtle-beach-sc\">Myrtle Beach</a><br/><a href=\"/pages/florist-mount-pleasant-sc\" title=\"/pages/florist-mount-pleasant-sc\">Mount Pleasant</a><br/><a href=\"/pages/florist-north-charleston-sc\" title=\"/pages/florist-north-charleston-sc\">North Charleston</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_AMgRm4": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "South Dakota",
+            "heading_link": "/pages/south-dakota",
+            "text": "<p><a href=\"/pages/florist-sioux-falls-sd\" title=\"/pages/florist-sioux-falls-sd\">Sioux Falls</a><br/><a href=\"/pages/florist-spearfish-sd\" title=\"/pages/florist-spearfish-sd\">Spearfish</a><br/></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_8WYAEX": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Tennessee",
+            "heading_link": "/pages/tennessee",
+            "text": "<p><a href=\"/pages/florist-knoxville-tn\" title=\"/pages/florist-knoxville-tn\">Knoxville</a><br/><a href=\"/pages/florist-memphis-tn\" title=\"/pages/florist-memphis-tn\">Memphis</a><br/><a href=\"/pages/florist-nashville-tn\" title=\"/pages/florist-nashville-tn\">Nashville</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_HnabAF",
+        "column_rMmiFm",
+        "column_y78tRR",
+        "column_hiiGiT",
+        "column_QCzk4U",
+        "column_FKrj8m",
+        "column_yMLAAy",
+        "column_qN3D9D",
+        "column_cV3efq",
+        "column_9CWXAy",
+        "column_htAgpA",
+        "column_KzmHUQ",
+        "column_QdyhGJ",
+        "column_nidJaF",
+        "column_HQmtbE",
+        "column_yzc77F",
+        "column_fqkELa",
+        "column_pDzbXV",
+        "column_cRyXbw",
+        "column_Tk7ELT",
+        "column_KG8JbW",
+        "column_6LVyry",
+        "column_aCtECr",
+        "column_Mjid33",
+        "column_Ay7jaF",
+        "column_DwkAFU",
+        "column_VMenNp",
+        "column_7dWLmA",
+        "column_QnjbzD",
+        "column_DKfaXw",
+        "column_PELdUm",
+        "column_QGGfC3",
+        "column_m8MCGW",
+        "column_dyP37W",
+        "column_PHE9MX",
+        "column_z4x3cm",
+        "column_UdVFyg",
+        "column_MYHPLR",
+        "column_aBmPMr",
+        "column_LDkADT",
+        "column_ffcY8j",
+        "column_r8K3ER",
+        "column_W4ByCn",
+        "column_LNazy4",
+        "column_LbxjJr",
+        "column_i3MyYP",
+        "column_AMgRm4",
+        "column_8WYAEX"
+      ],
+      "settings": {
+        "title": "Local Flower Delivery in the US",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "column_size": "small",
+        "column_align": "left",
+        "media_align": "text-center",
+        "image_ratio": "1",
+        "color_scheme": "none",
+        "apply_color_scheme_to_parent": false,
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "multi_column_GCCp9B": {
+      "type": "multi-column",
+      "blocks": {
+        "column_bQGPBg": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Texas",
+            "heading_link": "/pages/texas",
+            "text": "<p><a href=\"/pages/florist-austin-tx\" title=\"/pages/florist-austin-tx\">Austin</a><br/><a href=\"/pages/florist-fort-worth-tx\" title=\"/pages/florist-fort-worth-tx\">Fort Worth</a><br/><a href=\"/pages/florist-houston-tx\" title=\"/pages/florist-houston-tx\">Houston</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_6XbqAi": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Utah",
+            "heading_link": "/pages/utah",
+            "text": "<p><a href=\"/pages/florist-provo-ut\" title=\"/pages/florist-provo-ut\">Provo</a><br/><a href=\"/pages/florist-salt-lake-city-ut\" title=\"/pages/florist-salt-lake-city-ut\">Salt Lake City</a><br/><a href=\"/pages/florist-orem-ut\" title=\"/pages/florist-orem-ut\">Orem</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_GCMRaU": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Vermont",
+            "heading_link": "/pages/vermont",
+            "text": "<p><a href=\"/pages/florist-burlington-vt\" title=\"/pages/florist-burlington-vt\">Burlington</a><br/><a href=\"/pages/florist-berlin-vt\" title=\"/pages/florist-berlin-vt\">Berlin</a><br/><a href=\"/pages/florist-stowe-vt\" title=\"/pages/florist-stowe-vt\">Stowe</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_3z4y3K": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Virgin islands",
+            "heading_link": "/pages/virgin-islands",
+            "text": "<p><a href=\"/pages/florist-charlotte-amalie-vi\" title=\"/pages/florist-charlotte-amalie-vi\">Charlotte Amalie</a><br/><a href=\"/pages/florist-christiansted-vi\" title=\"/pages/florist-christiansted-vi\">Christiansted</a><br/><a href=\"/pages/florist-frederiksted-vi\" title=\"/pages/florist-frederiksted-vi\">Frederiksted</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_wyRCdz": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Virginia",
+            "heading_link": "/pages/virginia",
+            "text": "<p><a href=\"/pages/florist-richmond-va\" title=\"/pages/florist-richmond-va\">Richmond</a><br/><a href=\"/pages/florist-virginia-beach-va\" title=\"/pages/florist-virginia-beach-va\">Virginia Beach</a><br/><a href=\"/pages/florist-arlington-va\" title=\"/pages/florist-arlington-va\">Arlington</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_aTnHcw": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Washington",
+            "heading_link": "/pages/washington",
+            "text": "<p><a href=\"/pages/florist-tacoma-wa\" title=\"/pages/florist-tacoma-wa\">Tacoma</a><br/><a href=\"/pages/florist-spokane-wa\" title=\"/pages/florist-spokane-wa\">Spokane</a><br/><a href=\"/pages/florist-seattle-wa\" title=\"/pages/florist-seattle-wa\">Seattle</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_M8qf9h": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "West Virginia",
+            "heading_link": "/pages/west-virginia",
+            "text": "<p><a href=\"/pages/florist-morgantown-wv\" title=\"/pages/florist-morgantown-wv\">Morgantown</a><br/><a href=\"/pages/florist-charleston-wv\" title=\"/pages/florist-charleston-wv\">Charleston</a><br/><a href=\"/pages/florist-wheeling-wv\" title=\"/pages/florist-wheeling-wv\">Wheeling</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_jeP8bR": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Wisconsin",
+            "heading_link": "/pages/wisconsin",
+            "text": "<p><a href=\"/pages/florist-kenosha-wi\" title=\"/pages/florist-kenosha-wi\">Kenosha</a><br/><a href=\"/pages/florist-racine-wi\" title=\"/pages/florist-racine-wi\">Racine</a><br/><a href=\"/pages/florist-madison-wi\" title=\"/pages/florist-madison-wi\">Madison</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_QFNnBf": {
+          "type": "column",
+          "settings": {
+            "enable_media": false,
+            "media_scale": 100,
+            "heading": "Wyoming",
+            "heading_link": "/pages/wyoming",
+            "text": "<p><a href=\"/pages/florist-cheyenne-wy\" title=\"/pages/florist-cheyenne-wy\">Cheyenne</a><br/><a href=\"/pages/florist-casper-wy\" title=\"/pages/florist-casper-wy\">Casper</a><br/><a href=\"/pages/florist-basin-wy\" title=\"/pages/florist-basin-wy\">Basin</a></p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_bQGPBg",
+        "column_6XbqAi",
+        "column_GCMRaU",
+        "column_3z4y3K",
+        "column_wyRCdz",
+        "column_aTnHcw",
+        "column_M8qf9h",
+        "column_jeP8bR",
+        "column_QFNnBf"
+      ],
+      "settings": {
+        "title": "",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "column_size": "small",
+        "column_align": "left",
+        "media_align": "text-left",
+        "image_ratio": "1",
+        "color_scheme": "none",
+        "apply_color_scheme_to_parent": false,
+        "button_style": "btn btn--secondary"
+      }
+    },
+    "rich_text_ywWKpm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_FRmxPt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Nationwide Reach, Personal Touch",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_97ACwJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our delivery network spans the entire United States, ensuring that your gifts will always arrive fresh and on time. We offer a variety of delivery methods to make this happen:</p><p><strong>Hand-Delivery:</strong> Our dedicated team personally delivers orders to ensure that your arrangement arrives in perfect condition.</p><p><strong>Direct Shipments:</strong> For locations beyond our personal delivery range, we can ship flowers and gifts directly via FedEx. This option brings farm-fresh blooms straight to your doorstep, maintaining the utmost quality and freshness.</p><p><strong>Preferred Local Partners:</strong> In areas where we can't deliver ourselves, we rely on a trusted network of local florists who share our commitment to quality and satisfaction. This ensures that even the most unique orders can be filled with the same level of care that we use ourselves.</p><p>No matter how your order is delivered, it will come with our unwavering 100% satisfaction guarantee. We're dedicated to making sure your experience is nothing short of perfect.</p><h4>Curated Collections for Every Occasion</h4><p>From seasonal collections that celebrate the beauty of the moment to exclusive offerings inspired by current trends and cultural events, our catalog is designed to cater to every occasion. Whether it's a traditional holiday, a personal milestone, or even a nod to pop culture, Kremp Florist has the perfect floral expression.</p><h4>Freshness You Can See and Smell</h4><p>Kremp Florist believes in delivering joy through the freshest flowers. This means that some of our flowers may arrive in bud form, giving your loved ones the special experience of watching them bloom. This ensures that our flowers stay vibrant and fragrant longer.</p><h4>Convenience Meets Elegance</h4><p>Our easy-to-navigate website and streamlined delivery options make choosing and sending the perfect bouquet simple and stress-free. Plus, with services like same-day delivery, we're here to help you make every moment special, even at the last minute.</p><p>At Kremp Florist, we're more than just a flower delivery service; we're your partner in making every occasion memorable. Discover the difference with our curated collections and uncompromising dedication to satisfaction today.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_FRmxPt",
+        "text_97ACwJ"
+      ],
+      "settings": {
+        "text_position": "justify-center",
+        "text_align": "text-start",
+        "mob_center_text": false,
+        "wide": true,
+        "color_scheme": "1",
+        "full_width": true,
+        "prevent_animation": false
+      }
+    },
+    "image_banner_rKwdwm": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_fGC8WG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still Not Sure Where To Start?",
+            "heading_size": "h4",
+            "heading_h1": false
+          }
+        },
+        "text_WRXtDB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let us help you to choose the perfect gift for your special occasion. Give us a call or send us an email. We are happy to help!</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_eRTmab": {
+          "type": "button",
+          "settings": {
+            "button_1_label": "(800) 345-7367",
+            "button_1_link": "tel:18003457367",
+            "button_1_style": "btn btn--primary",
+            "button_2_label": "Contact Us Online",
+            "button_2_link": "shopify://pages/contact",
+            "button_2_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fGC8WG",
+        "text_WRXtDB",
+        "button_eRTmab"
+      ],
+      "settings": {
+        "image_desktop": "shopify://shop_images/Last_Bite_-_D.jpg",
+        "image_mobile": "shopify://shop_images/last_bite_-_M.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "text-start",
+        "mob_center_text": true,
+        "mobile_stacked": true,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#004275",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_zTkhFw",
+    "media_with_text_Bqz38r",
+    "multi_column_ffR8kP",
+    "multi_column_GCCp9B",
+    "rich_text_ywWKpm",
+    "image_banner_rKwdwm"
+  ]
+}

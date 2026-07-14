@@ -1,0 +1,45 @@
+{% if page.metafields.custom.town_map_latitude and page.metafields.custom.town_map_longitude %}
+
+<div id="weather-widget" style="margin:20px 0;"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const lat = "{{ page.metafields.custom.town_map_latitude.value }}";
+  const lon = "{{ page.metafields.custom.town_map_longitude.value }}";
+  const apiKey = "80fef1ffdfa34788897165557260603";
+
+  fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}`)
+    .then(res => res.json())
+    .then(data => {
+      if (!data || !data.current) {
+        document.getElementById("weather-widget").innerHTML = "Weather unavailable.";
+        return;
+      }
+
+      const temp = data.current.temp_f;
+      const condition = data.current.condition.text;
+      const icon = data.current.condition.icon;
+
+      let alert = "";
+      if (temp <= 32) {
+        alert = "<p style='color:red;margin-top:5px;'>⚠️ Freezing — consider indoor delivery.</p>";
+      } else if (temp >= 90) {
+        alert = "<p style='color:orange;margin-top:5px;'>⚠️ High heat — avoid leaving flowers outside.</p>";
+      }
+
+      document.getElementById("weather-widget").innerHTML = `
+        <div style="border:1px solid #eee;padding:14px;border-radius:8px;background:#fafafa;max-width:400px;text-align:center;">
+          <strong>Current Weather</strong><br>
+          <img src="https:${icon}" style="vertical-align:middle;margin-right:6px;">
+          ${temp}°F — ${condition}
+          ${alert}
+        </div>
+      `;
+    })
+    .catch(() => {
+      document.getElementById("weather-widget").innerHTML = "Weather unavailable.";
+    });
+});
+</script>
+
+{% endif %}

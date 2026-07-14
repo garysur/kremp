@@ -1,0 +1,125 @@
+
+
+<div class="product-details-section container page-width">   
+    <form action="./" method="post">  
+        <div class="tabs" id="tabbedForm">  
+            <div class="tab-headers">  
+                {% if product.description != blank %}  
+                <button type="button" class="tab-link active" data-tab="details">Details</button>  
+                {% endif %}  
+
+                {% if product.metafields.custom.note_from_the_designer.value != blank %}  
+                <button type="button" class="tab-link" data-tab="designer">From the Designer</button>  
+                {% endif %}  
+
+                {% assign tabs = product.metafields.custom.product_tabs.value %}  
+                {% if tabs %}  
+                {% for tab in tabs %}  
+                    <button type="button" class="tab-link" data-tab="substitution">Substitution Policy</button>  
+                {% endfor %}  
+                {% endif %}  
+            </div>  
+
+            <!-- Tab Content -->  
+            {% if product.description != blank %}  
+            <div class="tab active" data-tab="details">   
+                {{ product.description }}  
+            </div>  
+            {% endif %}  
+
+            {% if product.metafields.custom.note_from_the_designer.value != blank %}  
+            <div class="tab" data-tab="designer">  
+                {{ product.metafields.custom.note_from_the_designer.value }}  
+            </div>  
+            {% endif %}  
+
+            {% assign tabs = product.metafields.custom.product_tabs.value %}  
+            {% if tabs %}  
+            {% for tab in tabs %}  
+                <div class="tab" data-tab="substitution">   
+                    {{ tab.tab_content | metafield_tag }}  
+                </div>   
+            {% endfor %}  
+            {% endif %}  
+        </div>  
+    </form>  
+</div>  
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {  
+    const tabLinks = document.querySelectorAll('.tab-link');  
+    const tabs = document.querySelectorAll('.tab');  
+
+    tabLinks.forEach(link => {  
+        link.addEventListener('click', function() {  
+            const targetTab = this.getAttribute('data-tab');  
+
+            tabLinks.forEach(link => link.classList.remove('active'));  
+            this.classList.add('active');  
+
+            tabs.forEach(tab => {  
+                if (tab.getAttribute('data-tab') === targetTab) {  
+                    tab.classList.add('active');  
+                } else {  
+                    tab.classList.remove('active');  
+                }  
+            });  
+        });  
+      });  
+  });  
+</script>
+
+<style> 
+  .product-details-section.container.page-width{
+    margin-top: 20px;
+  }
+  
+  .tab-headers {  
+      background: #f1f1f1;  
+  }  
+  
+  .tab-link {  
+      padding: 10px;  
+      cursor: pointer;  
+      border: none;  
+      background: transparent;  
+      font-size: 16px;  
+      color: #004275;  
+      transition: background 0.3s;  
+  }  
+  
+  .tab-link.active {  
+      background: #004275;  
+      color: white;  
+  }  
+  
+  .tab {  
+      display: none;  
+      padding: 10px;  
+      border: 1px solid #ddd;   
+  }  
+  
+  .tab.active {  
+      display: block;  
+  }  
+  
+  /* Responsive Styles */  
+  @media (max-width: 768px) {  
+    .tab-headers {  
+      flex-direction: column;  
+      align-items: center;  
+    }  
+
+    .tab-link {  
+      width: 100%;  
+      text-align: center;  
+    }  
+  }  
+</style>
+
+{% schema %}
+  {
+    "name": "details-section-kremp",
+    "settings": []
+  }
+{% endschema %}

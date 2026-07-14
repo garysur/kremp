@@ -1,0 +1,92 @@
+.collection-banner__content.color-scheme {
+  padding: var(--gutter-sm, 20px);
+}
+.collection-banner__content.color-scheme h1 {
+  padding-top: calc(4 * var(--space-unit));
+}
+
+.collection-banner__media {
+  order: 2;
+}
+
+.collection-banner__heading {
+  margin-inline-end: 5px;
+}
+
+.collection-banner__count {
+  color: rgba(var(--heading-color)/0.6);
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 600px) {
+  .collection-banner__content--with-media {
+    padding-inline-end: calc(8 * var(--space-unit));
+  }
+  .collection-banner__content.color-scheme {
+    padding: calc(10 * var(--space-unit));
+  }
+  .collection-banner__content.color-scheme h1 {
+    padding-top: calc(2 * var(--space-unit));
+  }
+}
+@media (min-width: 769px) {
+  .collection-banner__content {
+    width: 100%;
+    min-width: 400px;
+  }
+  .collection-banner__content.color-scheme {
+    padding: calc(12 * var(--space-unit));
+  }
+  .collection-banner__content-wide {
+    width: 66%;
+  }
+}
+@media (min-width: 1024px) {
+  .collection-banner__content--with-media.text-start,
+.collection-banner__content--with-media.panel.text-start {
+    padding-inline-end: 112px;
+  }
+}
+
+.collection-banner__description-wrap {
+  max-height:300px;
+  overflow:hidden;
+  position:relative;
+  /* transition: max-height 0.3s ease-in-out; */
+}
+
+@media screen and (min-width: 769px) {
+  .collection-banner__description-wrap {
+    /* max-height: 100px; */
+    max-height:300px;
+  }
+}
+
+.collection-banner__description-wrap--active {
+  max-height:100%;
+}
+.collection-banner__description-wrap--truncatable {
+  padding-bottom:40px;
+}
+.collection-banner__description-wrap--truncatable::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .9) 80%, rgba(255, 255, 255, 1) 100%);
+}
+.collection-banner__description-wrap--active::after {
+  display:none;
+}
+
+.collection-banner__read-more-button {
+  position: absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  z-index: 1;
+}

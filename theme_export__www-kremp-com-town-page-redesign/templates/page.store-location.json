@@ -1,0 +1,72 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "media_with_text_LHwC48": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_JaHEVV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Main Location",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_n4xaPd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>220 Davisville Rd<br/>Willow Grove, PA 19090<br/><br/>Our greenhouse range is located in nearby Churchville, PA<br/><br/><strong>Monday - Saturday:</strong> 8am - 8pm<br/><strong>Sunday:</strong> 8am - 5pm<br/><br/>We are available 24 hours a day, 7 days a week at:</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_jzHRgf": {
+          "type": "button",
+          "settings": {
+            "button_label": "(215) 657–6700",
+            "button_link": "tel:12156576700",
+            "button_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JaHEVV",
+        "text_n4xaPd",
+        "button_jzHRgf"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/store-location.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "medium",
+        "layout": "left",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": true,
+        "heading_align": "text-center"
+      }
+    }
+  },
+  "order": [
+    "media_with_text_LHwC48",
+    "main"
+  ]
+}

@@ -1,0 +1,72 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_page_title": false,
+        "heading_align": "text-center"
+      }
+    },
+    "media_with_text_f9qdtK": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_ciCVR3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Become an Affiliate  of Kremp Florist",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_zMFwiN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are always happy to partner up with great websites to help deliver beautiful flowers and gifts to recipients all around the world.</p><p>Do you have a website or blog?  Would you like to make a commission on sales sent our way?  We'd love to work with you!</p><p>Simply click the contact us button below to start a conversation with us about affiliate marketing.  We can quickly get you set up as an affiliate to start sending commissions your way.  We look forward to working with you!</p>",
+            "enlarge_text": false
+          }
+        },
+        "button_JgGyDi": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact",
+            "button_style": "btn btn--primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ciCVR3",
+        "text_zMFwiN",
+        "button_JgGyDi"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Frame_2091.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "vertical_padding": "default",
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "media_with_text_f9qdtK"
+  ]
+}

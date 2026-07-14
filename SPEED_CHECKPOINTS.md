@@ -1,5 +1,22 @@
 # Speed Checkpoints
 
+## surmarketing-new-theme-staging-first-pass-2026-07-14
+
+This checkpoint marks the first speed pass on the July 2026 town-page redesign export in the unpublished Shopify staging theme `Surmarketing Speed Staging 2026-07-01` (`151265837134`).
+
+Scope:
+
+- Live theme `151109730382` was not changed.
+- Baseline Lighthouse reports were captured from the untouched live new theme before uploading this export to staging.
+- Staging theme `151265837134` was updated with the optimized export from `theme_export__www-kremp-com-town-page-redesign`.
+- Applied recommendation items include duplicate jQuery/override cleanup, route-gated delivery scripts and data, delayed support/app loaders, nonblocking secondary CSS, product layout reservation, and delivery attribute synchronization before add-to-cart.
+- Theme Check still reports pre-existing theme offenses, but the modified files had zero Theme Check offenses in the JSON check.
+- Product add-to-cart QA passed on staging with zip `19046`, selected date `Jul 14, 2026`, cart item `Holiday Bloom Fruit Basket`, and cart attributes `deliveryDate`, `zipCode`, and `shippingType`.
+- Delayed Reamaze, Alia, rlets, and GTM scripts were confirmed to load after the delayed loader.
+- Lighthouse first-pass result versus the live new-theme baseline: average score `62.8 -> 72.4`, mobile average `40.4 -> 52.6`, desktop average `85.2 -> 92.2`, average LCP improved by about `1.1s`, average TBT improved by about `228ms`, average transfer dropped by about `1.0MB`, and average requests dropped by about `39`.
+- Product mobile remains noisy in lab testing: repeated staging runs scored `41`, `45`, and `62`, so use multiple runs or field data before calling that page solved.
+- Raw Lighthouse evidence is kept locally under `performance-baselines/2026-07-14/` and intentionally excluded from Git because the folder is large.
+
 ## surmarketing-speed-known-good-2026-07-01
 
 This checkpoint marks the last known-good speed optimization pass for the unpublished Shopify staging theme `Surmarketing Speed Staging 2026-07-01` (`151265837134`).

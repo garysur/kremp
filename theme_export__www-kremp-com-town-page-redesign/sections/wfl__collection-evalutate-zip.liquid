@@ -1,0 +1,40 @@
+<script>
+const plpZipCodeRules = [
+    {%- assign collection_metafields = collection.metafields -%}
+    {%- if collection_metafields.custom.zipcode_rules != blank -%}
+    {%- for rule in collection_metafields.custom.zipcode_rules.value -%}
+        "{{ rule.name }}",
+    {%- endfor -%}
+    {%- endif -%}
+] 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const savedZipCodRules = localStorage.getItem('user_zipRules');
+    console.log('Evaluating PLP zip code rules:', savedZipCodRules, plpZipCodeRules);
+    if (savedZipCodRules && plpZipCodeRules) {
+      evaluatePageZipcodeRules(plpZipCodeRules);
+    }
+});
+</script>
+
+  {% schema %}
+  {
+    "name": "Collection Evaluate Zip",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Enable zip code evaluation for a collection."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection evaluate zip rules"
+      }
+    ],
+    "enabled_on": {
+        "templates": ["collection"]
+      }
+  }
+  {% endschema %}
+  

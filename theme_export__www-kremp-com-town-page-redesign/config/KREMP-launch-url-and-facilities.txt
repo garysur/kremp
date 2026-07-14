@@ -1,0 +1,42 @@
+KREMP launch — URL handles, redirects, and facility metafields
+==============================================================
+Canonical URL changelog (table + process): see KREMP-URL-CHANGES.md in this folder.
+
+1) CONFIRM HANDLES (before/after launch)
+---------------------------------------
+Theme code does not define storefront URLs; handles live in Shopify Admin.
+
+- Pages:    Admin → Online Store → Pages → note each page URL (handle).
+- Collections, products, blog posts: same idea per resource type.
+- Compare to a pre-launch export if you have one:
+  - Google Search Console → Performance → Pages (export), or
+  - Crawl / sitemap snapshot of old URLs, or
+  - Shopify: Online Store → Preferences → sitemap (live list).
+
+If no handles change, skip bulk redirects except where marketing lists legacy bookmarks.
+
+2) URL REDIRECTS (301)
+----------------------
+- Admin → Online Store → Navigation → View URL redirects → Import (or add one-by-one).
+- Fill config/kremp-launch-redirects.template.csv: add one data row per redirect (after the header row).
+  Use paths relative to the store, e.g. /old-path and /new-path or full https URL for target if external.
+- After import, verify a sample in an incognito window.
+
+3) FACILITY METAFIELDS (town pages)
+-----------------------------------
+Keys used by the theme: custom.town_facilities_links_column_1 through _5 (and same on older templates via multi-column).
+
+For Metafield Location Grid (new town template):
+- Each facility = one paragraph in the rich text metafield.
+- Put the facility name in bold AND make that bold text a hyperlink to the facility’s official website.
+- Google Maps URLs are never used as the primary name link; if the only link in a paragraph is Maps, the theme looks for another non-Maps URL or shows plain text.
+
+Rich text patterns the grid script recognizes (best → fallback):
+- Link wrapping bold text (Shopify “text” node with bold) = name + URL.
+- Top-level bold + a non-Maps link elsewhere in the same paragraph.
+- Bold-only (no usable non-Maps URL) = plain name.
+- Link-only paragraph (non-Maps URL + link text) = name + URL.
+
+Theme editor (section): “Show Directions link” adds a secondary Maps search link from name + address when address lines exist (default on). Turn off to hide Maps entirely on cards.
+
+For older town templates that output metafields with | metafield_tag: edit the rich text in Admin so links point to official sites instead of Google Maps where applicable.
